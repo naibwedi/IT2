@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>% Operatoren</title>
+</head>
+<body>
+<input type="number" id="inpFelt" min="1" maxlength="10000" value="" placeholder="skrive en tall">
+<input  type="button" id="btnRegneUt" value="Faktorere">
+<p id="parUt"></p>
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var btnRegneUt = document.getElementById("btnRegneUt");
+    var parUt = document.getElementById("parUt");
+
+    btnRegneUt.onclick = function () {
+        var tall=parseFloat(inpFelt.value);
+        parUt.innerHTML="Faktorer Til "+tall+" blir: ( "
+        for (let i = 1; i <=inpFelt.value; i++) {
+            if(tall%i==0){
+                parUt.innerHTML+=i+" , ";
+            }
+
+        }
+        parUt.innerHTML+=")";
+    }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EaseIN / EaseOut</title>
+
+<style>
+    #bilde1{
+        position: relative;
+        left:5px;
+
+
+
+    }
+    #bilde2{
+        position: relative;
+        left:5px;
+
+
+    }
+</style>
+
+</head>
+<body>
+
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<br>
+<img src="bilde2.jpg" id="bilde2">
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var delayTid=4;
+
+    //TweenMax.to("#bilde2",3,{x:550, ease:Power2.easeIn})
+    //TweenMax.to("#bilde2",3,{x:550, ease:Power3.easeOut})
+    //TweenMax.to("#bilde2",3,{x:550, ease:Power4.easeInOut})
+   TweenMax.to("#bilde1",3,{x:500, ease:SteppedEase.con})
+    TweenMax.to("#bilde2",3,{x:550, ease:Circ.easeIn});
+
+
+
+</script>
+</body>
+</html>

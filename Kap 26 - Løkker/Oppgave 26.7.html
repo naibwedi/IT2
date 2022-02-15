@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>summer av tall fra 1 - 1000</title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+
+    var sum=0;
+    for (var i=1; i<=1000; i++){
+        sum+=i;
+        parUt.innerHTML="Summen av 1 + 2 + 3 +.....+ 998 + 988 + 1000 = "+sum;
+    }
+
+</script>
+</body>
+</html>

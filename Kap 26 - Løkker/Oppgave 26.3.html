@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>50 partall liste</title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var innhold="";
+
+    for (var teller=1; teller<51; teller++){
+        teller=teller+1;
+        var innhold = innhold+teller+"<br>"
+        parUt.innerHTML=innhold;
+    }
+</script>
+</body>
+</html>

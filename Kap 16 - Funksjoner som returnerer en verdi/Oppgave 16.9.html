@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>riktig eller feil teller</title>
+</head>
+<body>
+<br>
+<br>
+<div id="container" style="display: flex; flex-direction: row; margin-left: 10px;  ">
+    <p id="num1" style="margin-left: 10px;"></p>
+    <p style="margin-left: 10px;">x</p>
+    <p id="num2" style="margin-left: 10px;"></p>
+    <p style="margin-left: 10px;">=</p>
+    <input type="text" id="resultat" value="" style="margin-left: 10px; margin-top: 10px; width: 50px; height: 20px; color: black" >
+</div>
+<br>
+<br>
+<p id="parUt"></p>
+<input  type="button" id="btnSvar" value="Svar" style="margin-left: 10px; ">
+<input  type="button" id="btnNeste" value="Neste" style="margin-left: 10px;">
+<input  type="button" id="btnStore" value="Store Tabellen" style="margin-left: 10px;">
+<input  type="button" id="btnlille" value="lille Tabellen" style="margin-left: 10px;">
+<script>
+    var num1= document.getElementById("num1");
+    var num2= document.getElementById("num2");
+    var resultat= document.getElementById("resultat");
+    var container= document.getElementById("container");
+    var parUt = document.getElementById("parUt");
+    var btnSvar= document.getElementById("btnSvar");
+    var btnNeste= document.getElementById("btnNeste");
+    var btnStore= document.getElementById("btnStore");
+    var btnlille= document.getElementById("btnlille");
+    var tall1=0;
+    var tall2=0;
+    var feil=0;
+    var riktig=0;
+
+    nyTall();
+
+
+
+    function nyTall() {
+        tall1 = Math.floor(Math.random()*10);
+        tall2 = Math.floor(Math.random()*10);
+        num1.innerHTML=tall1;
+        num2.innerHTML=tall2;
+        resultat.value="";
+    }
+
+
+    btnSvar.onclick= function () {
+        resultat.style.color="black";
+        if(resultat.value!=tall1*tall2){
+            feil++;
+            parUt.innerHTML="Du har svart feil, riktig svar er " + tall1*tall2
+                +  "<br> Du har  "+ feil+"  feil svar"
+                +  "<br> Du har  "+ riktig+"  riktig svar";
+            resultat.style.color="red";
+        }if(resultat.value==tall1*tall2){
+            riktig++;
+            parUt.innerHTML="";
+            parUt.innerHTML="Du har svart riktig, trykke på neste knapp til å gå videre.  "
+                + "<br> Du har  "+feil +"  feil svar"
+                + "<br> Du har  "+ riktig+"  riktig svar" ;
+            resultat.style.color="green";
+        }else if (resultat.value==""){
+            resultat.style.color="red";
+            parUt.innerHTML="tekstfelten er tomt"
+        }
+    }
+    btnNeste.onclick= function () {
+        if(resultat.value==tall1*tall2){
+            nyTall();
+
+        }else if (resultat.value!=tall1*tall2){
+            alert("Du må svare på spøsmål til å gå vidre.")
+        }
+    }
+    btnStore.onclick= function () {
+        container.style.fontSize="50px";
+        resultat.style.marginTop="60px";
+        resultat.style.width="70px";
+        resultat.style.height="30px";
+        resultat.style.fontSize="30px"
+    }
+    btnlille.onclick= function () {
+        container.style.fontSize="";
+        resultat.style.marginTop="10px";
+        resultat.style.width="50px";
+        resultat.style.height="20px";
+    }
+
+</script>
+</body>
+</html>

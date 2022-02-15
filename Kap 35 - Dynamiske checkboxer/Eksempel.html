@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamiske checkboxer</title>
+</head>
+<body>
+<form id="frmValgSkjema">
+</form>
+<input type="button" id="btnSjekk" value="Sjekk avkrysning"><input type="button" id="btnSlett" value="Slett Radioknapper">
+<p id="parUt"></p>
+
+<script>
+    var fruktArray = ["Kiwi","Eple", "Appelsin", "Ananas", "Banan"];
+    var btnSjekk=document.getElementById("btnSjekk");
+    var btnSlett=document.getElementById("btnSlett");
+    var parUt=document.getElementById("parUt");
+    var frmValgSkjema=document.getElementById("frmValgSkjema");
+    createCheckBoxes();
+
+    btnSjekk.onclick=function (){
+        parUt.innerHTML="";
+        for(var i=0;i<fruktArray.length;i++){
+            if(frmValgSkjema[i].checked){
+                parUt.innerHTML+="Du har krysset av "+frmValgSkjema[i].value+"<br>";
+            }
+        }
+    };
+
+    btnSlett.onclick=function () {
+        slettCheckBoxes();
+    };
+
+    function createCheckBoxes()
+    {
+        for (var i = 0; i < fruktArray.length; i++) {
+            var temp = document.createElement('label');
+            var br = document.createElement('br');
+            temp.appendChild(CreateCheckBox(fruktArray[i]));
+            temp.appendChild(document.createTextNode(fruktArray[i]));
+            temp.appendChild(br);
+            frmValgSkjema.appendChild(temp);
+        }
+    }
+
+    function CreateCheckBox(chkboxid) {
+        var checkbox = document.createElement('input');
+        checkbox.type = "checkbox";
+        checkbox.onclick = function(){
+            this.onclick = null;
+            var label = this.parentNode;
+        };
+        checkbox.id = chkboxid;
+        checkbox.value = chkboxid;
+        return checkbox;
+    }
+    function slettCheckBoxes(){
+        for (var i = 0; i < fruktArray.length; i++) { //Loop all myradio elements
+            frmValgSkjema[i].parentNode.removeChild(frmValgSkjema[i].nextSibling);
+            //Removes the "Null"-Text
+        }
+        for (var i = fruktArray.length-1; i >=0 ; i--) { //Loop all elements
+            frmValgSkjema[i].parentNode.removeChild(frmValgSkjema[i]); //Removes the radio button
+        }
+    } //end slettRadioknapper
+</script>
+
+</body>
+</html>

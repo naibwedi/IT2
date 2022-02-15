@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Størrelse som parameter</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p id="parTeller"></p>
+
+<script>
+
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    function tegneTrekant(xpos,ypos,farge,størrelse) {
+        ctx.beginPath();
+        ctx.moveTo(xpos*størrelse,ypos);
+        ctx.lineTo((xpos+40)*størrelse,(ypos+40)*størrelse);
+        ctx.lineTo((xpos-40)*størrelse,(ypos+40)*størrelse);
+        ctx.closePath();
+        ctx.fillStyle =farge;
+        ctx.fill();
+        ctx.stroke();
+    }
+    tegneTrekant(60,100,"green",2);
+    tegneTrekant(120,60,"yellow",3);
+    tegneTrekant(90,150,"red",2.5);
+</script>
+</body>
+</html>

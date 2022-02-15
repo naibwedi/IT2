@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p>
+
+    <input type="button" id=" btnBlå" value=" blå" style="background-color: #1435dc">
+    <input type="button" id=" btnRød" value=" Rød" style="background-color: #ef0808">
+    <input type="button" id=" btnGrønn" value=" grønn" style="background-color: #32ef08">
+    
+</p>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+
+    var  btnBlå=document.getElementById(" btnBlå");
+    var  btnRød=document.getElementById(" btnRød");
+    var  btnGrønn=document.getElementById(" btnGrønn");
+
+
+    btnBlå.onclick=function () {
+        var tilfeldiTall=Math.floor(Math.random()*20);
+
+        var tilfeldigTall1= tilfeldiTall + 50;
+        ctx.clearRect(0, 0, myCanvas.clientWidth, myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.fillStyle="blue";
+        ctx.fillRect(100, 100, 150, tilfeldigTall1);
+        ctx.fillStyle();
+        ctx.stroke();
+    }
+    btnRød.onclick=function () {
+        var tilfeldiTall=Math.floor(Math.random()*20);
+
+        var tilfeldigTall1= tilfeldiTall + 50;
+        ctx.clearRect(0, 0, myCanvas.clientWidth, myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.fillStyle="red";
+        ctx.fillRect(100, 100, 150, tilfeldigTall1);
+        ctx.fillStyle();
+        ctx.stroke();
+    }
+    btnGrønn.onclick=function () {
+        var tilfeldiTall=Math.floor(Math.random()*20);
+
+        var tilfeldigTall1= tilfeldiTall + 50;
+        ctx.clearRect(0, 0, myCanvas.clientWidth, myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.fillStyle="green";
+        ctx.fillRect(100, 100, 150, tilfeldigTall1);
+        ctx.fillStyle();
+        ctx.stroke();
+    }
+
+</script>
+</body>
+</html>

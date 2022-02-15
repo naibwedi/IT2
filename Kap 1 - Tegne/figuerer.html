@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>figurer</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    ctx.strokeStyle = "#0f36b6";
+    ctx.fillStyle  = "#0f62d7";
+//trekant
+    ctx.moveTo(90,130);
+    ctx.lineTo(100,80);
+    ctx.lineTo(200,130);
+    ctx.closePath();
+
+    ctx.moveTo(100,80);
+    ctx.lineTo(190,80);
+    ctx.lineTo(200,130);
+    ctx.closePath();
+//hodet
+    ctx.arc(145,50,20,0,2*Math.PI);
+
+    ctx.fillRect(115,140,20,30);
+    ctx.fillRect(145,140,20,30);
+
+    ctx.fill();
+    ctx.Stroke();
+</script>
+</body>
+</html>

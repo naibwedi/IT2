@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input form</title>
+</head>
+<body style=" background-color: rgba(50, 115, 220, 0.3);">
+<input type="text" id="forNavn" placeholder="fornavn">
+<input type="text" id="etterNavn" placeholder="etternavn">
+<input type="date" id="fødselsDato" placeholder="fødselsDato">
+<input type="submit" id="btnSubmit" value="Submit">
+
+<P id="parUt">
+
+</P>
+<script>
+    var forNavn=document.getElementById("forNavn");
+    var etterNavn=document.getElementById("etterNavn");
+    var fødselsDato=document.getElementById("fødselsDato");
+    var btnSubmmit=document.getElementById("btnSubmit");
+    var parUt=document.getElementById("parUt");
+
+btnSubmmit.onclick=function () {
+    parUt.innerHTML=""
+    if(forNavn.value==""){
+        parUt.innerHTML="\xa0"+"skrive fornavn";
+    }else if(etterNavn.value==""){
+        parUt.innerHTML="\xa0"+"skrive etternavn";
+    }else if(fødselsDato.value==""){
+        parUt.innerHTML="oppgi din fødselsdato"
+
+    }else if(forNavn.value=="" || etterNavn.value=="" || fødselsDato.value==""){
+        parUt.innerHTML="all textfelt må fylle ut";
+   }else
+       parUt.innerHTML="fornavn:"+"\xa0"+"\xa0"+"\xa0"+forNavn.value+"\xa0"+"\xa0"+"\xa0"+"<br>Etternavn:"+"\xa0"+"\xa0"+"\xa0"+etterNavn.value+"\xa0"+"\xa0"+"\xa0"+ "<br>Fødselsdato:"+"\xa0"+"\xa0"+"\xa0"+fødselsDato.value;
+    }
+</script>
+</body>
+</html>

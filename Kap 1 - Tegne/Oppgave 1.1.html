@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tegne din første trekant</title>
+    //<link rel="stylesheet" href="oppgave%201.1.css">
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    ctx.fillStyle = 'white';
+    ctx.strokestye = 'white';
+
+    ctx.beginPath();
+    ctx.moveTo(90,110);
+    ctx.lineTo(140,60);
+    ctx.lineTo(190,110);
+    ctx.closePath();
+
+    ctx.fill();
+    ctx.stroke();
+</script>
+</body>
+</html>

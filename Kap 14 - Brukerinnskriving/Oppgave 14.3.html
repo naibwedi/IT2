@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>program som deller to tall</title>
+</head>
+<body>
+<input type="text" id="inpFelt1" > /
+<input type="text" id="inpFelt2" >
+<input type="button" id="btnOk" value="Ok">
+<p id="parUt"></p>
+<script>
+  var inpFelt1 = document.getElementById("inpFelt1");
+  var inpFelt2 = document.getElementById("inpFelt2");
+  var btnOk = document.getElementById("btnOk");
+  var parUt = document.getElementById("parUt");
+
+  btnOk.onclick = function () {
+
+    if (inpFelt.value>10){
+      parUt.innerHTML= "du må skrive numer som er under 10  "
+    }if (isNaN(inpFelt.value)){ // isnan sjekker hvis brukern skrivet numer eller ikke
+      parUt.innerHTML = "du må skrive numer , ikke bokstaver "
+    }if (inpFelt.value<0){ // sjekker mot negative verdi
+      parUt.innerHTML = " du har skrevet negative number , du må gjette numer fra 0 + 10"
+    }if (inpFelt.value==""){ // sjkker mot tomt tekstfelt
+      parUt.innerHTML =" du må skrive number"
+    }
+
+  }
+
+</script>
+</body>
+</html>

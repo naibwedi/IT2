@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>navn og etternavn</title>
+</head>
+<body>
+
+
+<h2 id="text1" >Skrive din Førnavn</h2>
+<h2 id="text2" hidden>Skrive din Etternavn </h2>
+<br>
+<input type="text" id="inpFelt">
+<select id="navnForm">
+    <option selected> Førnavn</option>
+    <option id="etternavn"> Etternav</option>
+
+</select>
+<input type="button" id="btnNeste" value="Neste">
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var navnForm = document.getElementById("navnForm");
+    var btnNeste = document.getElementById("btnNeste");
+    var etternavn = document.getElementById("etternavn");
+    var text1 = document.getElementById("text1");
+    var text2 = document.getElementById("text2");
+
+    etternavn.style.visibility="hidden";
+
+
+    btnNeste.onclick =  function () {
+        text1.style.visibility="hidden";
+        text2.hidden=false;
+        etternavn.style.visibility="visible";
+    }
+
+</script>
+</body>
+</html>

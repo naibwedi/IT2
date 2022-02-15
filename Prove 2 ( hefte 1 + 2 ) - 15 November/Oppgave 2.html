@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe | Oppgave 2</title>
+</head>
+<body>
+<h3>Gjett mellom følgende Star Wars personer:<i>" Leia , Luke , Rey , Anakin og Ben Solo "</i></h3>
+<img src="sporsmalstegn.jpg" id="bildeId1">
+<img src="sporsmalstegn.jpg" id="bildeId2">
+<br>
+<input type="text" id="inpFelt" value="" placeholder="Gjett hvem som er bak">
+<input type="button" id="btnGjett" value="Gjett">
+<input type="button" id="btnNeste" value="Prøve gjen">
+<p id="parUt"></p>
+<script>
+    var bildeId1=document.getElementById("bildeId1");
+    var bildeId2=document.getElementById("bildeId2");
+    var btnGjett=document.getElementById("btnGjett");
+    var btnNeste=document.getElementById("btnNeste");
+    var parUt=document.getElementById("parUt");
+
+    var forsok=0;
+    var teller=0;
+
+    btnGjett.onclick = function () {
+
+        inpFelt.value.toLowerCase();
+        if (inpFelt.value==""){ // sjkker mot tomt tekstfelt
+            parUt.innerHTML =" du må skrive number"
+        } if (inpFelt.value=="leia"){
+            bildeId1.src="negativhand.jpg"
+            bildeId2.src="leia.jpg";
+            parUt.innerHTML="Du har gjettet riktig";
+
+        } if (inpFelt.value!="leia"){
+            forsok++;
+            bildeId1.src="sporsmalstegn.jpg";
+            bildeId2.src="sporsmalstegn.jpg";
+            parUt.innerHTML="Du har tippet feil person, prøve gjen: "+forsok+" forsøk";
+
+
+        } if (inpFelt.value=="rey"){
+            bildeId1.src="negativhand.jpg"
+            bildeId2.src="Rey.jpg";
+            parUt.innerHTML="Du har gjettet riktig";
+
+        } if (inpFelt.value!="rey"){
+            forsok++;
+            bildeId1.src="sporsmalstegn.jpg";
+            bildeId2.src="sporsmalstegn.jpg";
+            parUt.innerHTML="Du har tippet feil person, prøve gjen: "+forsok+" forsøk";
+
+
+        }if (forsok==3){
+            bildeId1.src="negativhand.jpg";
+            bildeId2.src="negativhand.jpg";
+            parUt.innerHTML="Du har tippet feil person: "+forsok+" forsøk";
+        }
+
+    }
+    btnNeste.onclick = function () {  // tilbakestill alle
+        bildeId1.src="sporsmalstegn.jpg";
+        bildeId2.src="sporsmalstegn.jpg";
+        parUt.innerHTML="";
+        inpFelt.value="";
+        forsok=0;
+
+    }
+</script>
+</body>
+</html>

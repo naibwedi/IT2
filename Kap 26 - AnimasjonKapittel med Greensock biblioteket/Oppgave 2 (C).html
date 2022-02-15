@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tre forsjleige sted</title>
+
+<style>
+    #bildeanimasjon1{
+        position: relative;
+        left: 600px;
+    }
+    #bildeanimasjon2{
+        position: relative;
+        left: 0px;
+    }
+    #bildeanimasjon3{
+        position: relative;
+        left: 200px;
+        top:0;
+        width:500px;
+        height: 400px;
+    }
+</style>
+</head>
+
+<body>
+<script src="TweenMax.js"></script>
+<img src="bilde1.jpg" id="bildeanimasjon1">
+<br>
+<img src="bilde2.jpg" id="bildeanimasjon2">
+<br>
+<img src="bilde3.jpg" id="bildeanimasjon3">
+
+<script>
+    var bildeanimasjon = document.getElementById("bildeanimasjon");
+    TweenMax.to("#bildeanimasjon1",3,{left:5});// bevager til venstre i 5 sekund
+    TweenMax.to("#bildeanimasjon2",3,{left:600,top:50});
+    TweenMax.to("#bildeanimasjon3",3,{left:300,top:500});
+</script>
+</body>
+</html>

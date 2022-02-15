@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMI kalkulator</title>
+</head>
+<body>
+<input type="text" id="inpVekt" value="" placeholder="Vekt">
+<input type="text" id="inpHøyde" value="" placeholder="Høyde">
+
+<input type="button" id="btnOK" value="Ok" >
+<p id="parUt"></p>
+
+<script>
+  var inpHøyde =document.getElementById("inpHøyde");
+  var inpVekt =document.getElementById("inpVekt");
+  var parUt =document.getElementById("parUt");
+  var btnOK = document.getElementById("btnOK");
+
+  var BMI=0;
+  var BMIArray=[18.5,24.99,25,29.99,30,34.99,35,39.99,40];
+  var svarArray=["Undevektig","Normal Kroppsvekt","Overvektig","Fedme","Fedme, Klasse 2","Fedme, Klasse 3","Ekstrem Fedme"];
+
+  btnOK.onclick=function () {
+    parUt.innerHTML="";
+    var Høyde=parseFloat(inpHøyde.value);
+    var Vekt=parseFloat(inpVekt.value);
+
+    BMI=Vekt/Høyde;
+
+      for (var i = 0; i < BMIArray.length; i++) {
+        if(BMI<=BMIArray[0]){
+          parUt.innerHTML=svarArray[0];
+          break;
+        }else if (BMI>BMIArray[0+i]&&BMI<=BMIArray[1+i]){
+          parUt.innerHTML=svarArray[0+i];
+          break;
+        }else if (BMI>BMIArray[BMIArray.length-1]){
+          parUt.innerHTML=svarArray[svarArray.length-1];
+          break;
+        }
+      }
+
+    }
+
+</script>
+</body>
+</html>

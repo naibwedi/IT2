@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input  type="button" id="btnStart" value="START">
+<input type="text" id="inpSvar">
+<input type="button" id="btnSvar" value="Avgi svar">
+<p id="parUt"></p>
+<p id="parUt2"></p>
+
+<script>
+    var btnStart=document.getElementById("btnStart");
+    var inpSvar=document.getElementById("inpSvar");
+    var btnSvar=document.getElementById("btnSvar");
+    var parUt=document.getElementById("parUt");
+    var parUt2=document.getElementById("parUt2");
+
+    var spørsmålArray= new Array();
+    var poeng=0;
+    var indeks=0;
+
+    spørsmålArray[0]=["3*2 = ?",6];
+    spørsmålArray[1]=["6*8 = ?",48];
+    spørsmålArray[2]=["9*4 = ?",36];
+    spørsmålArray[3]=["7*5 = ?",35];
+
+    btnSvar.hidden=true;
+    inpSvar.hidden=true;
+
+    btnStart.onclick= function () {
+        btnSvar.hidden=false;
+        inpSvar.hidden=false;
+        btnStart.hidden=true;
+        parUt.innerHTML="Spørmål 1 er: "+spørsmålArray[0][0];
+
+    }
+    btnSvar.onclick = function () {
+
+            if (inpSvar.value==""){
+                parUt2.innerHTML="Tekstfelt er tomt, du må skrive noe.";
+            }
+            if (inpSvar.value==spørsmålArray[indeks][1]){
+                poeng++;
+                parUt2.innerHTML="Du har svart riktg! :)  "+"<br> "+poeng+" poeng";
+                indeks++;
+            }else if(inpSvar.value!=spørsmålArray[indeks][1]){
+                parUt2.innerHTML="du har svart feil! :(  "+"<br> "+poeng+" poeng";
+                indeks++;
+            }
+            parUt.innerHTML="Spørmål "+(indeks+1)+" er: "+spørsmålArray[indeks][0];
+
+       //alert(indeks);
+
+        if(indeks==3){
+            parUt.innerHTML="Quizen er ferdig";
+            parUt2.innerHTML="Total poeng : "+poeng;
+            inpSvar.hidden=true;
+            btnSvar.hidden=true;
+            btnStart.hidden=false;
+            btnStart.value="Start på nytt"
+            indeks=0;
+
+        }
+    }
+
+</script>
+</body>
+</html>

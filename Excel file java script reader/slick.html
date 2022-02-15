@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>slick slide show</title>
+    <link href="../Film%20søketjenste%20nettside/slick-1.8.1/slick/slick.css" rel="stylesheet" type="text/css"/>
+    <link href="../Film%20søketjenste%20nettside/slick-1.8.1/slick/slick-theme.css" rel="stylesheet" type="text/css"/>
+    <style>
+        html, body{
+            background-color: #e74c3c;
+        }
+        .wrapper{
+            width:100%;
+            padding-top: 20px;
+            text-align:center;
+        }
+        h2{
+            font-family:sans-serif;
+            color:#fff;
+        }
+        .carousel{
+            width:90%;
+            margin:0px auto;
+        }
+        /*.slick-slide{*/
+        /*    margin:10px;*/
+        /*}*/
+        .slick-slide img{
+            width:100%;
+            border: 2px solid #fff;
+        }
+        .wrapper .slick-dots li button:before {
+            font-size:20px;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2>Slick Carousel Example</h2>
+    <div class="carousel">
+        <div><img src="https://picsum.photos/300/200?random=1"></div>
+        <div><img src="https://picsum.photos/300/200?random=2"></div>
+        <div><img src="https://picsum.photos/300/200?random=3"></div>
+        <div><img src="https://picsum.photos/300/200?random=4"></div>
+        <div><img src="https://picsum.photos/300/200?random=5"></div>
+        <div><img src="https://picsum.photos/300/200?random=6"></div>
+    </div>
+</div>
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="../Film%20søketjenste%20nettside/slick-1.8.1/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.carousel').slick({
+            slidesToShow: 3,
+            dots:true,
+            centerMode: true,
+
+        });
+    });
+</script>
+</body>
+
+</html>

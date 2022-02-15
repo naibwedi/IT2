@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>N ganger x Tall</title>
+</head>
+<body>
+<h3>x + xx + xxx + xxxx + ... (n ganger x Tall)</h3>
+<input type="text" id="inpFeltX" value="" placeholder="Antall x">
+<input type="text" id="inpFeltN" value="" placeholder="Antall n">
+<input type="button" id="btnRegneUt" value="Regne Ut">
+<p id="parUt"></p>
+
+<script>
+  var inpFeltX = document.getElementById("inpFeltX");
+  var inpFeltN = document.getElementById("inpFeltN");
+  var btnRegneUt = document.getElementById("btnRegneUt");
+  var parUt = document.getElementById("parUt");
+
+  var laggeTall=0;
+
+  btnRegneUt.onclick = function () {
+      parUt.innerHTML="";
+    var tall="";
+    var viseTall=0;
+    var sum=0;
+    if(inpFeltN.value>0){
+      for (var i = 0; i < parseInt(inpFeltN.value); i++) {
+        tall+=inpFeltX.value;
+        viseTall+=inpFeltX.value;
+        laggeTall+= viseTall.replace("0","+");
+      }
+      for(i=1;i<=inpFeltN.value;i++){
+        sum+=parseFloat(tall.slice(0,i));
+      }
+      parUt.innerHTML=laggeTall+"="+sum;
+
+    }
+    else    {
+      parUt.innerHTML="Du må skrive heltall store enn 0"
+    }
+  }
+
+
+</script>
+</body>
+</html>

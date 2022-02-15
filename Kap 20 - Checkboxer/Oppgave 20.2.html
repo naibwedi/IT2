@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="checkbox" value="15" id="testCheckboxId1"> <label>Cola 15 kr</label>
+<input type="checkbox" value="20" id="testCheckboxId2"> <label>Chipspose 20 kr</label>
+<input type="checkbox" value="12" id="testCheckboxId3"> <label>Broccolie 12 kr</label>
+<input type="checkbox" value="24" id="testCheckboxId4"> <label>Vafler 24 kr</label>
+<p id="utPar"></p>
+<script>
+    var testCheckboxId1=document.getElementById("testCheckboxId1");
+    var testCheckboxId2=document.getElementById("testCheckboxId2");
+    var testCheckboxId3=document.getElementById("testCheckboxId3");
+    var testCheckboxId4=document.getElementById("testCheckboxId4");
+    var utPar=document.getElementById("utPar");
+    var totalpris=0;
+    testCheckboxId1.onchange=function(){
+        if(testCheckboxId1.checked){
+            totalpris+=parseFloat(testCheckboxId1.value);
+        }
+        else{
+            totalpris-=parseFloat(testCheckboxId1.value);
+        }
+        utPar.innerHTML=totalpris;
+    }
+    testCheckboxId2.onchange=function(){
+        if(testCheckboxId2.checked){
+            totalpris+=parseFloat(testCheckboxId2.value);
+        }
+        else{
+            totalpris-=parseFloat(testCheckboxId2.value);
+        }
+        utPar.innerHTML=totalpris;
+    } ;
+    testCheckboxId3.onchange=function(){
+        if(testCheckboxId3.checked){
+            totalpris+=parseFloat(testCheckboxId3.value);
+        }
+        else{
+            totalpris-=parseFloat(testCheckboxId3.value);
+        }
+        utPar.innerHTML=totalpris;
+    } ;
+    testCheckboxId4.onchange=function(){
+        if(testCheckboxId4.checked){
+            totalpris+=parseFloat(testCheckboxId4.value);
+        }
+        else{
+            totalpris-=parseFloat(testCheckboxId4.value);
+        }
+        utPar.innerHTML=totalpris;
+    } ;
+</script>
+
+</body>
+</html>

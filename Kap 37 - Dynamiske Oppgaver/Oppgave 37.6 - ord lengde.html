@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ord lengde</title>
+</head>
+<body>
+<textarea id="tekstOmrade" cols="25" rows="8">Et program som finner ut hvor mange bokstaver det lengste ordet er..
+</textarea>
+<br>
+<input type="button" id="btnSok" value="søk" >
+<p id="parResultat"></p>
+
+<script>
+
+    var tekstOmrade=document.getElementById("tekstOmrade");
+    var btnSok=document.getElementById("btnSok");
+    var parResultat=document.getElementById("parResultat");
+
+
+    btnSok.onclick=function() {
+       var tekstArray = tekstOmrade.value.split(" ");
+       var ordLengde=1;
+       parResultat.innerHTML="";
+        for (var indeks = 0; indeks < tekstArray.length; indeks++) {
+                if (tekstArray[indeks].length>ordLengde) {
+                    ordLengde=tekstArray[indeks].length;
+                }
+        }
+
+        parResultat.innerHTML="Lengeste ord har:  "+ordLengde;
+    }
+
+</script>
+</body>
+</html>

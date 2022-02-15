@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>km/h til m/s </title>
+</head>
+<body>
+<p>
+  <input type="number"  id="fart" value="" placeholder=" fart i k/h">
+  <input type="button" id="btnLik" value="=">
+</p>
+<p id="parSum">
+</p>
+<script>
+  var btnLik =document.getElementById("btnLik");
+  var fart = document.getElementById("fart");
+  var parSum=document.getElementById("parSum");
+
+  var sum=0;
+
+  var ledd2;
+
+
+  btnLik.onclick=function () {
+
+    var Fart=parseFloat(fart.value);
+
+
+    sum=Fart/3.6+"m/s";
+
+    parSum.innerHTML=sum;
+  }
+</script>
+</body>
+</html>

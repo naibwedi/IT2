@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 1</title>
+    <style>
+        body{
+            margin-left: 5vw;
+        }
+        #bilde{
+            position: relative;
+            left: 6em;
+            bottom: 30em;
+        }
+        #rektangelbox{
+            width: 50px;
+            height: 50px;
+            background-color: green;
+            position: relative;
+            left: 6em;
+            bottom: 30em;
+
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btnhide" value="show"></input>
+<div id="Pseudokode">
+
+    <h2>Pseudokode til </h2>
+    <p>-- Opprette en input tekstFelt med value=""</p>
+    <p>-- Opprette en paragraph element uten tekst </p>
+    <p>-- Opprette en knapp med navn "Ok"</p>
+    <p>-- Opprette en kanvas  </p>
+    <p>-- Bruker skriver inn valuta av bredde fra 1 - 9 </p>
+    <p>-- Bruker trykker på knapper</p>
+    <p>** Program vises rektangel iht inpfelt av brukeren</p>
+</div>
+
+<h2 style="margin-left:2.5em ">Tegne rektangel</h2>
+<br>
+<input type="number" max="9" min="1" id="inpFelt" value="1" style="margin-left: 5em">
+<input type="button" id="btnOk" value="Ok" >
+<p id="parUt1"></p>
+<p id="parUt2"></p>
+<audio  id="lydFil" >
+    <source type="audio/mp3" src="lyd.mp3#t=0,2">
+</audio>
+
+<canvas id="myCanvas" width="500" height="500" style="border: 1px solid; margin-left: 10vw; margin-top: 5vh;"></canvas>
+<div id="bildeholder">
+<!--    <img src="rektangel.png" id="bilde"></img>-->
+    <div id="rektangelbox" ></div>
+</div>
+<script src="TweenMax.js"></script>
+<script>
+   var  Pseudokode = document.getElementById("Pseudokode");
+   var  inpFelt = document.getElementById("inpFelt");
+   var  btnhide = document.getElementById("btnhide");
+   var  btnOk = document.getElementById("btnOk");
+   var  parUt1 = document.getElementById("parUt1");
+   var  parUt2 = document.getElementById("parUt2");
+   var  bildeholder = document.getElementById("bildeholder");
+   var  bilde = document.getElementById("bilde");
+   var  rektangelbox = document.getElementById("rektangelbox");
+   var  lydFil = document.getElementById("lydFil");
+   var myCanvas = document.getElementById('myCanvas');
+   var ctx= myCanvas.getContext("2d");
+
+   Pseudokode.hidden=true;
+
+   btnhide.onclick=function () {
+       if(Pseudokode.hidden==true){
+           Pseudokode.hidden=false;
+           btnhide.value="hide";
+       }
+       else {
+           Pseudokode.hidden=true;
+           btnhide.value="show";
+       }
+   }
+
+   var x=30;
+   var y=30;
+   var bredde = 50;
+   var høyde=50;
+   var høydeIcm,breddeIcm, høydeIcm2;
+   var areal;
+
+   // høydeIcm = 10 - inpFelt.value ; // infelt har samme verdi av høyde men i cm
+
+   function tegneRektangel() {
+
+       ctx.clearRect(0,0,myCanvas.clientHeight,myCanvas.clientWidth)
+       ctx.fillStyle="green";
+       ctx.fillRect(x,y,bredde*inpFelt.value,høyde*høydeIcm);
+       ctx.fill();
+
+       if (inpFelt>9){
+           alert("Maks nummer du kan skrive er 9")
+       }
+       else if (inpFelt<=0){
+           alert("Min nummer du kan skrive er 1")
+       }
+
+   }
+   var random;
+   var i=0;
+   var arr = ["green","blue","red","yellow","black","purple","pink"];
+
+   // animasjon av rektangel()
+   btnOk.onclick = function () {
+       breddeIcm=bredde*inpFelt.value;
+       høydeIcm = 10 - inpFelt.value ;
+       høydeIcm2 = høydeIcm * høyde ;
+
+       random = Math.floor(Math.random()*6+1);
+      i++;
+      if (i==7){
+          i=0;
+      }
+           ctx.clearRect(0,0,myCanvas.clientHeight,myCanvas.clientWidth)
+           TweenMax.to("#rektangelbox",2,{bottom:480,width:bredde*inpFelt.value,height:høyde*høydeIcm, backgroundColor:arr[i-1],onStart:lyd});
+
+       areal= inpFelt.value* høydeIcm;
+       //tegneRektangel();
+       parUt1.innerHTML="Høyde er "+ høydeIcm+" cm";
+       parUt2.innerHTML="Areal er "+ areal+" cm";
+
+   }
+
+// spill av lyd
+   function lyd() {
+       lydFil.play();
+       btnOk.addEventListener("click",function () {
+           lydFil.load();
+           lydFil.play();
+       })
+   }
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bombeskikkert for brukerfeil</title>
+</head>
+<body>
+<input type="text" id="inpFelt" >
+<input type="button" id="btnOk" value="Ok">
+<p id="parUt"></p>
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var btnOk = document.getElementById("btnOk");
+    var parUt = document.getElementById("parUt");
+
+    btnOk.onclick = function () {
+
+        if (inpFelt.value>100){
+            parUt.innerHTML= "du må skrive numer som er under 100, maksimum varer vi har på lager er bare 100  "
+        }if (isNaN(inpFelt.value)){ // isnan sjekker hvis brukern skrivet numer eller ikke
+            parUt.innerHTML = "du må skrive numer , ikke bokstaver "
+        }if (inpFelt.value<0){ // sjekker mot negative verdi
+            parUt.innerHTML = " du har skrevet negative number ,"
+        }if (inpFelt.value==""){ // sjkker mot tomt tekstfelt
+            parUt.innerHTML =" du må ha mist 1 varer"
+        }
+
+    }
+</script>
+</body>
+</html>

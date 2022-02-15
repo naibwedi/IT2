@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fokus</title>
+</head>
+<body>
+<form id="myForm">
+    <input type="text" id="inpTxt">
+</form>
+<script>
+
+    //var inpTxt = document.getElementById("inpTxt");
+
+    inpTxt.addEventListener("focusin",fokusFunksjon);
+    inpTxt.addEventListener("focusout",ikkeFokusFunksjon);
+
+    function fokusFunksjon() {
+        document.getElementById("inpTxt").style.backgroundColor="yellow";
+    }
+    function ikkeFokusFunksjon() {
+        document.getElementById("inpTxt").style.backgroundColor="";
+    }
+</script>
+</body>
+</html>

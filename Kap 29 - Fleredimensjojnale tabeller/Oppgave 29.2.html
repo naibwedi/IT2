@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="inpEtterNavn" placeholder="Etter Navn">
+<input type="text" id="inpNavn" placeholder="Navn">
+
+<script>
+    var inpEtterNavn=document.getElementById("inpEtterNavn");
+    var inpNavn=document.getElementById("inpNavn");
+    var pnrArray=new Array();
+
+    pnrArray[0]=["ali","Hansen"];
+    pnrArray[1]=["johansen","Lunde"];
+    pnrArray[2]=["olsen","Daniel"];
+    pnrArray[3]=["andersen","Alex"];
+
+    inpNavn.onclick= function () {
+
+        var indeks=0;
+        while(indeks<pnrArray.length){
+            if(inpEtterNavn.value.toLowerCase()==pnrArray[indeks][0]){
+                inpNavn.value=pnrArray[indeks][1];
+            }
+            indeks++;
+        }
+    }
+
+</script>
+</body>
+</html>

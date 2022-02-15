@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oppgave 1</title>
+    <style>
+
+        div{
+            width: 156px;
+            height: 20px;
+            background-color: #a8d5e5;
+            position: relative;
+        }
+        #hoyreh1 {
+            width: 120px;
+            left: 405px;
+            bottom: 618px;
+        }
+        #hoyreh2 {
+            width: 115px;
+            left: 480px;
+            bottom: 605px;
+        }
+        #hoyreh3 {
+            left: 405px;
+            bottom: 500px;
+        }
+        #hoyreh4 {
+            left: 405px;
+            bottom: 425px;
+        }
+        #hoyreh5 {
+            left: 405px;
+            bottom: 350px;
+        }
+        #hoyreh6 {
+            left: 405px;
+            bottom: 280px;
+        }
+        #venstre {
+            left: 5px;
+            bottom: 580px;
+            width: 210px;
+        }
+
+{}    </style>
+</head>
+<body>
+<h2>Trykk på den svart rektangel for å se tekst </h2>
+<img src="kropp.gif" style="width: 607px; height: 700px">
+<div id="hoyreh1"></div>
+<div id="hoyreh2"></div>
+<div id="hoyreh3"></div>
+<div id="hoyreh4"></div>
+<div id="hoyreh5"></div>
+<div id="hoyreh6"></div>
+<div id="venstre"></div>
+<audio  id="lyd">
+    <source src="armstrekkeren.mp3#t=1.5,5" type="audio/mp3">
+</audio>
+<script src="TweenMax.js"></script>
+<script>
+    var hoyreh1=document.getElementById("hoyreh1");
+    var hoyreh2=document.getElementById("hoyreh2");
+    var hoyreh3=document.getElementById("hoyreh3");
+    var hoyreh4=document.getElementById("hoyreh4");
+    var hoyreh5=document.getElementById("hoyreh5");
+    var hoyreh6=document.getElementById("hoyreh6");
+    var venstre=document.getElementById("venstre");
+    var lyd=document.getElementById("lyd");
+
+
+    var idArray=[hoyreh1,hoyreh2,hoyreh3,hoyreh4,hoyreh5,hoyreh6,venstre]
+    function viseTekst() {
+        for (let i = 0; i < idArray.length; i++) {
+
+            idArray[i].addEventListener("click", function () {
+                TweenMax.to(idArray[i],1,{right:0,width:0})
+
+                if (idArray[i]==idArray[1]){
+                    lyd.play();
+
+                }
+                else if (idArray[i]==idArray[2]){
+                    lyd.src= "brede_ryggmuskel.mp3"
+                    lyd.play();
+                }
+            })
+
+        }
+    }
+    viseTekst();
+
+</script>
+</body>
+</html>

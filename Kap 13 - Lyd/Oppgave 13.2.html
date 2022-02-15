@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tre forskjellige lydklipp</title>
+</head>
+<body>
+<h1>Lyd fil</h1>
+<br>
+<input type="button" id="lydKlipp1" value="lyd 1">
+<input type="button" id="lydKlipp2" value="lyd 2">
+<input type="button" id="lydKlipp3" value="lyd 3">
+<br>
+<br>
+<audio controls id="lydFil" >
+    <source type="audio/mp3" src="lyd/1.mp3">
+    <source type="audio/ogg" src="lyd/1.ogg">
+</audio>
+<script>
+    var lydKlipp1 = document.getElementById("lydKlipp1");
+    var lydKlipp2 = document.getElementById("lydKlipp2");
+    var lydKlipp3 = document.getElementById("lydKlipp3");
+    var lydFil = document.getElementById("lydFil");
+
+    lydKlipp1.onclick = function () {
+        lydFil.src = "lyd/1.mp3";
+        lydFil.autocomplete = true;
+        lydFil.play();
+    }
+    lydKlipp2.onclick = function () {
+        lydFil.src = "lyd/2.mp3";
+        lydFil.play();
+    }
+    lydKlipp3.onclick = function () {
+        lydFil.src = "lyd/3.mp3";
+        lydFil.play();
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scale</title>
+
+<style>
+    #bilde1{
+        position: relative;
+        left:550px;
+    }
+    #bilde2{
+        position: relative;
+        left:5px;
+        top:0;
+    }
+</style>
+
+</head>
+<body>
+
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<br>
+<img src="bilde2.jpg" id="bilde2">
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var delayTid=4;
+
+
+    TweenMax.to("#bilde1",3,{left:5, rotation:"360_ccw",scale:1})
+    TweenMax.to("#bilde2",3,{left:550, rotation:"360_ccw",scale:2})
+
+
+</script>
+</body>
+</html>

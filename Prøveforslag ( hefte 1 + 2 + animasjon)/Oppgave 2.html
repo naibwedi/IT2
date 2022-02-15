@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homer</title>
+</head>
+<body>
+<input type="text" id="inpFelt" placeholder="Skriv antall personer">
+<input type="button" id="btnOk" value="Ok">
+<p id="parUt"></p>
+<audio controls id="lydFil" hidden >
+  <source type="audio/mp3" src="">
+</audio>
+<script>
+  var inpFelt = document.getElementById("inpFelt");
+  var btnOk = document.getElementById("btnOk");
+  var parUt = document.getElementById("parUt");
+  var lydFil = document.getElementById("lydFil");
+
+  btnOk.onclick = function () {
+
+    if (isNaN(inpFelt.value)){ // isnan sjekker hvis brukern skrivet numer eller ikke
+      parUt.innerHTML = "du må skrive numer , ikke bokstaver "
+    }if (inpFelt.value==""){ // sjkker mot tomt tekstfelt
+      parUt.innerHTML =" Homer ! VÅKN OPP!";
+    }else if (inpFelt.value<0){ // et negativ beløp
+      parUt.innerHTML = " Homer ! Din tyv !!!";
+    }else if (inpFelt.value>=0 &&inpFelt.value<50){ //sjekker nummer mellom 0 - 10
+      parUt.innerHTML= "Gjerrigknark !!!\"";
+    } else if (inpFelt.value>=50 &&inpFelt.value<=100){//sjekker nummer mellom 11- 30
+      parUt.innerHTML= "Homer, du kan gi mer en dette!!!";
+    }  if (inpFelt.value==75){//sjekker nummer mellom 20 - 25
+      parUt.innerHTML= "Prest, kan du veksle??";
+    }
+
+  }
+
+</script>
+</body>
+</html>

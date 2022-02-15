@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamiske bilde, lyd og Eventlistener</title>
+</head>
+<body id = "body">
+Klikk for å legge til et dynamsik bilde
+<button onclick = "randomBilde()">Legg til</button><br><br>
+<audio id="lyd" value="Hund"></audio>
+<div id="bildeUt"></div>
+<p id="utPar"></p>
+<div id="bildeUt2"></div>
+
+<script>
+
+    var lyd=document.getElementById("lyd");
+    var teller=0;
+
+    function randomBilde() {
+
+        var img = document.createElement('img'); //oppretter et bilde element
+        var random=Math.floor(Math.random()*6+1); //kaster randomkast
+        img.src=random+".jpg"; //legger til rikgit filetternavn
+        img.id=teller; //gir bildet en unik id hvis du skal gjøre noe med bildet
+        img.value=random; //setter en verdi i bildet som jeg bruker til å hente ut verdien
+
+        img.addEventListener( 'click', function ( event ) {
+            lyd.src=this.value+".mp3"; //spiller lyd, henter verdien ut og tilføyer etternavn på fila
+            lyd.play(); //spiller lyd
+        } );
+
+        img.addEventListener( 'mouseover', function ( event ) {
+            utPar.innerHTML="terning nr"+(parseInt(this.id)+1)+" har verdi"+this.value;
+        } );
+
+        teller++; //øker teller slik at id blir unik
+        if(teller<=5)document.getElementById('bildeUt').appendChild(img); //leger til bildet i .
+        else document.getElementById('bildeUt2').appendChild(img); //leger til bildet på slutten av bodien.
+
+    }
+</script>
+
+</body>
+</html>

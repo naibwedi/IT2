@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knapp som nuller</title>
+</head>
+<body>
+<p>
+    <input type="number"  id="fart" value="" placeholder=" Fahrenheit grad">
+    <input type="button" id="btnLik" value="=">
+    <input type="button" id="btnNull" value="C">
+</p>
+<p id="parSum">
+</p>
+<script>
+    var btnLik =document.getElementById("btnLik");
+    var btnNull =document.getElementById("btnNull");
+    var fart = document.getElementById("fart");
+    var parSum=document.getElementById("parSum");
+
+    var sum=0;
+
+    var ledd2;
+
+
+    btnLik.onclick=function () {
+
+        var Fahrenheit=parseFloat(fart.value);
+
+
+        sum=5/9*(Fahrenheit-32)+"°"+"celsius";
+
+        parSum.innerHTML=sum;
+    }
+    btnNull.onclick=function () {
+        parSum.innerHTML="";
+    fart.value="";
+    }
+</script>
+</body>
+</html>

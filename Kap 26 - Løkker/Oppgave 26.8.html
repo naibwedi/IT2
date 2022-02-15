@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kaster terning 10 ganger</title>
+</head>
+<body>
+
+<button id="btnStart">Kast Terning</button>
+<p id="parUt"></p>
+<p id="parUt2"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var parUt2=document.getElementById("parUt2");
+    var btnStart=document.getElementById("btnStart");
+
+    var sum=0;
+    btnStart.onclick = function () {
+        for (var i=1; i<=10; i++){
+            var terningKast = Math.floor(Math.random()*6)+1;
+            sum+=terningKast;
+                parUt.innerHTML+="Terning "+i+" er "+terningKast+"<br>";
+                parUt2.innerHTML="Totalt summen blir "+sum;
+
+        }
+    }
+
+</script>
+</body>
+</html>

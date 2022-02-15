@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tesktfelt</title>
+</head>
+<body>
+<p>
+    <input type="text"  id="inpTekstfelt" value="skrive inn tekst">
+    <input type="button" id="btnOk" value="ok">
+</p>
+<p id="parTekst">
+
+</p>
+<script>
+    var btnOk =document.getElementById("btnOk");
+    var inptekstfelt = document.getElementById("inpTekstfelt");
+    var parTekst=document.getElementById("parTekst");
+
+    btnOk.onclick=function () {
+        parTekst.innerHTML=inptekstfelt.value;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>circle eller cone</title>
+<style>
+    html, body {
+        margin: 0;
+        height: 100%;
+    }
+    #c {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+</style>
+</head>
+<body>
+<canvas id="c" ></canvas>
+<!--<script src="three.js-master/build/three.js"></script>-->
+<script type="module" >
+    import * as THREE from './three.js-master/build/three.module.js';
+    function main() {
+        const canvas = document.querySelector('#c');
+        const renderer = new THREE.WebGLRenderer({canvas});
+        // creating camera and field of view
+        const fov = 75;  // fov means filed of view
+        const aspect = 2;  // the canvas default
+        const near = 0.1;
+        const far = 5;
+        const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+        camera.position.z = 3;
+
+        const scene = new THREE.Scene();
+        //adding lighting inorder to create shadow
+        {
+            const color = 0xFFFFFF;
+            const intensity = 0.9;
+            const light = new THREE.DirectionalLight(color, intensity);
+            light.position.set(-1, 2, 4);
+            scene.add(light);
+        }
+        // creating object or material to be displayed
+        const boxWidth = 1;
+        const boxHeight = 1;
+        const boxDepth = 1;
+        // const detail = 2;
+        //    // const geometry = new THREE.BoxGeometry(boxWidth, boxHeight, boxDepth,detail);
+        //    const radius =3;  // ui: radius
+        //     // ui: detail
+        //    const geometry = new THREE.DodecahedronGeometry(boxWidth,boxHeight,radius);
+        //
+        const radius = 7; // ui: radius
+        const detail = 2;
+        const geometry = new THREE.DodecahedronGeometry(boxWidth,boxHeight,radius,detail);
+
+
+
+        function makeInstance(geometry, color, x) {
+            const material = new THREE.MeshPhongMaterial({color});
+
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+
+            cube.position.x = x;
+
+            return cube;
+        }
+
+        const cubes = [
+            makeInstance(geometry, 0xCFE2F3,  0),
+
+        ];
+
+        function render(time) {
+            time *= 0.0001;  // convert time to seconds
+            if (resizeRendererToDisplaySize(renderer)) {
+                const canvas = renderer.domElement;
+                camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                camera.updateProjectionMatrix();
+            }
+            cubes.forEach((cube, ndx) => {
+                const speed = 1 + ndx * .1;
+                const rot = time * speed;
+                cube.rotation.x = rot;
+                cube.rotation.y = rot;
+            });
+
+            renderer.render(scene, camera);
+
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
+        function resizeRendererToDisplaySize(renderer) {
+            const canvas = renderer.domElement;
+            const pixelRatio = window.devicePixelRatio;
+            const width  = canvas.clientWidth  * pixelRatio | 0;
+            const height = canvas.clientHeight * pixelRatio | 0;
+            const needResize = canvas.width !== width || canvas.height !== height;
+            if (needResize) {
+                renderer.setSize(width, height, false);
+            }
+            return needResize;
+        }
+    }
+
+    main();
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel</title>
+</head>
+<body>
+<script>
+    alert("rest ved divisjon 12%3="+12%3);//gir rest 0 ved divisjon
+    alert("rest ved divisjon 13%3="+13%3);//gir rest 1 ved divisjon
+    alert("rest ved divisjon 14%3="+14%3);//gir rest 2 ved divisjon
+    alert("rest ved divisjon 24%5="+24%5);//gir rest 4 ved divisjon
+</script> </body>
+Modulus operatoren gir dermed rest ved divisjon. Dette kan vi bruke til å plassere objekter.
+Dersom du skal dele inn noe dynamisk kan man bruke modulus operatoren.
+La meg vise ved å skrive inn kode for å generere ut tall i stigende rekkefølge.
+<body>
+<p id="utPar"></p>
+<script>
+    var maxAntall=100;
+    var brytLinje=10;
+    var utPar=document.getElementById("utPar");
+    utPar.innerHTML="";
+    for(var i=0;i<=maxAntall;i++){
+        utPar.innerHTML+=i+"   ";
+        if(i%brytLinje==0&&i>0){
+            utPar.innerHTML+="<br>";
+        }
+    }
+</script>
+
+</body>
+</html>

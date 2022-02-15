@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lag strek </title>
+</head>
+<body>
+<canvas width="600" height="600" id="TegneCanvas"></canvas>
+<script>
+    var TegneCanvas=document.getElementById("TegneCanvas");
+    var ctx =TegneCanvas.getContext("2d");
+
+    for (i = 0; i < 15; i++){
+        var x = 50;
+        var y = 100 + (50) * i;
+
+        ctx.moveTo(100,150);
+        ctx.lineTo(250,y);
+        ctx.moveTo(100,200);
+        ctx.lineTo(250,y);
+        ctx.strokeStyle="rgb(35,48,73)";
+        ctx.stroke();
+    }
+    for (i = 0; i < 15; i++){
+        var x = 50+ (50) * i;
+        var y = 250 ;
+
+        ctx.moveTo(400,150);
+        ctx.lineTo(y,x+50);
+        ctx.moveTo(400,200);
+        ctx.lineTo(y,x+50);
+
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>

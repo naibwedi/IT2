@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>focus og bagrunn farge</title>
+</head>
+<body id="bakfarge">
+<form id="myForm">
+    <input type="text" id="inpTxt">
+</form>
+<script>
+
+    var inpTxt = document.getElementById("inpTxt");
+    var bakfarge = document.getElementById("bakfarge");
+
+    inpTxt.addEventListener("focusin",fokusFunksjon);
+    inpTxt.addEventListener("focusout",ikkeFokusFunksjon);
+
+    function fokusFunksjon() {
+        document.getElementById("bakfarge").style.backgroundColor="yellow";
+    }
+    function ikkeFokusFunksjon() {
+        document.getElementById("bakfarge").style.backgroundColor="";
+    }
+</script>
+</body>
+</html>

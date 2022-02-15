@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finn nummeret til ø og å</title>
+</head>
+<body>
+<input type="text" id="inpTxt" >
+<input type="button" id="btnOk" value="OK">
+<script>
+    var inpTxt = document.getElementById("inpTxt");
+    var btnOk = document.getElementById("btnOk");
+    var viseKode=true;
+
+        window.onkeydown = function (evt) { // visses hvilken knapp har trukket
+            alert(evt.keyCode); // "Ø" har 192 nummer
+                                // "å" har 221 nummer
+
+        }
+
+
+
+</script>
+</body>
+</html>

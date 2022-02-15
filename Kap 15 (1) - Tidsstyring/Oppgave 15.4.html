@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ball styre på canvas</title>
+</head>
+<body>
+<input
+        type="button"
+        id="btnStart"
+        value="Start"
+        style="position: relative;
+        top: 85vh; left: 30vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; " >
+
+<input  type="button"
+        id="btnStop"
+        value="Stop"
+        style="position: relative;
+        top: 85vh; left: 35vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; ">
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p id="parTeller"></p>
+<script>
+  var myCanvas =document.getElementById("myCanvas");
+  var ctx= myCanvas.getContext("2d");
+  var btnStart =document.getElementById("btnStart");
+  var btnStop =document.getElementById("btnStop");
+  var parTeller = document.getElementById("parTeller");
+
+  var xpos=150;
+  var ypos=150;
+    var ned=true
+  //blå farge
+  //ctx.strokeStyle = "blue";
+  //ctx.fillStyle  = "blue"; //
+  //sirkel
+  ctx.arc(xpos,ypos,50,0,2*Math.PI);
+  ctx.stroke();
+
+  var n=0;
+
+
+btnStart.onclick=function () {
+  pause=false;
+
+  }
+  btnStop.onclick=function () {
+    pause=true;
+
+  }
+
+setInterval(function () {
+    if(pause==false) {
+        n++;
+        ctx.strokeStyle = "balck";
+        ctx.fillStyle  = "black";
+        if(ypos>=myCanvas.clientHeight-50)
+        {
+            ned=false
+        }
+        if(ypos<=0+50){
+            ned=true;
+            ctx.strokeStyle = "blue";
+            ctx.fillStyle  = "blue";
+        }
+
+        if(ned) {
+            ypos = ypos + 10;
+            ctx.strokeStyle = 'blue';
+            ctx.fillStyle  = "blue";
+
+        }else{
+            ypos=ypos-10
+        }
+
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)
+
+        ctx.beginPath();
+        ctx.arc(xpos,ypos,50,0,2*Math.PI);
+        ctx.fill();
+        ctx.stroke();
+        parTeller.innerHTML=n;
+    }
+
+},100)
+
+  </script>
+</body>
+</html>

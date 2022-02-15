@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bilder</title>
+</head>
+<body style="background-image: url('bilder/bilde7.jpg');background-size: 100%" >
+<img
+        src="bilder/bilde7.jpg"
+        id="bilde1"
+        style="max-height: 500px;
+        max-width: 500px;
+        position: absolute;
+        top: 15vh;
+        left: 30vw;
+        border-radius: 100%; " >
+<input
+        type="button"
+        id="btnNeste"
+        value="Neste Bilde"
+        style="position: relative;
+        top: 55vh; left: 50vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; " >
+<script>
+    var bilde1=document.getElementById("bilde1");
+    var btnNeste=document.getElementById("btnNeste");
+
+    btnNeste.onclick=function () {
+        bilde1.src="bilder/bilde3.jpg";
+        btnNeste.value="ikke flere bilder";
+        btnNeste.disabled=true;
+    }
+</script>
+</body>
+</html>

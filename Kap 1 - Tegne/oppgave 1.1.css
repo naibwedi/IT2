@@ -1,0 +1,31 @@
+body {
+    background: black;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+#myCanvas {
+    background: teal;
+    position: relative;
+    left: 20vw;
+    top: 20vh;
+    animation-name: myCanavs;
+    animation-duration: 5s;
+}
+
+@keyframes myCanavs {
+    from {
+        background: teal;
+    }
+    to { background: white;}
+
+    50% {
+        background: red;
+    }
+    75% {
+        background: chartreuse;
+    }
+    100% {
+        background: darkblue;
+    }
+}

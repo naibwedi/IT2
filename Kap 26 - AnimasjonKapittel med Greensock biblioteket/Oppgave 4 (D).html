@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tre bidler med forsjelige tidslinje </title>
+
+<style>
+  #bilde1{
+    position: relative;
+  }
+  #bilde2{
+    position: relative;
+  }
+  #bilde3{
+    position: relative;
+  }
+</style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<img src="bilde2.jpg " id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+
+
+  var tidslinje = new TimelineLite();
+  tidslinje.to("#bilde1",5, {x:550})
+          .to("#bilde2",5,{x:550},"-=2") // ovelapp med 2 sekund etter #bilde fedig
+          .to("#bilde3",5,{x:550},"-=2.5");// overlapp med 0.5 sekund etter #bilde2 ferdig
+</script>
+</body>
+</html>

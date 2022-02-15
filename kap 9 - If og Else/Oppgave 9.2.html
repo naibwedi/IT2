@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>fart og strekning</title>
+</head>
+<body>
+ <input type="text" id="inpFart" placeholder="km/h">
+<input type="text" id="inpTid" placeholder="tid">
+<input type="button" value="ok" id="btnOk">
+<p id="partUt">
+
+</p>
+
+<script>
+  var inpFart =document.getElementById("inpFart");
+  var inpTid =document.getElementById("inpTid");
+  var partUt =document.getElementById("partUt");
+  var btnOK = document.getElementById("btnOk");
+
+  fart=0;
+
+
+  btnOK.onclick=function () {
+    var strekning=parseFloat(inpFart.value);
+    var tid=parseFloat(inpFart.value);
+
+    fart=strekning/tid;
+
+    if(fart&&strekning<=80){
+      partUt.innerHTML="Lovlig fart";
+    }else if(fart&&strekning>80&&fart&&strekning<=85){
+      partUt.innerHTML="600 kr";
+    }else if(fart&&strekning>85&&fart&&strekning<=90){
+      partUt.innerHTML="1600 kr";
+    }else if(fart&&strekning>90&&fart&&strekning<=95){
+      partUt.innerHTML="2600 kr";
+    }else if(fart&&strekning>95&&fart&&strekning<=100){
+      partUt.innerHTML="3600 kr";
+    }else if(fart&&strekning>100&&fart&&strekning<=105){
+      partUt.innerHTML="4900 kr";
+    }else if(fart&&strekning>105&&fart&&strekning<=110){
+      partUt.innerHTML="6500 kr";
+    }else{
+      partUt.innerHTML="Du går rett i fengsel";
+    }
+  }
+</script>
+</body>
+</html>

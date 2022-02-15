@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oddetall 50 synkende</title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+
+
+    for (var i=49; i>=0; i-=2){ // it start with i=49, then sunstract -2 until i reaches 0
+
+        parUt.innerHTML+=i+"<br>";
+    }
+</script>
+</body>
+</html>

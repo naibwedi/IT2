@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel</title>
+</head>
+<body>
+<p id="utPar"></p>
+<script>
+    var utPar=document.getElementById("utPar");
+    var tabell1=["overskrift 1","overskrift 2", "overskrift 3", "overskrift 4"];
+    var tabell2=["innhold 1","innhold 2","innhold 3","innhold 4"];
+    var tabell3=["innhold 5","innhold 6","innhold 7","innhold 8"];
+    var skrivUtTabell=[tabell1,tabell2,tabell3];
+    var midlertidig=""; //midlertidig variabel
+    midlertidig="<table border='1' cellspacing='8'>"; //oppretter en tabell
+    for(var i=0;i<skrivUtTabell.length;i++){
+        midlertidig+="<tr>"; //ny rad
+        for(var j=0;j<skrivUtTabell[i].length;j++){
+            midlertidig+="<td>"+skrivUtTabell[i][j]+"</td>"; //legger inn et element i tabellen
+        }
+        midlertidig+="</tr>"; //avslutter rad
+    }
+    midlertidig+="</table>"; //avslutter table
+    utPar.innerHTML=midlertidig;
+</script>
+</body>
+</html>

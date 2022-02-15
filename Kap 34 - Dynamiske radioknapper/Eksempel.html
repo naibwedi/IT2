@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamiske radioknapper</title>
+</head>
+<body>
+<p>
+    Hvis du kunne velge en frukt, hva hadde du valgt?<br>
+<form id="frmValgSkjema">
+</form>
+</p>
+<input type="button" id="btnOk" value="ok"><input type="button" id="btnSlett" value="Slett Radioknapper">
+
+<p id="parResultat"></p>
+<script>
+
+    var frmValgSkjema=document.getElementById("frmValgSkjema");
+    var parResultat=document.getElementById("parResultat");
+    var btnOk=document.getElementById("btnOk");
+    var btnSlett=document.getElementById("btnSlett");
+    var fruktArray=["eple","banan","pære","plomme"];
+
+    for (let i = 0; i < fruktArray.length; i++) {
+        var temp = makeRadioButton("frukt","Du valgte "+fruktArray[i],fruktArray[i]);
+        frmValgSkjema.appendChild(temp);
+
+    }
+    btnOk.onclick=function(){
+        var n=0;
+        while(n<frmValgSkjema.length){
+            if(frmValgSkjema[n].checked==true){
+                parResultat.innerHTML=frmValgSkjema[n].value;
+            }
+            n++;
+        }//end while
+    };//end onclick
+
+    btnSlett.onclick=function () {
+        slettRadioKnapper();
+    };
+
+    function makeRadioButton(name, value, text) {
+        var label = document.createElement("label");
+        var radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = name;
+        radio.value = value;
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(text));
+
+        return label;
+    }//end function
+
+    function slettRadioKnapper(){
+        for (var i = 0; i < fruktArray.length; i++) { //Loop all elements
+            frmValgSkjema[i].parentNode.removeChild(frmValgSkjema[i].nextSibling);
+            //Removes the "Null"-Text
+        }
+        for (var i = fruktArray.length-1; i >=0 ; i--) { //Loop all elements
+            frmValgSkjema[i].parentNode.removeChild(frmValgSkjema[i]); //Removes the radio button
+        }
+    } //end slettRadioknapper
+
+</script>
+
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>smilansikt</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<br>
+<br>
+<input type="button" id="btnEndre" value="Endre ansikt" style="margin-left: 40vw;">
+
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+    var btnEndre =document.getElementById("btnEndre");
+    var smil=true;
+
+    //style for tekst
+    ctx.strokeStyle = "red";
+    ctx.fillStyle  = "red"; //
+
+    function tegneAnsikt() {
+        //tegne tekst
+        ctx.font= "24px Times roman";
+        ctx.fillText(" Dette er bare en Test", 50,100)
+
+        //høyre-sikel
+        ctx.beginPath();
+        ctx.arc(170,150,10,0,2*Math.PI);
+        ctx.closePath();
+        ctx.stroke();
+
+        //venstre-sikel
+        ctx.beginPath();
+        ctx.arc(120,150,10,0,2*Math.PI)
+        ctx.closePath();
+        ctx.stroke();
+
+        //smilemunn
+        if (smil){
+            ctx.beginPath();
+            ctx.arc(145,200,40,0,Math.PI)
+            ctx.fill();
+            ctx.stroke();
+        }else{
+            ctx.beginPath();
+            ctx.arc(145,230,40,Math.PI,0);
+            ctx.fill();
+            ctx.stroke();
+        }
+
+    }
+
+    btnEndre.onclick =function () {
+        if(smil){
+            smil=false;
+            ctx.strokeStyle = "blue";
+            ctx.fillStyle  = "blue";
+        }
+        else{
+            smil=true;
+            ctx.strokeStyle = "red";
+            ctx.fillStyle  = "red";
+        }
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight);
+        tegneAnsikt();
+    }
+tegneAnsikt();
+    </script>
+</body>
+</html>

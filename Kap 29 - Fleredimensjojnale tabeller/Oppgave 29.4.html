@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>med radioKnapper</title>
+</head>
+<body>
+<input type="text" id="inpEtterNavn" placeholder="Etter Navn">
+<input type="text" id="inpNavn" placeholder="Navn">
+<input type="text" id="inpAdresse" placeholder="inpAdresse">
+<input type="text" id="inpTlf" placeholder="inpTlf">
+<input type="text" id="inpMail" placeholder="inpMail">
+<br>
+<br>
+<input type="button" id="btnSok" value="Søk på">
+<form id="dataForm">
+    <input type="radio" name="data" value="Adresse">
+    <label>Adresse</label>
+    <br>
+    <input type="radio" name="data" value="TLF">
+    <label>TLF</label>
+    <br>
+    <input type="radio" name="data" value="E-Post">
+    <label>E-Post</label>
+</form>
+
+<script>
+  var inpEtterNavn=document.getElementById("inpEtterNavn");
+  var inpNavn=document.getElementById("inpNavn");
+  var inpAdresse=document.getElementById("inpAdresse");
+  var inpTlf=document.getElementById("inpTlf");
+  var inpMail=document.getElementById("inpMail");
+  var btnSok=document.getElementById("btnSok");
+  var dataForm=document.getElementById("dataForm");
+  var pnrArray=new Array();
+
+  pnrArray[0]=["ali","Hansen","kristiansand",45171671,"alihansen@gmail.com"];
+  pnrArray[1]=["johansen","lunde","bergen",90130304,"johansenlunde@gmail.com"];
+  pnrArray[2]=["olsen","daniel","kristiansund",91263463,"olsendaniel@gmail.com"];
+  pnrArray[3]=["andersen","alex","oslo",45187383,"andersenalex@gmail.com"];
+  pnrArray[4]=["christian","gonzalez","kristiansand",96942332,"noobmaste69@gmail.com"]
+
+
+  btnSok.onclick= function () {
+
+        if (dataForm[0].checked){
+            radioknapperFunksjon(inpAdresse,2);
+        }if (dataForm[1].checked){
+          radioknapperFunksjon(inpTlf,3);
+      }if (dataForm[2].checked){
+          radioknapperFunksjon(inpMail,4);
+      }
+
+  }
+
+  function radioknapperFunksjon(inpfelt,kolone) {
+      var indeks=0;
+      while(indeks<pnrArray.length){
+          if(inpfelt.value==pnrArray[indeks][kolone]){
+              inpEtterNavn.value=pnrArray[indeks][0];
+              inpNavn.value=pnrArray[indeks][1];
+              inpAdresse.value=pnrArray[indeks][2];
+              inpTlf.value=pnrArray[indeks][3];
+              inpMail.value=pnrArray[indeks][4];
+          }
+          indeks++;
+      }
+  }
+
+
+</script>
+</body>
+</html>

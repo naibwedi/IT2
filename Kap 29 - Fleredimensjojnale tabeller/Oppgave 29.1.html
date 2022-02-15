@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todimesjonal</title>
+</head>
+<body>
+<input type="text" id="inpNummer" placeholder="postnummer">
+<input type="text" id="inpFelt" placeholder="poststed">
+
+<script>
+    var inpFelt=document.getElementById("inpFelt");
+    var inpNummer=document.getElementById("inpNummer");
+    var pnrArray=new Array();
+
+    pnrArray[0]=[4616,"Kristiansand"];
+    pnrArray[1]=[3292,"Stavern"];
+    pnrArray[2]=[4610,"Kristiansand"];
+    pnrArray[3]=[2211,"Oslo"];
+
+    inpFelt.onclick= function () {
+        var indeks = 0;
+        while(indeks<pnrArray.length){
+            if(inpNummer.value==pnrArray[indeks][0]){
+                inpFelt.value=pnrArray[indeks][1];
+            }
+            indeks++;
+        }
+    }
+
+</script>
+
+</body>
+</html>

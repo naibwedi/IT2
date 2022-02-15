@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 50 Oddetall stigende  </title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var innhold="";
+
+    for (var teller=1; teller<=50; teller+=2){  // it start with teller=1 and continue to add 2 until it hits 50 ,
+        var innhold = innhold+teller+"<br>"
+        parUt.innerHTML=innhold;
+    }
+</script>
+</body>
+</html>

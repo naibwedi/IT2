@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>lite trekant</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    ctx.strokeStyle = "red";
+    ctx.fillStyle  = "red"; //
+    // store trekant
+    ctx.moveTo(90,150);
+    ctx.lineTo(140,80);
+    ctx.lineTo(200,150);
+    ctx.closePath();
+
+    ctx.fill();
+    ctx.stroke();
+//hvit farge
+    ctx.fillStyle = '#0a0a0a';
+    ctx.strokestye = 'white';
+//lite trekant
+    ctx.beginPath();
+    ctx.moveTo(115,100);
+    ctx.lineTo(140,70);
+    ctx.lineTo(170,100);
+    ctx.closePath();
+
+    ctx.fill();
+    ctx.stroke();
+</script>
+</body>
+</html>

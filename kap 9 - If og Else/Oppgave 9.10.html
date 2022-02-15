@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kron/mint</title>
+</head>
+<body>
+<body style="background-color: cadetblue" >
+<input type="button" value="ok" id="btnOk"?>
+<input type="text" id="kronMint" placeholder="kron/mint">
+<p id="parUt">
+</p>
+<p id="parUt2">
+</p>
+<script>
+    var parUt =document.getElementById("parUt");
+    var parUt2 =document.getElementById("parUt2");
+    var kronMint =document.getElementById("kronMint");
+    var btnOK = document.getElementById("btnOk");
+ var ord = ["kron","mint"]
+    btnOK.onclick=function () {
+              var gjet=parseFloat(kronMint.value);
+            var tilfeldigOrd=ord[Math.floor(Math.random()*ord.length)]
+        if (kronMint.value==""){
+            alert("skrive kron/mint på tekstfelt");
+            parUt.innerHTML="";
+            parUt2.innerHTML="";
+
+        } else if(kronMint.value!=tilfeldigOrd) {
+            parUt2.innerHTML="beklager du har gjettet feil";
+            parUt.innerHTML=tilfeldigOrd;
+        }else if(kronMint.value==tilfeldigOrd){
+            alert("gratulerer du gjettet riktig")
+            parUt.innerHTML=tilfeldigOrd;
+            parUt2.innerHTML="";
+        }
+
+    }
+</script>
+</body>
+</html>

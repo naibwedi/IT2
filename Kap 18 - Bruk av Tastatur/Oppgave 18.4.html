@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zoom in og ut bilder med piltaste</title>
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde" width="500">
+<script>
+    var bilde=document.getElementById("bilde");
+
+    var count=50;
+
+    window.onkeydown=function (evt) {
+
+        if(evt.keyCode==187 || evt.keyCode==38) { // øke med 1
+         //   count=count+50;
+            bilde.width=bilde.width+count;
+            }
+        if (evt.keyCode==189 || evt.keyCode==40) { // minke med 1
+           // count=count-50;
+            bilde.width=bilde.width-count;
+
+        }
+    }
+    </script>
+</body>
+</html>

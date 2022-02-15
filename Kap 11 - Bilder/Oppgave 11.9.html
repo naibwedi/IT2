@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bilde synkende rekkefølge </title>
+</head>
+<body>
+
+<p>
+    <img src="bilder/0.jpg" id="terningID1" >
+    <img src="bilder/0.jpg" id="terningID2" >
+
+    <br>
+    <input type="button" id="btnKast" value="Kast 2 terninger">
+</p>
+<p id="kastene"></p>
+
+</body>
+
+<script>
+
+    var terningID1 =document.getElementById("terningID1");
+    var terningID2 =document.getElementById("terningID2");
+
+    var btnKast =document.getElementById("btnKast");
+    var kastene =document.getElementById("kastene");
+
+
+    btnKast.onclick=function(){
+        var terning1=Math.floor(Math.random()*6+1);
+        var terning2=Math.floor(Math.random()*6+1);
+
+        kastene.innerHTML="1="+terning1+"  2="+terning2+"";
+        //oppretter variable for å fionne ut hvem som er minst. antar at de er i riktig rekkefølge
+        var stigendeTall1=terning1;
+        var stigendeTall2=terning2;
+
+        var tempTall=0;
+
+        if(terning1>terning2){ //bytter plass hvis terning 1 > terning 2
+            stigendeTall1=terning2;
+            stigendeTall2=terning1;
+        }
+
+        if(stigendeTall1>stigendeTall2){ //bytter plass på stigendeTall1 og 2
+            tempTall=stigendeTall1;
+            stigendeTall1=stigendeTall2;
+            stigendeTall2=tempTall;
+        }
+        alert("stigende1="+stigendeTall1+"<br>stigende2="+stigendeTall2);
+        terningID1.src="bilder/"+stigendeTall1+".jpg";
+        terningID2.src="bilder/"+stigendeTall2+".jpg";
+
+    }
+
+</script>
+</html>

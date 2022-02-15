@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btnKatt" navn="katt">Katt</button>
+<button id="btnHund" navn="hund">Hund</button>
+<button id="btnKu"   navn="ku">Ku</button>
+<br>
+<img id="bilde">
+<audio id="lyd"></audio>
+<script>
+    //kobler HTML elementer
+    var btnKatt=document.getElementById("btnKatt");
+    var btnHund=document.getElementById("btnHund");
+    var btnKu=document.getElementById("btnKu");
+    var bilde=document.getElementById("bilde");
+    var lyd=document.getElementById("lyd");
+    //Legger på samme onklikk på alle knappene.
+    btnKatt.onclick=bildeOgLyd;
+    btnHund.onclick=bildeOgLyd;
+    btnKu.onclick=bildeOgLyd;
+
+    function bildeOgLyd(evt) {
+        //bruker evt til å identifisere hvilken knapp som ble trykket på
+        bilde.src=evt.target.getAttribute("navn")+".jpg";
+        lyd.src=evt.target.getAttribute("navn")+".mp3";
+        lyd.play();
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skalering til 0.5 og 0.7</title>
+
+<style>
+  #bilde1{
+    position: relative;
+    left:550px;
+      transform: scale(2,2);
+
+
+  }
+  #bilde2{
+    position: relative;
+      transform: scale(2,2);
+      left:5px;
+      top:0;
+
+  }
+</style>
+
+</head>
+<body>
+
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<br>
+<img src="bilde2.jpg" id="bilde2">
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+  var delayTid=4;
+
+
+  TweenMax.to("#bilde1",3,{left:5, rotation:"360_ccw",scale:0.5})
+  TweenMax.to("#bilde2",3,{left:550, rotation:"360_ccw",scale:0.7})
+
+
+</script>
+</body>
+</html>

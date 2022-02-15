@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>delay</title>
+
+
+<style>
+    #bildeanimasjon1{
+        position: relative;
+        left: 600px;
+    }
+    #bildeanimasjon2{
+        position: relative;
+        left: 5px;
+    }
+
+</style>
+</head>
+
+<body>
+<script src="TweenMax.js"></script>
+<img src="bilde1.jpg" id="bildeanimasjon1">
+<br>
+<img src="bilde2.jpg" id="bildeanimasjon2">
+
+
+<script>
+    var bildeDelay=3; // ustsetter(delay) transformasjoner med 3 sekunder
+    var bildeanimasjon = document.getElementById("bildeanimasjon");
+    TweenMax.to("#bildeanimasjon1",3,{left:5});// bevager til venstre i 3 sekund
+    TweenMax.to("#bildeanimasjon2",3,{left:550,delay:bildeDelay});
+
+</script>
+</body>
+</html>

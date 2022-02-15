@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>programmer for avstand mellom flyplasser</title>
+</head>
+<body style="background-image: linear-gradient(90deg,red,yellow,orange)">
+<h2 id="text1" >Skjekk avstand mellom flyplasser</h2>
+
+<br>
+<input type="text" id="inpFelt1" value="" placeholder="Tur" >
+<select id="navnForm1">
+    <option selected> Flyplasser</option>
+    <option>Flesland</option>
+    <option>Værnes</option>
+    <option>Bodø</option>
+</select>
+
+<br>
+<br>
+
+<input type="text" id="inpFelt2" placeholder="Retur" value="">
+<select id="navnForm2">
+    <option selected> Gardemoen</option>
+
+</select>
+<br>
+<br>
+<input type="button" id="btnLeggeTil" value="Ok">
+<input type="button" id="btnSkjekkAvstand" value="Skjekk Avstand">
+<br>
+<br>
+<p id="parUt"></p>
+<script>
+    var inpFelt1 = document.getElementById("inpFelt1");
+    var inpFelt2 = document.getElementById("inpFelt2")
+    var navnForm1 = document.getElementById("navnForm1");
+    var navnForm2 = document.getElementById("navnForm2");
+    var btnLeggeTil = document.getElementById("btnLeggeTil");
+    var btnSkjekkAvstand = document.getElementById("btnSkjekkAvstand");
+    var parUt = document.getElementById("parUt");
+
+
+
+
+    btnLeggeTil.onclick =  function () {
+        if(inpFelt1.value!=""){
+            var option = document.createElement("option"); // creates new option element
+            option.text = inpFelt1.value;
+            navnForm1.add(option);//
+
+        } if (inpFelt2.value!=""){
+            var option = document.createElement("option"); // creates new option element
+            option.text = inpFelt2.value;
+            navnForm2.add(option);//
+        }if(navnForm1[1].selected){
+
+            inpFelt1.value=navnForm1[1].text
+
+        }if(navnForm1[2].selected){
+
+            inpFelt1.value=navnForm1[1].text
+
+        }if(navnForm1[3].selected){
+
+            inpFelt1.value=navnForm1[1].text
+
+        }if(navnForm2[0].selected){
+
+            inpFelt2.value=navnForm2[0].text
+
+        }
+
+    }
+    btnSkjekkAvstand.onclick = function () {
+        if (navnForm1[1].selected ){
+          parUt.innerHTML=" Avstand mellom Flesland og Gardermoen er 40 mil";
+        } if (navnForm1[2].selected ){
+            parUt.innerHTML=" Avstand mellom Flesland Og Gardermoen er 40 mil";
+        } if (navnForm1[3].selected ){
+            parUt.innerHTML=" Avstand mellom Flesland Og Gardermoen er 40 mil";
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

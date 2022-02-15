@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ganger to tall</title>
+</head>
+<body>
+<p>
+    <input type="number"  id="inpLedd1" value=""> x
+    <input type="number"  id="inpLedd2" value="">
+    <input type="button" id="btnLik" value="=">
+</p>
+<p id="parSum">
+</p>
+<script>
+    var btnLik =document.getElementById("btnLik");
+    var inpLedd1 = document.getElementById("inpLedd1");
+    var inpLedd2 = document.getElementById("inpLedd2");
+    var parSum=document.getElementById("parSum");
+
+    var sum=0;
+    var ledd1;
+    var ledd2;
+
+
+    btnLik.onclick=function () {
+
+        ledd1=parseFloat(inpLedd1.value);
+        ledd2=parseFloat(inpLedd2.value);
+
+        sum=ledd1*ledd2;
+
+        parSum.innerHTML=sum;
+    }
+</script>
+</body>
+</html>

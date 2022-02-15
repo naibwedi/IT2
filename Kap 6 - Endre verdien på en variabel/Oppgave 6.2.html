@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>strek</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var yPos=100;
+    var xPos=100;
+    ctx.moveTo(xPos,yPos);
+    ctx.lineTo(xPos*2,yPos);
+
+    yPos=yPos+20;
+    ctx.moveTo(xPos,yPos);
+    ctx.lineTo(xPos*2,yPos);
+
+    yPos=yPos+20;
+    ctx.moveTo(xPos,yPos);
+    ctx.lineTo(xPos*2,yPos);
+
+    yPos=yPos+20;
+    ctx.moveTo(xPos,yPos);
+    ctx.lineTo(xPos*2,yPos);
+
+    yPos=yPos+20;
+    ctx.moveTo(xPos,yPos);
+    ctx.lineTo(xPos*2,yPos);
+
+    ctx.stroke();
+
+</script>
+</body>
+</html>

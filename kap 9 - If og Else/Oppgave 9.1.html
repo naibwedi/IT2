@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bøter</title>
+</head>
+<body>
+
+hvor mye fart hadde du i 80 km/t fartgrense? <input type="text" id="inpFart" placeholder="km/h">
+<input type="button" value="ok" id="btnOk">
+<p id="partUt">
+
+</p>
+
+<script>
+    var inpFart =document.getElementById("inpFart");
+    var partUt =document.getElementById("partUt");
+    var btnOK = document.getElementById("btnOk");
+
+    btnOK.onclick=function () {
+        var fart=parseFloat(inpFart.value);
+
+        if(fart<=80){
+            partUt.innerHTML="Lovlig fart";
+        }else if(fart>80&&fart<=85){
+            partUt.innerHTML="600 kr";
+        }else if(fart>85&&fart<=90){
+            partUt.innerHTML="1600 kr";
+        }else if(fart>90&&fart<=95){
+            partUt.innerHTML="2600 kr";
+        }else if(fart>95&&fart<=100){
+            partUt.innerHTML="3600 kr";
+        }else if(fart>100&&fart<=105){
+            partUt.innerHTML="4900 kr";
+        }else if(fart>105&&fart<=110){
+            partUt.innerHTML="6500 kr";
+        }else{
+            partUt.innerHTML="Du går rett i fengsel";
+        }
+    }
+</script>
+</body>
+</html>

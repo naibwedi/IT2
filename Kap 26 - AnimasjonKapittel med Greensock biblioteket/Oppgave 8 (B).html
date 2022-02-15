@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<style>
+    #bilde1{
+        position: relative;
+        left:550px;
+        //transform: scale(2,2);
+
+
+    }
+    #bilde2{
+        position: relative;
+        //transform: scale(0,0);
+        left:5px;
+        top:0;
+
+    }
+</style>
+<p id="parUt"></p>
+
+</head>
+<body>
+
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<br>
+<img src="bilde2.jpg" id="bilde2">
+<audio controls id="lydFil" hidden>
+    <source type="audio/mp3" src="lyd1.mp3" >
+</audio>
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var delayTid=4;
+    var parUt = document.getElementById("parUt");
+    var lydFil = document.getElementById("lydFil");
+
+    TweenMax.to("#bilde1",3,{x:5, rotation:"360_ccw",scale:0.7});
+    TweenMax.to("#bilde2",3,{x:550,scale:2, onComplete:kjøreLyd});
+
+    lydFil.controls=false;
+    function kjøreLyd() {
+        lydFil.controls=true;
+        lydFil.src="lyd1.mp3";
+        lydFil.play();
+    }
+
+</script>
+</body>
+</html>

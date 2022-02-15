@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>radio kanpper </title>
+</head>
+<body>
+<h1> Hvilken parti vil du stemme?</h1>
+<form id="valgSkjema">
+    <input type="radio" name="parti" value="PP" checked>
+    <label>PensjonistPartiet (PP)</label>
+    <br>
+    <input type="radio" name="parti" value="KS" >
+    <label>Kristent SamlingParti (KS)</label>
+    <br>
+    <input type="radio" name="parti" value="KP" >
+    <label>Kristpartiet (KP)</label>
+    <br>
+    <input type="radio" name="parti" value="NKP" >
+    <label>Norges Kommunistiske parti (NKP)</label>
+    <br>
+</form>
+<input type="button" id="btnOK" value="Ok">
+<p id="parUt"></p>
+
+<script>
+    var valgSkjema = document.getElementById("valgSkjema");
+    var btnOK = document.getElementById("btnOK");
+    var parUt = document.getElementById("parUt");
+
+    btnOK.onclick = function () {
+        if(valgSkjema[0].checked){
+            parUt.innerHTML = "Du svarte  " + valgSkjema[0].value
+        }else if (valgSkjema[1].checked){
+            parUt.innerHTML = "Du svarte  " + valgSkjema[1].value
+        }else if (valgSkjema[2].checked){
+            parUt.innerHTML = "Du svarte  " + valgSkjema[2].value
+        }else if (valgSkjema[3].checked){
+            parUt.innerHTML = "Du svarte  " + valgSkjema[3].value
+        }
+    }
+
+</script>
+</body>
+</html>

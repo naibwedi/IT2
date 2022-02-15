@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Animer tekst 1</title>
+    <style>
+        #utPar{
+            position: relative;
+            opacity: 0;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+<body>
+<p id="utPar"></p>
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var utPar = document.getElementById("utPar");
+
+    var tidslinje = new TimelineLite();
+    var tidsintervall = 3;
+    utPar.innerHTML="Setning 1: Kommer plutselig fram og forsvinner";
+    tidslinje.to("#utPar", tidsintervall, {opacity:1 ,ease:Power0.easeIn});
+    tidslinje.to("#utPar",tidsintervall,{opacity:0 ,ease:Power0.easeOut,onComplete:tekst2});
+    tidslinje.to("#utPar",tidsintervall,{opacity:0 ,delay:3,ease:Power0.easeOut,onComplete:tekst3});
+    tidslinje.to("#utPar",tidsintervall,{opacity:0 ,delay:6,ease:Power0.easeOut,onComplete:tekst4});
+
+    function tekst2(){
+        utPar.innerHTML = "Setning 2: byttet ut teksten og den kommer fram og forsvinner";
+        tidslinje.to("#utPar", tidsintervall, {opacity: 1, ease: Power0.easeIn});
+        tidslinje.to("#utPar", tidsintervall, {opacity: 0, ease: Power0.easeIn});
+    }
+    function tekst3(){
+        utPar.innerHTML = "Setning 3: byttet ut teksten og den kommer fram og forsvinner";
+        tidslinje.to("#utPar", tidsintervall, {opacity: 1, ease: Power0.easeIn});
+        tidslinje.to("#utPar", tidsintervall, {opacity: 0, ease: Power0.easeIn});
+    }
+    function tekst4(){
+        utPar.innerHTML = "Setning 4: byttet ut teksten og den kommer fram og forsvinner";
+        tidslinje.to("#utPar", tidsintervall, {opacity: 1, ease: Power0.easeIn});
+        tidslinje.to("#utPar", tidsintervall, {opacity: 0, ease: Power0.easeIn});
+    }
+</script>
+</body>
+</html>

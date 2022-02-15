@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>studer koden </title>
+</head>
+<body>
+<p id="avsnitt"></p>
+<script>
+  avsnitt=document.getElementById("avsnitt");
+  var n=0;
+  var innhold="";
+  var nullEn;
+  while(n<10){
+    nullEn=Math.floor(Math.random()*2);
+    if(nullEn==0){ // hvis nullEn erlik 0 inhhold blir kron
+      innhold+="krone";
+    }
+    else{                 // eller hvis ikke o innhold blir mynt
+      innhold+="mynt";
+    }
+    innhold+="<br>";   // forsetter til det er 10 value
+    avsnitt.innerHTML=innhold;
+    n++;
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<br>
+<br>
+<input type="button" id="btnOpp" value="opp" style="margin-left: 30vw;">
+<input type="button" id="btnHøyre" value="Høyre">
+<input type="button" id="btnNed" value="Ned">
+<input type="button" id="btnVenstre" value="Venstre">
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+    var btnOpp = document.getElementById("btnOpp");
+    var btnHøyre = document.getElementById("btnHøyre");
+    var btnNed = document.getElementById("btnNed");
+    var btnVenstre = document.getElementById("btnVenstre");
+
+    var xpos=120;
+    var ypos=100;
+    var width=50;
+    var height=50;
+
+    ctx.strokestye="black";
+  function tegneStrekmann() {
+      //tegn kroppen
+      ctx.beginPath();
+      ctx.moveTo(xpos,ypos+width/2);
+      ctx.lineTo(xpos,ypos+height*2);
+      ctx.closePath();
+      ctx.stroke();
+      //tegn høyre hand
+      ctx.beginPath();
+      ctx.moveTo(xpos,ypos+width+10);
+      ctx.lineTo(xpos+width/2,ypos+height/2);
+      ctx.closePath();
+      ctx.stroke();
+      //tegn venstre hand
+      ctx.beginPath();
+      ctx.moveTo(xpos,ypos+width+10);
+      ctx.lineTo(xpos-30,ypos+30);
+      ctx.closePath();
+      ctx.stroke();
+
+
+      //tegn høyre fot
+      ctx.beginPath();
+      ctx.moveTo(xpos+30,ypos+width+80);
+      ctx.lineTo(xpos,ypos+height+40);
+      ctx.closePath();
+      ctx.stroke();
+      //tegn venstre fot
+      ctx.beginPath();
+      ctx.moveTo(xpos,ypos+width+40);
+      ctx.lineTo(xpos-30,ypos+130);
+      ctx.closePath();
+      ctx.stroke();
+
+      //tegn høde
+      ctx.beginPath();
+      ctx.arc(xpos,ypos,width/2,0,2*Math.PI);
+      ctx.stroke();
+  }
+
+  btnOpp.onclick = function () {
+      nullStill();
+      ypos=ypos-10;
+      tegneStrekmann();
+  }
+
+    btnNed.onclick = function () {
+        nullStill();
+        ypos=ypos+10;
+        tegneStrekmann();
+    }
+
+    btnHøyre.onclick = function () {
+        nullStill();
+        xpos=xpos+10;
+        tegneStrekmann();
+    }
+
+    btnVenstre.onclick = function () {
+        nullStill();
+        xpos=xpos-10;
+        tegneStrekmann();
+    }
+
+function nullStill() {
+    ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>styre tidslinje</title>
+
+<style>
+    #bilde1{
+        position: relative;
+        left:550px;
+        transform: scale(2,2);
+
+
+    }
+    #bilde2{
+        position: relative;
+        transform: scale(0,0);
+        left:5px;
+        top:0;
+
+    }
+</style>
+
+</head>
+<body>
+ <img src="bilde1.jpg" id="bilde1" hidden>
+<br>
+<br>
+<img src="bilde2.jpg" id="bilde2">
+
+<br>
+
+<input type="button"  id="btnStart" value="Start">
+<input type="button"  id="btnpause" value="Pause">
+<input type="button"  id="btnRestart" value="Restart">
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var delayTid=4;
+    var btnStart = document.getElementById("btnStart");
+    var btnpause = document.getElementById("btnpause");
+    var btnRestart = document.getElementById("btnRestart");
+
+    var tidslinje = new TimelineLite();
+
+    tidslinje.to("#bilde2",2,{left:300,rotation:"360_cw",scale:1,repeat:-1,yoyo:true}) // repetisjon av animasjon uendelig (nonstop)
+
+    btnStart.onclick = function () {
+        tidslinje.play();
+    }
+    btnpause.onclick = function () {
+        tidslinje.pause();
+    }
+    btnRestart.onclick = function () {
+        tidslinje.restart();
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sirkler</title>
+</head>
+<body>
+<br>
+<h2>Skrive Antall sirkel du vil tegne</h2>
+<input type="text" id="inpFelt" >
+<input type="button" id="btnOk" value="Ok">
+<br>
+<br>
+
+<canvas id="myCanvas" width="700" height="700" style="border:1px solid;"> Nettleseren din støtter ikke HTML5</canvas>
+
+<script>
+    //kobler HTML objekter
+    var btnOk=document.getElementById("btnOk");
+    var inpFelt=document.getElementById("inpFelt");
+    var myCanvas=document.getElementById("myCanvas");
+    var ctx=myCanvas.getContext("2d");
+    //variabler
+    var antallSirkler=7;
+    var xPos=myCanvas.width/2;
+    var yPos=myCanvas.height/2;
+    var mellomrom=30;
+    var radius=300;
+
+    btnOk.onclick = function () {
+        antallSirkler=inpFelt.value;
+        if(inpFelt.value!=""){
+            for(var i= 0;i<antallSirkler;i++){
+                ctx.beginPath();
+                ctx.arc(xPos,yPos,radius-i*mellomrom,0,2*Math.PI);
+                ctx.stroke();
+            }
+
+        }
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>

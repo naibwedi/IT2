@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe Tekle | tegn flere linje</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas"); // dette er bare som tegne arc,
+    var ctx= myCanvas.getContext("2d");
+
+
+
+
+    for (i = 0; i < 5; i++) {  // har brukte jeg loop varible med 5 linje
+
+        let  x=100 ;        // jeg brukt har "let" istede "var"
+        let  y=50 + ( 50) * i;  // "i" gir mellomrom til det andre linje;
+        let lengde= 150;
+
+        ctx.strokestye="black"; // farge til linje blir svart
+        ctx.lineWidth = 2; // linje bredde blir storre til 2
+        ctx.beginPath();
+        ctx.moveTo( 150, 100 );
+        ctx.lineTo(  y , 200 );
+        ctx.closePath();
+        ctx.stroke();
+
+    }
+
+
+
+
+
+    </script>
+</body>
+</html>

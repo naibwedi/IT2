@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tekstfelt med border box</title>
+</head>
+<body>
+<p>
+    <input type="text"  id="inpInnTekst" value="skrive inn tekst">
+    <input type="button" id="btnOk" value="ok">
+</p>
+<p>
+<input type="text" id="parTilbakemelding"/>
+</p>
+<script>
+    var btnOk =document.getElementById("btnOk");
+    var inpInnTekst = document.getElementById("inpInnTekst");
+    var parTilbakemelding=document.getElementById("parTilbakemelding");
+
+    btnOk.onclick=function () {
+        parTilbakemelding.value=inpInnTekst.value;
+    }
+</script>
+</body>
+</html>

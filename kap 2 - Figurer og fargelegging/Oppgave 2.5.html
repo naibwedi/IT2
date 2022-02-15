@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sirkel og firekant</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+    //grønn farge
+    ctx.beginPath(),
+    ctx.strokeStyle = "green";
+    ctx.fillStyle  = "green"; //
+    //firekant
+    ctx.fillRect(80,80,150,100);
+
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath(); // bruke begin og cloth path til å hindre problem
+
+    ctx.beginPath();
+    ctx.strokeStyle = "blue";
+    ctx.fillStyle  = "blue"; //
+    //sirkel
+    ctx.arc(155,130,50,0,2*Math.PI);
+
+    ctx.fill();
+    ctx.stroke(); //skrive "stroke" med små bokstaver , hvis du ha mange figurer.
+</script>
+</body>
+</html>

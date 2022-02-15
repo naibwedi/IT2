@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tidsstyring</title>
+</head>
+<body>
+<p id="parTellerS"></p>
+<br>
+<p id="parTellerM"></p>
+<br>
+<p id="parTellerT"></p>
+<script>
+    var parTellerS = document.getElementById("parTellerS");
+    var parTellerM = document.getElementById("parTellerM");
+    var parTellerT = document.getElementById("parTellerT");
+
+    var n=0;
+    var m=0;
+    setInterval(function () {
+        parTellerS.innerHTML=n;
+        n=n+1;
+    },1000)
+
+    setInterval(function () {
+        parTellerM.innerHTML=n;
+        n=n+1;
+    },6000)
+</script>
+</body>
+</html>

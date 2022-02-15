@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ondobbelklikk</title>
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde">
+<script>
+    var bilde=document.getElementById("bilde");
+    bilde.addEventListener("mouseover",skifteBilde);
+    bilde.addEventListener("dblclick",stopp);
+    var tilfeldigtall=0;
+    var bytt=true;
+
+    function skifteBilde() {
+    if(bytt==true){
+        if (tilfeldigtall==0){
+            bilde.src="bilde2.jpg";
+            tilfeldigtall=1;
+
+        }else{
+            bilde.src="bilde1.jpg"
+            tilfeldigtall=0;
+        }
+
+    }}
+
+    function stopp(){
+        bytt=false;
+    }
+
+
+
+</script>
+</body>
+</html>

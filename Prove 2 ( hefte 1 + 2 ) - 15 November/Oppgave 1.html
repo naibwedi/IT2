@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe | oppgave 1</title>
+</head>
+<body>
+<input type="text" id="inpFelt" placeholder="Skriv antall personer">
+<input type="button" id="btnOk" value="Ok">
+<p id="parUt"></p>
+<audio controls id="lydFil" hidden >
+    <source type="audio/mp3" src="">
+</audio>
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var btnOk = document.getElementById("btnOk");
+    var parUt = document.getElementById("parUt");
+    var lydFil = document.getElementById("lydFil");
+
+    btnOk.onclick = function () {
+
+        if (isNaN(inpFelt.value)){ // isnan sjekker hvis brukern skrivet numer eller ikke
+            parUt.innerHTML = "du må skrive numer , ikke bokstaver "
+        }if (inpFelt.value<0){ // sjekker mot negative verdi
+            parUt.innerHTML = " du har skrevet negative number , du må gjette numer over 0"
+        }if (inpFelt.value==""){ // sjkker mot tomt tekstfelt
+            parUt.innerHTML =" du må skrive number";
+        } if (inpFelt.value>=0 &&inpFelt.value<=10){ //sjekker nummer mellom 0 - 10
+            parUt.innerHTML= "Enkelt";
+        } if (inpFelt.value>=11 &&inpFelt.value<=30){//sjekker nummer mellom 11- 30
+            parUt.innerHTML= "Oki, hvis du sier så";
+        } if (inpFelt.value>=20 &&inpFelt.value<=25){//sjekker nummer mellom 20 - 25
+            parUt.innerHTML= "Ikke flere";
+        } if(inpFelt.value>10&&inpFelt.value>=11 &&inpFelt.value<=30){  //sjekker nummer over 10 og fra 11 - 30
+            parUt.innerHTML="Jahooo !!!"+"<br>Oki, hvis du sier så";
+
+        } if(inpFelt.value>10&&inpFelt.value>=20 &&inpFelt.value<=25){  //sjekker nummer over 10 og fra 20 - 25
+            parUt.innerHTML="Jahooo !!!"+"<br>Ikke flere";
+
+        }else if (inpFelt.value>30){  //sjekker nummer over 30
+            parUt.innerHTML= "Jaja..... Bursdagsfest";
+            lydFil.src="OhYeah.mp3";
+            lydFil.play();
+        }
+
+    }
+
+</script>
+</body>
+</html>

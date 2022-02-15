@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finne to lik bilder</title>
+    <style>
+        #bilderHolder{
+            margin-left: 0vw;
+        }
+        @media only screen and (min-width: 800px) {
+            #bilderHolder{
+                margin-left: 15vw;
+            }
+        }
+        img{
+            width:150px;
+            height: 150px;
+            align-items: center;
+        }
+        h2{
+            text-align: center;
+        }
+        h2:hover{
+            text-align: center;
+            box-shadow: 0px 0px 10px 10px black;
+            text-wrap: normal;
+        }
+        #parUt{
+            text-align: center;
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+    </style>
+</head>
+<body>
+
+<h2>Finne To lik bilder</h2>
+<br>
+<p id="parUt"></p>
+<div id="bilderHolder">
+    <br>
+</div>
+<br>
+
+<script>
+    var img = document.createElement("img");
+    var parUt = document.getElementById("parUt");
+    var bildeArray = ["appelsin.jpg","banan.png","bombe3.jpg","appelsin.jpg","eple.jpg",
+                      "harry potter.jpg","fast form.jpg","hund.jpg","bombe3.jpg","Katt.jpg",
+                      "eple.jpg","ku.jpg","harry potter.jpg","veske.png","banan.png",
+                       "ku.jpg","Katt.jpg","veske.png","hund.jpg","fast form.jpg"
+                   ];
+    var spørsmålbilde=["Gjetthvem.png"];
+    var breakArray=[3,7,11,15]
+    var byttebilde=false;
+    var førstebilde,andrebilde;
+    var bildeclick=0;
+    var bilde1,bilde2;
+    var feil;
+    var bilde1Value,bilde2Value;
+    var poeng=0;
+
+
+    function tegneBilder() {
+      // tegne bilder fra bilde Array
+        for (let i = 0; i < 20; i++) {
+
+            var img = document.createElement('img');
+            img.value = i;
+            img.id="bilde"+i;
+            document.getElementById("bilderHolder").appendChild(img);
+            spørsmålbilde[i]="Gjetthvem.png";
+            img.src = "Bilder/" + spørsmålbilde[i];
+            img.addEventListener('click',function (event) {
+
+
+                if(byttebilde==false){
+                    bildeclick++;
+                    byttebilde=true;
+                    this.src="Bilder/"+ bildeArray[i];
+                    if(bildeclick==1 ){
+
+                        førstebilde=bildeArray[i];
+                        // alert(førstebilde)
+                        parUt.innerHTML=førstebilde;
+                        bilde1=this;
+                        bilde1Value=this.value;
+
+                    }
+                    if (bildeclick==2){
+
+                        andrebilde=bildeArray[i];
+                         // alert(andrebilde)
+                        parUt.innerHTML=andrebilde;
+                        bilde2=this;
+                        bilde2Value=this.value;
+                       bildeclick=0;
+
+                        // den skla sjekke vis første bildenavn erlik med andre bildenavn
+                        // og bilde1.value må blir forsjeligge med bilde2.value
+                        // for å unngå trykke på samme bilder 2 gang:
+
+                     if(andrebilde==førstebilde&&bilde1Value!=bilde2Value){
+                            // alert("riktig");
+                         poeng=poeng+20;
+                         parUt.innerHTML="Riktig ✔️"+poeng;
+                         riktigDelay();
+                        }
+
+                     else if (andrebilde!=førstebilde){
+                         // alert("Feil");
+                         parUt.innerHTML="Feil ❌, prøve på nytt ";
+                         FeilDelay();
+                         feil==true;
+
+                     }  else if (feil==true) {
+                            bilde1.src="Bilder/Gjetthvem.png";
+                            this.src="Bilder/Gjetthvem.png";
+                        }
+                        else if(poeng==200){
+                            alert("Graturlerer , du vunnet")
+
+                        }
+                     bildeclick=0;
+                    }
+
+                }
+                // else if (byttebilde==true&&click==1){
+                //     this.src="Bilder/"+ bildeArray[i]
+                // }
+                else {
+                    byttebilde=false;
+                    this.src="Bilder/Gjetthvem.png";
+                }
+
+            })
+            // for loop for break inne bilde
+            for (var j = 0; j < breakArray.length; j++) {
+                if (i==breakArray[j]){
+                    var br= document.createElement("br");
+                    document.getElementById("bilderHolder").appendChild(br);
+                }
+            }
+
+        }
+    }
+
+    tegneBilder();
+
+
+   // riktig bilde2 delay
+        img.onclick= riktigDelay;
+            function riktigDelay() {
+                    setTimeout(function(){
+                        bilde1.hidden=true;
+                        bilde2.hidden=true; }, 1000);
+        }
+
+        // feil bilde2 delay
+    img.onclick= FeilDelay;
+    function FeilDelay() {
+            setTimeout(function(){
+                bilde1.src="Bilder/Gjetthvem.png";
+                bilde2.src="Bilder/Gjetthvem.png";}, 1000);
+
+    }
+
+
+</script>
+</body>
+</html>

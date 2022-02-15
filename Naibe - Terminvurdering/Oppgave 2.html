@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe || oppgave2</title>
+    <style>
+        .bildecontainer{
+            width: 300px;
+            height: 100px;
+            display: flex;
+            gap: 5px;
+        }
+        .tekstcontainer{
+            display: flex;
+            gap: 32px;
+        }
+    </style>
+</head>
+<body>
+<h2> TRoopers Trening</h2>
+<h4>- Velge fra en av disse trening: </h4>
+<div class="bildecontainer">
+    <img src="Bilder/styrketrening.png" id="bilde1">
+    <img src="Bilder/hoppetau.jpg" id="bilde2">
+    <img src="Bilder/siktetrening.png" id="bilde3">
+    <img src="Bilder/løpetrening.jpg" id="bilde4">
+    <img src="Bilder/TotalTrening.png" id="bilde5">
+
+</div>
+<div class="tekstcontainer">
+    <p id="tekst1">Styreketrening: </p>
+    <p id="tekst2">Hopetau: </p>
+    <p id="tekst3">Siktetrening: </p>
+    <p id="tekst4">Løpetrening: </p>
+    <p id="tekst5">Total trening: </p>
+</div>
+
+<select id="treningForm">
+    <option selected disabled> Trening type</option>
+    <option>styreketrening</option>
+    <option>Hoppetau</option>
+    <option>Siktetrening</option>
+    <option>Løpetrening</option>
+    <option>Total trening</option>
+</select>
+</form>
+<input type="text" id="inpFelt" placeholder="Skriv antall Timer trening">
+<input type="button" id="btnOk" value="Ok">
+<p id="parUt"></p>
+<audio controls id="lydFil" hidden >
+    <source type="audio/mp3" src="">
+</audio>
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var btnOk = document.getElementById("btnOk");
+    var parUt = document.getElementById("parUt");
+    var tekst1 = document.getElementById("tekst1");
+    var tekst2 = document.getElementById("tekst2");
+    var tekst3 = document.getElementById("tekst3");
+    var tekst4 = document.getElementById("tekst4");
+    var tekst5 = document.getElementById("tekst5");
+    var treningForm = document.getElementById("treningForm");
+
+    var tekstArray= [tekst1,tekst2,tekst3,tekst4,tekst5]
+
+    var sum=0;
+    btnOk.onclick = function () {
+
+        for (var i = 1; i < 6; i++) {
+            if (treningForm[i].selected) {
+                tekstArray[i-1].innerHTML += " " + inpFelt.value + " timer";
+                sum += parseFloat(inpFelt.value);
+                tekst5.innerHTML = "Total trening: " + sum;
+            }
+                else if (inpFelt.value == "") { // sjkker mot tomt tekstfelt
+                    parUt.innerHTML = " Tekst felt er Tomt!";
+                } else if (inpFelt.value < 0) { // et negativ beløp
+                    parUt.innerHTML = " Du må skrive postivt numer!!!";
+                } else if (inpFelt.value<2) { // mindre enn 2
+                    parUt.innerHTML = " Du kan bedre en dette";
+                }  if (inpFelt.value >= 2) { // storre enn 2
+                    parUt.innerHTML = " Du er på god vei"+"<br>Nesten innefor"+"<br>Slappfisk";
+                } else  if (sum == 10) {// er lik 10
+                    parUt.innerHTML = "Nesten innefor"+"<br>Du er på god vei";
+                }   if (sum < 10) { // mindre enn 10
+                parUt.innerHTML = "Slappfisk"+"<br>Du er på god vei";
+                } else if (sum > 10) {// storre enn 10
+                    parUt.innerHTML = "Dette kan vi snart godta"+"<br>Oki, dette er akseptabelt"+"<br>Du er på god vei";
+                }if (sum > 20) {// storre enn 20
+                    parUt.innerHTML = "Oki, dette er akseptabelt"+"<br>Dette kan vi snart godta"+"<br>Du er på god vei";
+                }
+            else if (inpFelt.value == "skadet") {// hvis det skadet
+                    parUt.innerHTML = inpFelt.value;
+                }
+
+            }
+
+
+
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotation til venstre og høyre</title>
+
+<style>
+  #bilde1{
+    position: relative;
+    left:550px;
+  }
+  #bilde2{
+      position: relative;
+      left:5px;
+      top:0;
+  }
+</style>
+
+</head>
+<body>
+
+  <img src="bilde1.jpg" id="bilde1">
+  <br>
+  <img src="bilde2.jpg" id="bilde2">
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var delayTid=4;
+  TweenMax.to("#bilde1",3,{left:5, rotation:"360_ccw"})
+  TweenMax.to("#bilde2",3,{left:550, rotation:"360_ccw"})
+    TweenMax.to("#bilde2",3,{ top:400,delay:3,rotation:"-360_ccw"})
+
+</script>
+</body>
+</html>

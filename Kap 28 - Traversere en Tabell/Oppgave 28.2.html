@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Storre tekstfelt</title>
+</head>
+<body>
+<textarea id="tekstOmrade" cols="25" rows="8">tekst Omrade for brukeren til redigere.
+</textarea>
+<input type="text" id="inpSok" placeholder="Skriv inn søkeord">
+<input type="button" id="btnSok" value="søk" >
+<p id="parResultat"></p>
+
+<script>
+
+    var inpSok=document.getElementById("inpSok");
+    var tekstOmrade=document.getElementById("tekstOmrade");
+    var btnSok=document.getElementById("btnSok");
+    var parResultat=document.getElementById("parResultat");
+
+    var bilArray=["saab","volvo","bmw", "peugeot", "toyota", "kia", "volvo"];
+
+    btnSok.onclick=function(){
+        var resultatArray=new Array();
+        var indeks=0;
+        var bilSok=tekstOmrade.value.toLowerCase();
+
+        while(indeks<bilArray.length){
+            if(bilArray[indeks]==bilSok){
+                resultatArray[resultatArray.length]=indeks; //legger til plasseringen på sisteplass i resultatarray
+            }
+            indeks++;
+        }//end while
+        if(resultatArray.length!=0){
+            parResultat.innerHTML="Det ble funnet "+ resultatArray.length + "eksemplar(er) av "+ tekstOmrade.value + " og det var på plass(ene) "+resultatArray.toString();
+        }
+        else{
+            parResultat.innerHTML="Ingen bil av merket "+tekstOmrade.value+" ble funner";
+        }
+    }
+</script>
+</body>
+</html>

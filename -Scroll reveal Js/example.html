@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #container{
+          display: block;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .container:nth-child(n){
+            width: 10em;
+            height: 10em;
+            background-color: blue;
+            margin-bottom: 20px;
+            margin-left: 0vw;
+        }
+    </style>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <div id="container">
+
+<!--        <div class="a"></div>-->
+<!--        <div class="a"></div>-->
+<!--        <div class="a"></div>-->
+    </div>
+
+
+    <script>
+        ScrollReveal().reveal('.v');
+        ScrollReveal().reveal('.b', { delay: 500 });
+        ScrollReveal().reveal('.c', { delay: 1500 });
+
+        function tile() {
+            for (let i = 0; i < 10; i++) {
+
+                    var tiles = document.createElement("div");
+
+                document.getElementById("container").appendChild(tiles);
+                tiles.style.width=100;
+                tiles.style.height=100;
+                tiles.style.backgroundColor="blue";
+
+
+            }
+        }
+        tile()
+
+        var div = document.createElement('div');
+        div.id = 'box';
+        div.className = 'border pad';
+        div.style.width=100;
+        div.style.height=100;
+        div.style.backgroundColor="blue";
+
+        document.getElementById("container").appendChild(div);
+
+        ScrollReveal().reveal(".a", {
+            interval: 16,
+            reset: true
+        });
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

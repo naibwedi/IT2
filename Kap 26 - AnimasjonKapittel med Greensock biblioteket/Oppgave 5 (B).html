@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>manipulere med opacity </title>
+
+<style>
+    #bilde1{
+        position: relative;
+        opacity: 1;
+    }
+    #bilde2{
+        position: relative;
+        opacity: 0;
+        left:550px;
+        top:0px;
+    }
+    #bilde3{
+        position: relative;
+        top:90px;
+        left:550px;
+        opacity: 0;
+    }
+</style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<img src="bilde2.jpg " id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+
+    var bildeDelay=3; // ustsetter(delay) transformasjoner med 3 sekunder
+    var bildeanimasjon = document.getElementById("bildeanimasjon");
+
+    TweenMax.to("#bilde1",3,{left:550,opacity:0});// bevager til venstre i 3 sekund
+    TweenMax.to("#bilde2",3,{top:200,delay:bildeDelay,opacity: 1});
+    TweenMax.to("#bilde2",2,{top:200,delay:bildeDelay+3,opacity: 0});
+    TweenMax.to("#bilde3",3,{left:5,delay:bildeDelay+4,opacity: 1});
+    TweenMax.to("#bilde3",2,{left:5,delay:bildeDelay+6,opacity: 0});
+</script>
+</body>
+</html>

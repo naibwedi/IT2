@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>celsius til fahrenhit</title>
+</head>
+<body>
+<h1>Celsius til Fahrenhit</h1>
+
+<p>mandag: <input type="text" id="inpMan" value="5"></p>
+<p>tirsdag: <input type="text" id="inpTir" value="10"></p>
+<p>onsdag: <input type="text" id="inpOns" value="-20"></p>
+<p>torsdag: <input type="text" id="inpTor" value="3"></p>
+<p>fredag: <input type="text" id="inpFre" value="7"></p>
+<p>lørdag: <input type="text" id="inpLør" value="5"></p>
+<p>søndag: <input type="text" id="inpSøn" value="10"></p>
+
+
+<button id="btnFahrenheit">Til fahrenheit</button>
+
+<script>
+    var inpMan=document.getElementById("inpMan");
+    var inpTir=document.getElementById("inpTir");
+    var inpOns=document.getElementById("inpOns");
+    var inpTor=document.getElementById("inpTor");
+    var inpFre=document.getElementById("inpFre");
+    var inpLør=document.getElementById("inpLør");
+    var inpSøn=document.getElementById("inpSøn");
+
+    var btnFahrenheit=document.getElementById("btnFahrenheit");
+
+    btnFahrenheit.onclick=function(){
+//Kjører funksjon som gjør om verdien i tekstfelt til fahrenheit.
+        inpMan.value=tilFahrenheit(inpMan.value);
+        inpTir.value=tilFahrenheit(inpTir.value);
+        inpOns.value=tilFahrenheit(inpOns.value);
+        inpTor.value=tilFahrenheit(inpTor.value);
+        inpFre.value=tilFahrenheit(inpFre.value);
+        inpLør.value=tilFahrenheit(inpLør.value);
+        inpSøn.value=tilFahrenheit(inpSøn.value);
+        btnFahrenheit.disabled=true; 	//Knappen kan ikke trykkes på lenger.
+    };
+
+    function tilFahrenheit(celsiusTekst){
+        var celsius=parseFloat(celsiusTekst);	//Gjør om teksten til tall
+        return 9/5 * celsius+32;		//Regner ut og returnerer fahrenheit
+
+    }
+
+</script>
+</body>
+</html>

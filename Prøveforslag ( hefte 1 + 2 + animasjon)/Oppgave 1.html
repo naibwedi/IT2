@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simpson quiz</title>
+</head>
+<body>
+<h3>Gjett mellom følgende familiemedlemmene i Simpsons :<i>" Homer, Marge, Bart, Lisa og Maggie "</i></h3>
+<img src="Bilder/Gjetthvem.png" id="bildeId1">
+<img src="Bilder/Gjetthvem.png" id="bildeId2">
+<br>
+<input type="text" id="inpFelt" value="" placeholder="Gjett hvem som er bak">
+<input type="button" id="btnGjett" value="Gjett">
+<input type="button" id="btnPrøvegjen" value="Prøve gjen">
+<p id="parUt"></p>
+<script>
+    var inpFelt=document.getElementById("inpFelt");
+    var bildeId1=document.getElementById("bildeId1");
+    var bildeId2=document.getElementById("bildeId2");
+    var btnGjett=document.getElementById("btnGjett");
+    var btnPrøvegjen=document.getElementById("btnPrøvegjen");
+    var parUt=document.getElementById("parUt");
+
+    var forsok=0;
+    var teller=0;
+    var riktig1=0;
+    var riktig2=0;
+    var riktigSvar1=false;
+    var riktigSvar2=false;
+
+
+   btnPrøvegjen.hidden=true;
+    btnGjett.onclick = function () {
+        forsok++;
+        if (inpFelt.value == "") { // sjkker mot tomt tekstfelt
+            parUt.innerHTML = " du må skrive noe";
+            forsok = 0;
+        }
+        else if (inpFelt.value.toLowerCase() == "bart") {
+            riktigSvar1=true;
+            bildeId1.src = "Bilder/Bart.png";
+            parUt.innerHTML = "Du har gjettet riktig";
+            riktig1++;
+
+            if (riktig1 >= 2) {
+                parUt.innerHTML = " Du har alerede gjettet " + inpFelt.value;
+            }
+        } else if (inpFelt.value.toLowerCase() == "lisa") {
+            riktigSvar2=true;
+            bildeId2.src = "Bilder/Lisa.png";
+            parUt.innerHTML = "Du har gjettet riktig";
+            riktig2++;
+            if (riktig2 >= 2) {
+                parUt.innerHTML = " Du har alerede gjettet " + inpFelt.value;
+            }
+
+                }else if (inpFelt.value.toLowerCase() != "lisa"||inpFelt.value.toLowerCase() != "bart"){
+            parUt.innerHTML = "Du har gjettet feil "+"<br> - forsøk "+forsok+" av 3";
+        }
+            if (forsok==3) {
+                parUt.innerHTML = "Game over : trykk på ' prøve gjen ' knapp til å start på nytt "+"<br> - forsøk "+forsok+" av 3";
+                btnPrøvegjen.hidden = false;
+                inpFelt.value="";
+            }
+        if (riktigSvar1==true&&riktigSvar2==true){
+            parUt.innerHTML=" Gratulerer, Du har vunnet" ;
+        }
+
+        }
+        btnPrøvegjen.onclick = function () {
+            bildeId1.src = "Bilder/Gjetthvem.png";
+            bildeId2.src = "Bilder/Gjetthvem.png";
+            parUt.innerHTML = "";
+            inpFelt.value = "";
+            forsok = 0;
+
+    }
+
+
+</script>
+</body>
+</html>

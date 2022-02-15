@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>oppgave 2</title>
+</head>
+<style>
+    #container{
+        display: block;
+        justify-content: center;
+        align-items: center;
+        width: 15em;
+        height: 25em;
+        background-color: #989898;
+        padding: 2em 0em 0em 1em ;
+        border-radius: 10px;
+        margin-left: 25vw;
+        margin-top: 10vh;
+        transform: scale(1.2);
+
+
+    }
+
+</style>
+<body>
+<div id="container">
+
+    <select id="aktivitet">
+        <option disabled selected>Velg Aktivitet</option>
+        <option value="814">Aerobics (814 Kcal/time)</option>
+        <option value="236">Bordetennis (236 Kcal/time)</option>
+        <option value="510">Fotball (510 Kcal/time)</option>
+        <option value="244">Golf (244 Kcal/time)</option>
+        <option value="666">Jogging (666 Kcal/time)</option>
+
+    </select>
+    <h4>Velg Intensitet : </h4>
+    <form id="intesitet">
+        <input type="radio" name="nivå" value="0.8">
+        <label>Låg</label>
+        <br>
+        <input type="radio"  name="nivå" value="1">
+        <label>Middels</label>
+        <br>
+        <input type="radio"  name="nivå" value="1.2">
+        <label>Høg</label>
+    </form>
+    <h4>Oppgi varigheit på treninga i minutt :</h4>
+    <input type="text" id="inpFelt" >
+    <br>
+    <br>
+    <br>
+    <input type="button" id="btnBeregne" value="Beregne kaloriforbruk">
+    <br>
+    <br>
+    <textarea type="text" id="svarFelt" >Svar </textarea>
+</div>
+<script>
+    var aktivitet = document.getElementById("aktivitet");
+    var intesitet = document.getElementById("intesitet");
+    var inpFelt = document.getElementById("inpFelt");
+    var btnBeregne = document.getElementById("btnBeregne");
+    var svarFelt = document.getElementById("svarFelt");
+    
+    btnBeregne.onclick= function () {
+
+        var sum = 0;
+        var time=1;
+        // if (inpFelt.value==""){
+        //     alert("tekstfelt er tomt!")
+        // }
+        var index = aktivitet.selectedIndex
+       var aktivitetvalue=parseFloat(aktivitet.value) ;
+
+        if ( aktivitet[index].selected) {
+
+            for (let i = 0; i < 3; i++) {
+                if (intesitet[i].checked) {
+                    svarFelt.innerHTML = ""
+                    time = inpFelt.value / 60;
+                    alert(aktivitetvalue[index].value);
+                    sum = aktivitet[index].value * time * intesitet[i].value;
+                    svarFelt.innerHTML = sum + "Kcal/time";
+
+
+                }
+            }
+        }
+    }
+    
+</script>
+
+</body>
+</html>

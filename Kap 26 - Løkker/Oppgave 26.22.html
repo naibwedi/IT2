@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fakultetet av et tall</title>
+</head>
+<body>
+<input type="text" id="inpFelt1" value="" placeholder="x">
+
+<button id="btnStart">Finne Fakultetet</button>
+<p id="parUt"></p>
+<p id="parUt2"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var inpFelt1=document.getElementById("inpFelt1");
+    var btnStart=document.getElementById("btnStart");
+
+    var regneUt=1;
+    var change=false;
+    var x=4;
+    btnStart.onclick = function () {
+        x=inpFelt1.value; // x ble endret til inpfelt1 value
+      if (change==false){
+          for (var i=x; i>1; i--){
+
+              regneUt*=i; // har er det som regneUt x value så mange som står på powy value.
+              parUt.innerHTML="Fakultet av "+inpFelt1.value +"  er :  "
+              parUt2.innerHTML+= i+"*";
+
+
+          }
+          parUt2.innerHTML+=1+"="+regneUt;
+          change=true;
+      }else if (change==true){
+          parUt2.innerHTML="";
+          inpFelt1.onchange = function () {
+              parUt2.innerHTML+=1+"="+regneUt;
+          }
+
+      }
+
+    }
+
+
+</script>
+</body>
+</html>

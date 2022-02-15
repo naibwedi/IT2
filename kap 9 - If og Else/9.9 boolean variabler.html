@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boolean variabler</title>
+</head>
+<body>
+<h1> Gjør om fra m/s til Km/t</h1>
+Skrive inn fart i m/s
+<input type="text" id="inpFart">
+<br> Veksle mellom små og store bokstaver.
+<input type="button" value="små/store" id="btnBytt">
+<input type="button" value="ok" id="btnOK">
+<p id="parUt">
+
+</p>
+
+<script>
+    var inpFart =document.getElementById("inpFart");
+    var parUt =document.getElementById("parUt");
+    var btnOK = document.getElementById("btnOK");
+    var btnBytt = document.getElementById("btnBytt");
+
+    btnBytt.onclick=function () {
+        btnBytt=!btnBytt;
+        btnOK.onclick();
+        }
+
+        btnOK.onclick=function () {
+        var fart=parseFloat(inpFart.value.replace(",","."))
+        if(btnBytt) {
+            parUt.innerHTML="du kjører"+fart*3.6+"km/t";
+        }else {
+            parUt.innerHTML="DU KJØRER"+fart*3.6+"KM/T"
+        }
+    }
+</script>
+</body>
+</html>

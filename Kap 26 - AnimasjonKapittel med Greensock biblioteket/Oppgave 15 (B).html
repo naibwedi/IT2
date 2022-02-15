@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animer tekst 1</title>
+  <style>
+    div{
+      position: relative;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+<div class="animasjon1">
+  <p id="utPar"></p>
+  <img src="bilde1.jpg" id="bilde1">
+</div>
+<div class="animasjon2">
+  <p id="utPar2"></p>
+  <img src="bilde2.jpg" id="bilde2">
+</div>
+<div class="animasjon3">
+  <p id="utPar3"></p>
+  <img src="bilde3.jpg" id="bilde3">
+</div>
+
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+  var utPar = document.getElementById("utPar");
+  var utPar2 = document.getElementById("utPar2");
+  var utPar3 = document.getElementById("utPar3");
+
+  var tidslinje = new TimelineLite();
+  var tidsintervall = 3;
+  utPar.innerHTML="Setning 1: Kommer plutselig fram";
+  utPar2.innerHTML = "Setning 2: ny informativ tekst";
+  utPar3.innerHTML = "Setning 3: siste linje";
+  tidslinje.to(".animasjon1", tidsintervall, {x:100,opacity:1 ,ease:Power0.easeIn});
+  tidslinje.to(".animasjon2",tidsintervall ,{x:200,opacity:1 ,ease:Power0.easeIn});
+  tidslinje.to(".animasjon3",tidsintervall, {x:300,opacity:1 ,ease:Power0.easeIn});
+
+</script>
+</body>
+</html>

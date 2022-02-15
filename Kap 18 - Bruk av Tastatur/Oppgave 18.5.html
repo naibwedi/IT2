@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>  tegne med piltastene  </title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500"></canvas>
+</body>
+
+<script>
+    var myCanvas=document.getElementById("myCanvas");
+    var ctx=myCanvas.getContext("2d");
+    var xPos=100;
+    var yPos=100;
+    var farge="black";
+    var n=10;
+
+    ctx.moveTo(xPos,yPos);
+    tegn();
+
+    function tegn(){
+        // alert("tegn");
+        //ctx.beginPath();
+        //ctx.strokeStyle=farge;
+        ctx.lineTo(xPos,yPos);
+        ctx.stroke();
+    }
+
+      window.onkeydown=function(evt){
+
+          // alert(evt.keyCode);
+          if(evt.keyCode==39){ //39=piltast høyre
+              xPos=xPos+10;
+          }
+          else if(evt.keyCode==37){  //37 er piltast venstre
+              xPos=xPos-10;
+          }
+          else if(evt.keyCode==38){ //38=piltast opp
+              yPos=yPos-10;
+          }
+          else if(evt.keyCode==40){ //38=piltast ned
+              yPos=yPos+10;
+          }
+          tegn();
+      }
+
+
+
+</script>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Film SøkeTjenste</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="./slick-1.8.1/slick/slick.css" rel="stylesheet" type="text/css"/>
+    <link href="./slick-1.8.1/slick/slick-theme.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<nav id='menu'>
+    <input type='checkbox' id='responsive-menu' onclick='updatemenu()'><label></label>
+    <ul>
+        <li><img src="img.png" id="headerbilder"></li>
+        <li id="home"><a href='#'>Home</a></li>
+        <li><a href='#about'>About</a></li>
+        <li><a class='dropdown-arrow' href='http://'>Film ressuser</a>
+            <ul class='sub-menus'>
+                <li><a href='https://tv.nrk.no/'>NRK TV</a></li>
+                <li><a href='https://filmrommet.no/'>Filmrommet</a></li>
+                <li><a href='https://ndla.no/subject:20'>NDLA Film </a></li>
+                <li><a href='https://filmoteket.no/'>Filmoteket</a></li>
+            </ul>
+        </li>
+        <li><a href='#lastscroll'>Kontakt Oss</a></li>
+    </ul>
+</nav>
+
+
+<main>
+    <div class="searchContainer">
+        <h1> Film Søketjenste </h1>
+
+        <div class="gcse-search">
+            <script async src="https://cse.google.com/cse.js?cx=7ffbfd88c049428ae"></script>
+        </div>
+        <h1>Search for Plex film</h1>
+        <!--    onkeyup="myFunction()-->
+        <!--instant search-->
+        <div class="container">
+            <div class="wrapper">
+                <input type="text" name="search" id="search" placeholder="Search for names..." autocomplete="chrome-off">
+                <!--                search with language on plex-->
+                <select id="plexspråk">
+                    <option value="1" selected disabled>Språk</option>
+                    <option value="2" id="Norsk">Norsk</option>
+                    <option value="3" id="Engelsk">Engelsk</option>
+                    <option value="4" id="Spansk">Spansk</option>
+                    <option value="5" id="Tysk">Tysk</option>
+                </select>
+                <button id="searchbtn"><i class="fa fa-search"></i></button>
+
+                <div class="results">
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="vidWrapper">
+       <img src="img.png" id="myPosterImage" hidden/>
+        <embed src="https://www.playpilot.com/no/" id="embed1"  style="width:100%; height: 50vw;" hidden="true">
+    </div>
+
+    <p id="about">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit earum deleniti vero dignissimos, ratione suscipit, ipsam accusamus ut vitae reiciendis quis nostrum magnam? Ullam quos mollitia ipsam voluptatem, maxime earum.</p>
+    <p>Perferendis sint culpa quasi, enim vitae fugiat libero possimus harum dolore ab qui odio rerum fugit obcaecati cumque recusandae ad officia veritatis est quo praesentium adipisci ipsam molestias. Molestias, provident!</p>
+    <p>Atque fugit, reprehenderit iure sit aperiam quibusdam fuga nulla officiis ratione quia inventore animi et cupiditate pariatur eum. Necessitatibus, recusandae ipsum voluptatem dignissimos sint explicabo molestias vero corporis consectetur quod!</p>
+    <p>Blanditiis ipsum sed expedita cum, facilis perspiciatis aut eum cumque eligendi iure architecto labore. Quis repudiandae repellendus vero cumque aspernatur temporibus. Quae ducimus delectus aspernatur saepe optio suscipit deleniti nulla.</p>
+    <p>Culpa fugiat ratione pariatur consequatur distinctio nam nostrum? Porro libero quidem temporibus? Praesentium quidem quis magni officiis animi sunt corporis molestias dolores! Amet iure omnis vero labore rerum, quas nemo?</p>
+
+<!--    <div class="websiteContainer1">-->
+<!--    <embed src="https://tv.nrk.no/" style="width:100%; height: 50vw;">-->
+<!--    <embed src="https://filmrommet.no/" style="width:100%; height: 50vw;">-->
+</div>
+<!--    <div class="websiteContainer2">-->
+<!--        <embed src="https://ndla.no/subject:20" style="width:100%; height: 50vw;">-->
+<!--        <embed src="https://filmoteket.no/" style="width:100%; height: 50vw;">-->
+<!--    </div>-->
+<div id="lastscroll"></div>
+    <div class="wrapper">
+        <h2>Slick slide-show eksempel</h2>
+            <div class="carousel">
+<!--                <div><embed src="https://ndla.no/subject:20" style="width:50em; height: 50em;"></div>-->
+                <div><embed src="https://tv.nrk.no/" style="width:100%; height: 50vw;"></div>
+                <div><embed src="https://filmrommet.no/" style="width:100%; height: 50vw;"></div>
+                <div><embed src="https://ndla.no/subject:20" style="width:100%; height: 50vw;"></div>
+                <div><embed src="https://filmoteket.no/" style="width:100%; height: 50vw;"></div>
+
+            </div>
+    </div>
+</main>
+
+<footer id="Kontakt oss">
+    <img src="img.png" id="footerbilder" >
+    <div class="adresse">
+        <p>Vågsbygd videregående skole</p>
+        <p>Kirsten Flagstads vei 26</p>
+        <p>4621  Kristiansand</p>
+    </div>
+    <form method="GET" action="mailto:kontakt@vagsbygd.vgs.no" enctype="text/plain" id="kontaktform">
+        <div>Emne</div>
+        <input type="text" name="subject" />
+
+        <div>Innhold</div>
+        <textarea name="body"></textarea>
+
+        <br/>
+        <input type="submit" value="Send e-post" id="submit"/>
+    </form>
+
+</footer>
+<!--<script src="nav.js"></script>-->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="./slick-1.8.1/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+<script src="Data.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+    var myPosterImage = document.getElementById("myPosterImage")
+    var embed1 = document.getElementById("embed1")
+
+    // embedd poster image
+    // window.addEventListener('load', (event) => {
+    //
+    //     alert("yes")
+    // });
+
+    // function FeilDelay() {
+    //     setTimeout(function(){
+    //         embed1.style.display="flex";
+    //         myPosterImage.hidden=true;
+    //         }, 3000);
+    //
+    // }
+    // FeilDelay()
+    // slick
+    $(document).ready(function(){
+        $('.carousel').slick({
+            // slidesToShow: 2,
+            centerMode: true,
+            dots: true,
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            autoplay:true,
+            autoplaySpeed: 3000,
+        });
+    });
+
+let plexspråk = document.getElementById('plexspråk');
+    let Norsk = document.getElementById('Norsk');
+    let Engelsk = document.getElementById('Engelsk');
+    let Spansk = document.getElementById('Spansk');
+    let Tysk = document.getElementById('Tysk');
+const searchInput = document.getElementById('search');
+const searchWrapper = document.querySelector('.wrapper');
+const resultsWrapper = document.querySelector('.results');
+
+function searchFunction(ArrayNavn) {
+    searchInput.addEventListener('keyup', () => {
+        let results = [];
+        let input = searchInput.value;
+
+            if (input.length) {
+                results = ArrayNavn.filter((item) => {
+                    return item.toLowerCase().includes(input.toLowerCase());
+                });
+            }
+
+
+        renderResults(results);
+    });
+
+    function renderResults(results) {
+        if (!results.length) {
+            return searchWrapper.classList.remove('show');
+        }
+
+        const content = results
+            .map((item) => {
+                return `<li>${item}</li>`;
+            })
+            .join('');
+
+        searchWrapper.classList.add('show');
+        resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+    }
+}
+function searchvalg() {
+    if (plexspråk[0].selected){
+        searchFunction(allSearchable)
+
+     }
+    //     if (plexspråk[6].selected){
+    //     // searchFunction(searchableArray[5])
+    //
+    // }else if (plexspråk[2].selected){
+    //     searchFunction(searchableArray[1])
+    // }else if (plexspråk[3].selected){
+    //     searchFunction(searchableArray[9])
+    // }else if (plexspråk[4].selected){
+    //     searchFunction(searchableArray[11])
+    // }
+}
+//     if (plexspråk[1].selected){
+//         // searchFunction(allSearchable)
+//         alert("yes")
+//     }
+
+searchvalg();
+    searchFunction(allSearchable);
+
+
+</script>
+</body>
+
+</html>

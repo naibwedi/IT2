@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>yatzy</title>
+    <style>
+        body{
+            //background-image: linear-gradient(90deg,red,blue);
+
+        }
+        .container{
+            display: grid;
+        }
+        #btnRolle{
+            width: 120px;
+            height: 60px;
+            border-radius: 25px;
+            color: whitesmoke;
+            font-family: "Times New Roman";
+            font-size: 20px;
+            background-image: linear-gradient(10deg,red, #515193);
+        }
+        h2{
+            background-image: linear-gradient(10deg,red,blue);
+            background-repeat: repeat-y;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform:uppercase ;
+            font-size: 30px;
+
+
+        }
+    </style>
+</head>
+<body>
+<h2>Yatzy spill</h2>
+<br>
+<div class="Container">
+    <img src="bilder/0.jpg" id="bilde1">
+    <img src="bilder/0.jpg" id="bilde2">
+    <img src="bilder/0.jpg" id="bilde3">
+    <img src="bilder/0.jpg" id="bilde4">
+    <img src="bilder/0.jpg" id="bilde5">
+
+</div>
+<br>
+<br>
+<input type="button" id="btnRolle" value="Kast">
+
+<p id="parUt"></p>
+<script>
+    var parUt = document.getElementById("parUt");
+    var btnRolle = document.getElementById("btnRolle");
+    var bilde1 = document.getElementById("bilde1");
+    var bilde2 = document.getElementById("bilde2");
+    var bilde3 = document.getElementById("bilde3");
+    var bilde4 = document.getElementById("bilde4");
+    var bilde5 = document.getElementById("bilde5");
+
+    var terning1;
+    var terning2;
+    var terning3;
+    var terning4;
+    var terning5;
+
+
+
+    
+    btnRolle.onclick = function () {
+        terning1 = Math.floor(Math.random()*6+1);
+        terning2 = Math.floor(Math.random()*6+1);
+        terning3 = Math.floor(Math.random()*6+1);
+        terning4 = Math.floor(Math.random()*6+1);
+        terning5 = Math.floor(Math.random()*6+1);
+
+        for(var i=0;i<5;i++){
+            bilde1.src="bilder/"+terning1+".jpg";
+            bilde2.src="bilder/"+terning2+".jpg";
+            bilde3.src="bilder/"+terning3+".jpg";
+            bilde4.src="bilder/"+terning4+".jpg";
+            bilde5.src="bilder/"+terning5+".jpg";
+
+        }
+
+
+    }
+
+
+
+</script>
+</body>
+</html>

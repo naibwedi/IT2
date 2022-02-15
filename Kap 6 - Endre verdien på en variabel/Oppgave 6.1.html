@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>øke verdien</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var yPos=100;
+    ctx.fillText("y-posisjonen er"+ yPos,100,yPos);
+
+    yPos=yPos+50;//verdien øker med 50
+    ctx.fillText("y-posisjonen er"+ yPos,100,yPos);
+
+    yPos=yPos+50;//verdien øker med 50 fra andre verdi
+    ctx.fillText("y-posisjonen er"+ yPos,100,yPos);
+    ctx.stroke();
+
+</script>
+</body>
+</html>

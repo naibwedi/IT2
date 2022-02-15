@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 80px;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <input type="text" id="inpFelt1" value="-15" placeholder="Mandag">
+    <input type="text" id="inpFelt2" value="7" placeholder="Tirdsdag">
+    <input type="text" id="inpFelt3" value="10" placeholder="Onsdag">
+    <input type="text" id="inpFelt4" value="15" placeholder="Torsdag">
+    <input type="text" id="inpFelt5" value="25" placeholder="Fredag">
+    <input type="button" id="btnOk" value="Ok">
+</div>
+<canvas id="myCanvas" width="600" height="500" style="border: 2px solid; margin-left: 1vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+
+<script >
+    var inpFelt1 = document.getElementById("inpFelt1");
+    var inpFelt2 = document.getElementById("inpFelt2");
+    var inpFelt3 = document.getElementById("inpFelt3");
+    var inpFelt4 = document.getElementById("inpFelt4");
+    var inpFelt5 = document.getElementById("inpFelt5");
+    var btnOk = document.getElementById("btnOk");
+    var myCanvas = document.getElementById("myCanvas");
+    var ctx = myCanvas.getContext("2d");
+
+    var xpos=90;
+    var ypos=200;
+    var bredde=50;
+    var lengde=-10;
+    var mellomRom=100;
+
+    ctx.fillStyle="blue"
+
+    tegneDiagram(inpFelt1.value);
+    tegneDiagram(inpFelt2.value);
+    tegneDiagram(inpFelt3.value);
+    tegneDiagram(inpFelt4.value);
+    tegneDiagram(inpFelt5.value);
+
+    function tegneDiagram(verdi,mellomrom){
+        if(verdi<0){
+            ctx.fillStyle="blue"
+        }else {
+            ctx.fillStyle="red"
+        }
+        ctx.rect(xpos,ypos+mellomRom,bredde,lengde*verdi);
+        ctx.stroke();
+        ctx.fill();
+        ctx.closePath();
+    }
+
+    btnOk.onclick = function () {
+        if (inpFelt1<0||inpFelt2<0||inpFelt3<0||inpFelt4<0||inpFelt5<0){
+
+        }
+
+        ctx.beginPath();
+
+
+
+
+        ctx.beginPath();
+        ctx.rect(xpos+mellomRom,ypos+mellomRom,bredde,lengde*inpFelt2.value);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.rect(xpos+mellomRom*2,ypos+mellomRom,bredde,lengde*inpFelt3.value);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.rect(xpos+mellomRom*3,ypos+mellomRom,bredde,lengde*inpFelt4.value);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.rect(xpos+mellomRom*4,ypos+mellomRom,bredde,lengde*inpFelt5.value);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.fill();
+    }
+
+
+
+
+
+</script>
+</body>
+</html>

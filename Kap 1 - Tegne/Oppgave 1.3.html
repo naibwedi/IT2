@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tegn L V M</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+// rød farge strek
+    ctx.strokeStyle = "red";
+
+    //bokstave "L"
+    ctx.beginPath();
+    ctx.moveTo(40,40);
+    ctx.lineTo(40,100);
+    ctx.moveTo(40,100);
+    ctx.lineTo(80,100);
+    ctx.closePath();
+    ctx.stroke();
+
+//bokstave "M"
+    ctx.beginPath();
+    ctx.moveTo(40,180);
+    ctx.lineTo(40,130);
+    ctx.moveTo(40,130);
+    ctx.lineTo(60,175);
+    ctx.moveTo(60,175);
+    ctx.lineTo(80,130);
+    ctx.moveTo(80,130);
+    ctx.lineTo(80,180);
+    ctx.stroke();
+    //bokstave "V"
+    ctx.beginPath();
+    ctx.moveTo(40,210);
+    ctx.lineTo(60,260);
+    ctx.moveTo(60,260);
+    ctx.lineTo(80,210);
+    ctx.stroke();
+</script>
+</body>
+</html>
+
+
+
+
+

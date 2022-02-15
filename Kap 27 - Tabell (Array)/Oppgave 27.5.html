@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filmklipp</title>
+    <style>
+        #videoFil{
+            max-height: 700px;
+            max-width: 600px;
+            position: absolute;
+            top: 15vh;
+            left: 20vw;
+        //border-radius: 100%;
+        }
+    </style>
+</head>
+<body style="background-image: url('bilde3.jpg');background-size: 100%" >
+
+<video controls id="videoFil" autoplay >
+   <source type="video/mp4" src="video1.mp4">
+</video >
+
+<input
+        type="button"
+        id="Bakover"
+        value="Bakover"
+        style="position: relative;
+        top: 80vh; left: 40vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; "
+>
+<input
+        type="button"
+        id="Fremover"
+        value="Fremover"
+        style="position: relative;
+        top: 80vh; left: 40vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; " >
+
+
+<script>
+    var videoFil=document.getElementById("videoFil");
+    var Fremover=document.getElementById("Fremover");
+    var Bakover=document.getElementById("Bakover");
+
+    var indeks=0;
+    var videoArray= new Array();
+
+    videoArray[0]="video1.mp4";
+    videoArray[1]="video2.mp4";
+    videoArray[2]="video3.mp4";
+    videoArray[3]="video4.mp4";
+    videoArray[4]="video5.mp4";
+
+
+
+    Fremover.onclick=function () {
+        indeks++;
+        videoFil.src=videoArray[indeks];
+        if(indeks==videoArray.length-1){ // hvis indeks blir 6 eller hvos video array kommer til [5]
+            indeks=-1; // den looper tilbake ti den første video array
+        }
+
+    }
+    Bakover.onclick=function () {
+        indeks--;
+        videoFil.src=videoArray[indeks];
+        if(indeks==videoArray.length-6){
+            indeks=videoArray.length;
+        }
+    }
+
+</script>
+
+</body>
+</html>

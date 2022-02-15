@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe | Oppgave 2</title>
+</head>
+<body>
+
+<input type="button" id="btnStart" value="Start menysystem for middager" >
+<h2 id='titel' hidden></h2>
+<form id="frmValgSkjema1"></form>
+<!--<h2 id='til' > HI</h2>-->
+<form id="frmValgSkjema2"></form>
+<form id="frmValgSkjema3"></form>
+<form id="frmValgSkjema4"></form>
+<select id="forrett" hidden></select>
+<input type="button" id="submit" value="bestille" hidden>
+
+    <script>
+        var btnStart = document.getElementById("btnStart");
+        var submit = document.getElementById("submit");
+        var titel = document.getElementById("titel");
+        var frmValgSkjema1 = document.getElementById("frmValgSkjema1");
+        var frmValgSkjema2 = document.getElementById("frmValgSkjema2");
+        var frmValgSkjema3 = document.getElementById("frmValgSkjema3");
+        var frmValgSkjema4 = document.getElementById("frmValgSkjema4");
+        var forrett=document.getElementById("forrett");
+        var forrettArray = ["suppe(90Kr)","vårrull(78Kr)", "broccoli+blomkål (60Kr)"];
+        var hovedrettArray = ["humburger(98Kr)","rollerburger(50Kr)", "pytt i panne (78Kr)","fiskekakker (67kr)"];
+        var tilbehørArray = ["pommes frittes(30Kr)","broccoli(20Kr)", "saus (10Kr)"];
+        var dessertArray = ["kake(67Kr)","is(48Kr)", "fikekaker (64Kr)"];
+        var matArray = [frmValgSkjema1,frmValgSkjema2,frmValgSkjema3,frmValgSkjema4]
+
+        btnStart.onclick=function () {
+            btnStart.hidden=true;
+            document.querySelector("select").hidden=true;
+            titel.hidden=false;
+            titel.innerHTML="Velg mellom følgende mattvalg"
+
+            // for (let i = 0; i < matArray.length; i++) {
+            //     if(frmValgSkjema1[i].checked){
+            //         forrett();
+            //     }
+            //     else if(frmValgSkjema2[i].checked){
+            //         hovedrett();
+            //     }
+            //     else if(frmValgSkjema3[i].checked){
+            //         tibehor();
+            //     }
+            //     else if(frmValgSkjema4[i].checked){
+            //         dessert();
+            //     }
+            // }
+          frmValgSkjema1.onchange= function () {
+              hovedrett();
+
+          }
+            forrettFunction();
+
+            // tibehor();
+            // dessert();
+
+
+        }
+
+
+
+
+        function forrettFunction() {
+
+            for (let i = 0; i < forrettArray.length; i++) {
+                var temp1 = makeRadioButton("frukt","Du valgte "+forrettArray[i],forrettArray[i]);
+                frmValgSkjema1.appendChild(temp1);
+
+
+            }
+        }
+
+        function hovedrett() {
+            for (let i = 0; i < hovedrettArray.length; i++) {
+                var temp2 = makeRadioButton("frukt",hovedrettArray[i],hovedrettArray[i]);
+                frmValgSkjema2.appendChild(temp2);
+
+            }
+        }
+
+        function tibehor() {
+            for (let i = 0; i < tilbehørArray.length; i++) {
+                var temp3 = makeRadioButton("frukt",tilbehørArray[i],tilbehørArray[i]);
+                frmValgSkjema3.appendChild(temp3);
+
+            }
+        }
+
+        function dessert() {
+            for (let i = 0; i < dessertArray.length; i++) {
+                var temp4 = makeRadioButton("frukt",dessertArray[i],dessertArray[i]);
+                frmValgSkjema4.appendChild(temp4);
+
+            }
+        }
+
+        function makeRadioButton(name, value, text) {
+            var label = document.createElement("label");
+            var radio = document.createElement("input");
+            radio.type = "radio";
+            radio.name = name;
+            radio.value = value;
+            label.appendChild(radio);
+            label.appendChild(document.createTextNode(text));
+
+            return label;
+        }//end function
+   makeRadioButton()
+    </script>
+
+</body>
+</html>

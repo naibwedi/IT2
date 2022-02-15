@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>video-tag</title>
+</head>
+<body>
+<h1>Lyd fil</h1>
+<input type="search" id="inpFilNavn" placeholder=" Velge mellom lyd1 / lyd2 / lyd3" style="width: 210px">
+<input type="button" id="btnSøke" value="Ok">
+<br>
+<br>
+<br>
+<input type="button" id="btnlyd1" value="   lyd1  ">
+<input type="button" id="btnlyd2" value="   lyd2   ">
+<input type="button" id="btnlyd3" value="   lyd3   ">
+<br>
+<br>
+<br>
+<audio controls id="lydFil" >
+    <source controls type="audio/mp3" src="lyd/1.mp3">
+</audio>
+<script>
+    var inpFilNavn = document.getElementById("inpFilNavn");
+    var btnSøke = document.getElementById("btnSøke");
+    var btnlyd1 = document.getElementById("btnlyd1");
+    var btnlyd2 = document.getElementById("btnlyd2");
+    var btnlyd3 = document.getElementById("btnlyd3");
+
+
+    lydFil.controls = false;
+    btnSøke.onclick = function () {
+        lydFil.controls = false;
+        if (inpFilNavn.value=="lyd1"||inpFilNavn.value=="lyd 1") {
+            lydFil.controls = true;
+            lydFil.play();
+        }if (inpFilNavn.value=="lyd2"||inpFilNavn.value=="lyd 2") {
+            lydFil.controls = true;
+            lydFil.src = "lyd/2.mp3";
+            lydFil.play();
+        }if (inpFilNavn.value=="lyd3"||inpFilNavn.value=="lyd 3") {
+            lydFil.controls = true;
+            lydFil.src = "lyd/3.mp3";
+            lydFil.play();
+        }else if (inpFilNavn.value==""){
+            lydFil.controls = false;
+            lydFil.pause();
+        }
+    }
+
+    btnlyd1.onclick = function () {
+        velgLyd("lyd/1");
+}
+    btnlyd2.onclick = function () {
+        velgLyd("lyd/2");
+    }
+    btnlyd3.onclick = function () {
+        velgLyd("lyd/3");
+    }
+
+    function velgLyd(filnavn){
+        lydFil.controls = true;
+        lydFil.src = filnavn+".mp3";
+        lydFil.load();
+        lydFil.play();
+    }
+
+</script>
+</body>
+</html>

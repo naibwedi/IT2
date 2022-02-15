@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1000 terningkast</title>
+</head>
+<body>
+<p id="avsnitt"></p>
+<script>
+    avsnitt=document.getElementById("avsnitt");
+    var n=0;
+    var innhold="";
+    var seksere=1;
+    var nullEn;
+    while(n<1000){
+        nullEn=Math.floor(Math.random()*6+1);
+        if(nullEn==6){ // hvis nullEn erlik 6 inhhold blir kron
+            seksere++;
+            avsnitt.innerHTML="Du fikk "+seksere+" antall seksere fra 1000 terning kast";
+        }
+        else{                 // eller hvis ikke  innhold
+            innhold=nullEn;
+        }
+
+        n++;       // forsetter til det er 1000 value
+    }
+</script>
+</body>
+</html>

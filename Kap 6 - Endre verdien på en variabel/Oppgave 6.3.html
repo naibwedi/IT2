@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+  var myCanvas =document.getElementById("myCanvas");
+  var ctx= myCanvas.getContext("2d");
+
+  var yPos=50;
+  var xPos=50;
+  var width=50;
+  ctx.moveTo(xPos,yPos);
+  ctx.lineTo(width*2,yPos);
+
+  yPos=yPos+20;
+  width=width+20;
+  ctx.moveTo(xPos,yPos);
+  ctx.lineTo(width*2,yPos);
+
+  yPos=yPos+20;
+  width=width+20;
+  ctx.moveTo(xPos,yPos);
+  ctx.lineTo(width*2,yPos);
+
+  yPos=yPos+20;
+  width=width+20;
+  ctx.moveTo(xPos,yPos);
+  ctx.lineTo(width*2,yPos);
+
+  yPos=yPos+20;
+  width=width+20;
+  ctx.moveTo(xPos,yPos);
+  ctx.lineTo(width*2,yPos);
+
+  ctx.stroke();
+
+</script>
+</body>
+</html>

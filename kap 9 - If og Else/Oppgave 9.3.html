@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spørreprogram</title>
+</head>
+<body>
+
+Hvis du kjører 80 km i timen, hvor lang tid tar det å kjøre 80 km? <input type="text" id="inpFart" placeholder="skrive svar ">
+<input type="button" value="ok" id="btnOk">
+<p id="partUt">
+
+</p>
+
+<script>
+    var inpFart =document.getElementById("inpFart");
+    var partUt =document.getElementById("partUt");
+    var btnOK = document.getElementById("btnOk");
+
+    btnOK.onclick=function () {
+        var fart=parseFloat(inpFart.value);
+
+        if(fart==80){
+            partUt.innerHTML="Rett svar , gratulerer du vant 500 kr.";
+        }else if(fart>80&&fart<=85){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else if(fart>85&&fart<=90){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else if(fart>90&&fart<=95){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else if(fart>95&&fart<=100){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else if(fart>100&&fart<=105){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else if(fart>105&&fart<=110){
+            partUt.innerHTML="Feil, prøve på nytt";
+        }else{
+            partUt.innerHTML="Feil, prøve på nytt";
+        }
+    }
+</script>
+</body>
+</html>

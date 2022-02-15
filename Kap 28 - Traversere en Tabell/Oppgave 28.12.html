@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avansert-Yatzy </title>
+</head>
+<body>
+
+<img src="0.jpg" id="kast1" >
+<img src="0.jpg" id="kast2" >
+<img src="0.jpg" id="kast3" >
+<img src="0.jpg" id="kast4" >
+<img src="0.jpg" id="kast5" >
+<br>
+<input type="button" value="kast" id="kastID">
+<br>
+<p id="resultatID" ></p>
+<p id="resultatID2" > </p>
+<p id="resultatID3" > </p>
+<p id="resultatID4" > </p>
+
+<script>
+    var kastID=document.getElementById("kastID");
+    var resultatID=document.getElementById("resultatID");
+    var resultatID2=document.getElementById("resultatID2");
+    var resultatID3=document.getElementById("resultatID3");
+    var resultatID4=document.getElementById("resultatID4");
+    var kast1 =document.getElementById("kast1");
+    var kast2 =document.getElementById("kast2");
+    var kast3 =document.getElementById("kast3");
+    var kast4 =document.getElementById("kast4");
+    var kast5 =document.getElementById("kast5");
+
+    var terningArray=new Array();
+    var resultatArray=[0,0,0,0,0,0]; //oppretter en tabell med 6 muligheter
+    var sum=0;
+    kastID.onclick=function(){
+        var teller=0;
+        var antallKast=5;
+        resultatID.innerHTML="";
+        resultatArray=[0,0,0,0,0,0];
+        terningArray=new Array();
+        for (let teller = 0; teller < antallKast ; teller++) {
+            terningArray[teller]=Math.floor(Math.random()*6+1)
+        }
+        terningArray.sort();  // sortere array så kan det blir lettere til å få liten eller stor straight
+
+        kast1.src=(terningArray[0]+".jpg");
+        kast2.src=(terningArray[1]+".jpg");
+        kast3.src=(terningArray[2]+".jpg");
+        kast4.src=(terningArray[3]+".jpg");
+        kast5.src=(terningArray[4]+".jpg");
+
+        teller=0;
+        for ( teller = 0; teller<antallKast ; teller++) {
+            resultatArray[(terningArray[teller]-1)]++;
+        }
+
+        //skriver ut resultatet.
+        teller=0;
+        resultatID.innerHTML="resultatet ble ";
+
+        for ( teller = 0; teller < resultatArray.length; teller++) {
+            resultatID.innerHTML+="<br> antall " + (teller+1)+"'ere:   "+resultatArray[teller];
+        }
+
+
+        //alert(terningArray)
+        if(terningArray[0]==1&&terningArray[1]==2&&terningArray[2]==3&&terningArray[3]==4&&terningArray[4]==5){
+            resultatID2.innerHTML="Du fikk liten straight";
+        }
+        if(terningArray[0]==2&&terningArray[1]==3&&terningArray[2]==4&&terningArray[3]==5&&terningArray[4]==6){
+            resultatID2.innerHTML="Du fikk stor straight";
+        }
+        for ( teller = 0; teller < resultatArray.length; teller++) {
+            if (resultatArray[teller]==2){  // to lik
+                resultatID2.innerHTML+="<br> Du fikk 2 like! på "+(teller+1)+"ere";
+                //break;
+            }
+            if (resultatArray[teller]==3){  // tre lik
+                resultatID2.innerHTML="Du fikk 3 like! på "+(teller+1)+"ere";
+            }
+
+            if (resultatArray[teller]==4){  // fire lik
+                resultatID2.innerHTML="<br>Du fikk 4 like! på "+(teller+1)+"ere";
+            }
+            if (resultatArray[teller]==5){  // fem lik (yatzy)
+                resultatID2.innerHTML="<br>Du fikk 5 like!(yatzy :)) på "+(teller+1)+"ere";
+            }
+            if (resultatArray[teller]==2&&resultatArray[1]==2||resultatArray[2]==2||resultatArray[3]==2||resultatArray[4]==2){
+                resultatID2.innerHTML="<br>Du fikk 2 par";
+
+            }
+            if (resultatArray[teller]==2&&resultatArray[teller]==3){  // hus
+                resultatID2.innerHTML="<br> Gratulerer Du fikk hus";
+            }else{
+                sum=terningArray[0]+terningArray[1]+terningArray[2]+terningArray[3]+terningArray[4];
+                resultatID4.innerHTML="Sjansen vil være lik: "+sum;
+            }
+        }
+
+
+
+    }
+
+</script>
+</body>
+</html>

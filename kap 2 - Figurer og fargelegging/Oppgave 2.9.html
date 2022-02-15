@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>norske flagget</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    //black farge
+    ctx.strokeStyle = "black";
+    ctx.fillStyle  = "black";
+
+    // grunnflate
+    ctx.fillRect(20,280,40,20)
+
+    //støtte for flagget
+    ctx.fillRect(30,30,18,250)
+
+    //rød farge
+    ctx.strokeStyle = "red";
+    ctx.fillStyle  = "red";
+
+    //sirkel
+    ctx.arc(39,22,13,0,2*Math.PI);
+
+    ctx.fill();
+    ctx.stroke();
+
+    //firekant
+    ctx.fillRect(48,43,180,120);
+
+
+
+    //blå farge
+    ctx.strokeStyle = "white";
+    ctx.fillStyle  = "white";
+
+    ctx.fillRect(90,43,40,120);
+    ctx.fillRect(47,80,181,40);
+
+    ctx.strokeStyle = "blue";
+    ctx.fillStyle  = "blue";
+
+    ctx.fillRect(48,90,180,20);
+    ctx.fillRect(100,40,20,125);
+
+    ctx.fill();
+    ctx.stroke();
+</script>
+</body>
+</html>

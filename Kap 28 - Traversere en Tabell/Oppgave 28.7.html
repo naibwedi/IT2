@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>postnumer</title>
+</head>
+<body>
+<input type="text" id="inpFelt" value="" placeholder="Skriv inn Postnr">
+<input type="button" id="btnOk" value="Ok">
+<br>
+<input type="text" id="inpFelt2" value="" placeholder="">
+<p id="parUt"></p>
+
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var inpFelt2 = document.getElementById("inpFelt2");
+    var btnOk = document.getElementById("btnOk");
+    var parUt = document.getElementById("parUt");
+
+    var postnrArray= ["4616","3292","9300","0011"]
+    var stedArray= ["kristiansand","Stavern","Finnsnes",'Oslo'];
+
+    btnOk.onclick= function () {
+     for(var indeks=0; indeks<postnrArray.length;indeks++){
+         //inpFelt.value=postnrArray[indeks];
+         if(postnrArray[indeks]==inpFelt.value){
+             inpFelt2.value=stedArray[indeks].toString();
+             //parUt.innerHTML=stedArray[indeks];
+         }
+     }
+    }
+
+
+</script>
+</body>
+</html>

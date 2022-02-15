@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>knapper øke eller minke med 1</title>
+</head>
+<body>
+<p>Tykk på knapper eller + / - til å øke eller minke verdi </p>
+<p id="parUt"></p>
+<input type="button" id="btnØke" value="Øke">
+<input type="button" id="btnMinke" value="Minke">
+<script>
+  var btnØke = document.getElementById("btnØke");
+  var btnMinke = document.getElementById("btnMinke");
+  var parUt = document.getElementById("parUt");
+  var count=0;
+
+  btnØke.onclick = function () {
+      count++;
+      parUt.innerHTML=count;
+
+  }
+  btnMinke.onclick = function () {
+      count--;
+      parUt.innerHTML=count;
+
+  }
+  window.onkeydown=function (evt) {
+
+      if(evt.keyCode==187) { // øke med 1
+          count++;
+          parUt.innerHTML=count;
+      }if (evt.keyCode==189) { // minke med 1
+          count--;
+          parUt.innerHTML=count;
+      }
+  }
+
+</script>
+</body>
+</html>

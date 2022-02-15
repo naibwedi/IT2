@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>diagonal strek</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    ctx.strokeStyle = "red";
+    //diagonal strek
+    ctx.moveTo(0,0);
+    ctx.lineTo(300,300);
+    ctx.closePath();
+
+    ctx.stroke();
+</script>
+</body>
+</html>

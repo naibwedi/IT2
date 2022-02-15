@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>store hodet</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+  var myCanvas =document.getElementById("myCanvas");
+  var ctx= myCanvas.getContext("2d");
+
+  var xpos=120;
+  var ypos=100;
+  var width=100;
+  var height=100;
+
+  ctx.strokestye="black";
+  //tegn kroppen
+  ctx.beginPath();
+  ctx.moveTo(xpos,ypos+width/2);
+  ctx.lineTo(xpos,ypos+height*2);
+  ctx.closePath();
+  ctx.stroke();
+  //tegn høyre hand
+  ctx.beginPath();
+  ctx.moveTo(xpos,ypos+width+10);
+  ctx.lineTo(xpos+width/2,ypos+height/2);
+  ctx.closePath();
+  ctx.stroke();
+  //tegn venstre hand
+  ctx.beginPath();
+  ctx.moveTo(xpos,ypos+width+10);
+  ctx.lineTo(xpos-width+20,ypos+height-20);
+  ctx.closePath();
+  ctx.stroke();
+
+
+  //tegn høyre fot
+  ctx.beginPath();
+  ctx.moveTo(xpos+width-20,ypos+width+80);
+  ctx.lineTo(xpos,ypos+height+40);
+  ctx.closePath();
+  ctx.stroke();
+  //tegn venstre fot
+  ctx.beginPath();
+  ctx.moveTo(xpos,ypos+width+40);
+  ctx.lineTo(xpos-width+20,ypos+height+80);
+  ctx.closePath();
+  ctx.stroke();
+
+  //tegn høde
+  ctx.beginPath();
+  ctx.arc(xpos,ypos,width/2,0,2*Math.PI);
+  ctx.stroke();
+</script>
+</body>
+</html>

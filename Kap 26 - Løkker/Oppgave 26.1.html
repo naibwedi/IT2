@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1 - 10 liste</title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var innhold="";
+    for (var teller=1; teller<11; teller++){
+        var innhold = innhold+teller+"<br>"
+        parUt.innerHTML=innhold;
+    }
+</script>
+</body>
+</html>

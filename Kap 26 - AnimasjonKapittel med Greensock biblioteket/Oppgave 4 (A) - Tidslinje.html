@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tidslinjen med tre bilder</title>
+    <style>
+        #bilde1{
+            position: relative;
+        }
+        #bilde2{
+            position: relative;
+        }
+        #bilde3{
+            position: relative;
+        }
+    </style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<img src="bilde2.jpg " id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+
+
+    var tidslinje = new TimelineLite();
+    tidslinje.to("#bilde1",1, {x:550})
+             .to("#bilde2",1,{x:550})
+             .to("#bilde3",1,{x:550});
+</script>
+
+ </body>
+</html>

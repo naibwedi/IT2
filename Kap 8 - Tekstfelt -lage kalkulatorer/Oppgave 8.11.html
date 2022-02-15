@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>valuta</title>
+</head>
+<body>
+<p>
+    <input type="number"  id="dollar" value="" placeholder=" dollar">
+    <input type="number"  id="pund" value="" placeholder=" pund">
+    <input type="number"  id="euro" value="" placeholder=" euro">
+    <input type="button" id="btnLik" value="=">
+</p>
+<p id="parSum1">
+</p>
+<p id="parSum2" style="margin-left: 180px; margin-top: -35px;">
+</p>
+<p id="parSum3"  style="margin-left: 360px; margin-top: -35px;">
+</p>
+<script>
+    var btnLik =document.getElementById("btnLik");
+    var dollar = document.getElementById("dollar");
+    var pund = document.getElementById("pund");
+    var euro = document.getElementById("euro");
+    var parSum1=document.getElementById("parSum1");
+    var parSum2=document.getElementById("parSum2");
+    var parSum3=document.getElementById("parSum3");
+
+
+    var sum1=0;
+    var sum2=0
+    var sum3=0
+
+
+    var ledd2;
+
+
+    btnLik.onclick=function () {
+
+        var Dollar=parseFloat(dollar.value);
+        var Pund =parseFloat(pund.value);
+        var Euro =parseFloat(euro.value);
+
+
+
+        sum1=8*Dollar+"USD"
+        sum2=11.99*Pund+"GBP";
+        sum3=10.22*Euro+"EUR";
+
+        parSum1.innerHTML=sum1;
+        parSum2.innerHTML=sum2;
+        parSum3.innerHTML=sum3;
+    }
+</script>
+</body>
+</html>

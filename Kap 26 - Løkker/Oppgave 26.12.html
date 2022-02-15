@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tegne firekant</title>
+</head>
+<body>
+<br>
+<h2>Skrive Antall Firekant du vil tegne</h2>
+<input type="text" id="inpFelt" >
+<input type="button" id="btnOk" value="Ok">
+<br>
+<br>
+
+<canvas id="myCanvas" width="700" height="700" style="border:1px solid;"> Nettleseren din støtter ikke HTML5</canvas>
+
+<script>
+  //kobler HTML objekter
+  var btnOk=document.getElementById("btnOk");
+  var inpFelt=document.getElementById("inpFelt");
+  var myCanvas=document.getElementById("myCanvas");
+  var ctx=myCanvas.getContext("2d");
+  //variabler
+  var antallFirekant=10;
+  var xpos=100;
+  var ypos=100;
+  var mellomrom=20;
+  var mellomrom2=40;
+  var bredde=500;
+  var høyde=500;
+
+  for(var i= 0;i<antallFirekant;i++){
+    ctx.beginPath();
+    ctx.rect(xpos+mellomrom*i,ypos+mellomrom*i,bredde-mellomrom2*i,høyde-mellomrom2*i);
+    ctx.stroke();
+
+  }
+
+
+  btnOk.onclick = function () {
+    ctx.clearRect(0,0,700,700),
+    antallFirekant=inpFelt.value;
+    if(inpFelt.value!=""){
+      for(var i= 0;i<antallFirekant;i++){
+
+        ctx.beginPath();
+        ctx.rect(xpos+mellomrom*i,ypos+mellomrom*i,bredde-mellomrom2*i,høyde-mellomrom2*i);
+        ctx.stroke();
+
+      }
+    }
+
+  }
+
+
+</script>

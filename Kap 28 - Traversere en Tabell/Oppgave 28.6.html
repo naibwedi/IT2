@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ord som skal sensurere</title>
+</head>
+<body>
+<textarea id="tekstOmrade" cols="25" rows="8">tekst Omrade for teksten til å sensurere.
+</textarea>
+<br>
+<input type="text" id="inpSok" placeholder="Skriv inn sensurord">
+<input type="button" id="btnSok" value="søk" >
+<p id="parResultat"></p>
+
+<script>
+    var inpSok=document.getElementById("inpSok");
+    var tekstOmrade=document.getElementById("tekstOmrade");
+    var btnSok=document.getElementById("btnSok");
+    var parResultat=document.getElementById("parResultat");
+
+    var tekstArray = new Array();
+    var resultatArray = new Array();
+    var sensurArray=["stupid","shit","teksten","Omrade"];
+
+    btnSok.onclick=function() {
+        tekstArray=tekstOmrade.value.split(" ");
+        //alert(sensurArray);
+        for (var indeks=0; indeks<tekstArray.length; indeks++) {
+            for (var sensur=0; sensur<sensurArray.length; sensur++) {
+                if (tekstArray[indeks]==sensurArray[sensur]) {
+                    alert("sensur funnet");
+                    resultatArray.push(indeks);
+                    tekstArray[indeks] = "****";
+                }else if(inpSok.value!=""){
+                    resultatArray.push(inpSok.value);
+                    inpSok.value="****";
+                }
+            }
+            sensur=0;
+        }
+
+        if(resultatArray.length!=0){	//funnet sensurering
+            parResultat.innerHTML="Sensur nødvendig";
+            //tekstOmrade.value=tekstArray.toString(); //caster to string.
+            //MERK: Her blir det satt inn komma mellom hver tabellcelle. IKKe bra. Se bedre løsning i ver 2. Byttet ut .toString() med egen rutine.
+            var teller=0;
+            tekstOmrade.value="";
+            while(teller<tekstArray.length){
+                if(teller==0){
+                    tekstOmrade.value=tekstArray[teller]; //kun for å droppe blanke mellomrom i starten
+                }
+                else{
+                    tekstOmrade.value=tekstOmrade.value+" "+tekstArray[teller]; //legger til teksten som løkke med mellomrom
+                }
+                teller++;
+            }
+        }else{
+            parResultat.innerHTML="Sensur ikke nødvendig";
+        }
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bytte film </title>
+</head>
+<body>
+<h1 id="title" style="margin-left:100px; ">Spider Man : No way home 2021 Trailer</h1>
+<br>
+<input type="button" id="startFilm" value="▶" style="margin-left: 0px; " >
+<input type="button" id="stopFilm" value="װ" ">
+<input type="button" id="startFilmenPåNytt" value="Start Filmen på nytt">
+<input type="button" id="oppVolume" value="oppVolume">
+<input type="button" id="nedVolume" value="nedVolume">
+<input type="button" id="zoomInn" value="zoomInn">
+<input type="button" id="zoomUt" value="zoomUt">
+<input type="button" id="nesteFilm" value="NesteFilm">
+
+<video  id="videoFilm" poster="spider-man-bilde.jpg_large"
+        style="align-content: center;
+         margin-top: 20px;
+">
+    <source src="video/spider-man-trailer.mp4" type="video/mp4" >
+</video>
+
+<script>
+    var videoFilm = document.getElementById("videoFilm");
+    var startFilm = document.getElementById("startFilm");
+    var stopFilm = document.getElementById("stopFilm");
+    var startFilmenPåNytt = document.getElementById("startFilmenPåNytt");
+    var oppVolume = document.getElementById("oppVolume");
+    var nedVolume = document.getElementById("nedVolume");
+    var zoomInn = document.getElementById("zoomInn");
+    var zoomUt = document.getElementById("zoomUt");
+    var nesteFilm = document.getElementById("nesteFilm");
+    var title = document.getElementById("title");
+
+    var widthZoom=500;
+
+    videoFilm.controls=false;
+    videoFilm.width=widthZoom;
+
+    videoFilm.autoplay=false;
+
+    // knapp for å starte filmen
+    startFilm.onclick = function () {
+        videoFilm.play();
+
+    }
+    // knapp får å pause filmen
+    stopFilm.onclick = function () {
+        videoFilm.pause();
+    }
+    // knapp som starter filmen fra begynnelsen
+    startFilmenPåNytt.onclick = function () {
+        videoFilm.load();
+        videoFilm.play();
+    }
+    //knapp som øker lyden
+    var count=0;
+    videoFilm.volume = 0; // video skal begynne uten lyd
+    // lyde skal øker med 0.1 hver gang knappen er tykket
+    oppVolume.onclick = function () {
+        count++;
+        videoFilm.volume =count/10;
+        if (count==10){
+            alert("max volume");
+        }
+    }
+    // lyden skal synke med 0.1 hver gang knappen er tykket
+    nedVolume.onclick = function () {
+        count--;
+        videoFilm.volume =count/10;
+        if (count==0){
+            alert("min volume");
+        }
+    }
+    // zoom in knapp
+    zoomInn.onclick = function () {
+        count++;
+        videoFilm.width =widthZoom+(count*50);
+
+        if (count==20){
+            alert("max volume") // gir besjede hvis max volume
+        }
+    }
+    // zoom ut knapp
+
+    zoomUt.onclick = function () {
+        count--;
+        videoFilm.width =widthZoom+(count*50);
+        if (count==0){
+            alert("min volume")  // gir besjede hvis min volume
+        }
+    }
+
+    // knapp for neste film
+    nesteFilm.onclick = function () {
+        videoFilm.src= "video/INVASION Official Trailer (2021)-(1080p).mp4";
+        title.innerHTML="INVASION Official Trailer (2021)-(1080p)";
+        videoFilm.poster="invasion.jpg";
+    }
+</script>
+</body>
+</html>

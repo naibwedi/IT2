@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knapper som flytter sirklen opp og ned</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p>
+    <input type="button" id="btnUtvid" value="btnUtvid">
+    <input type="button" id="btnOpp" value="btnOpp" style="background-color: #1435dc">
+    <input type="button" id="btnNed" value="btnNed" style="background-color: #ef0808">
+</p>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var btnUtvid=document.getElementById("btnUtvid");
+    var btnOpp=document.getElementById("btnOpp");
+    var btnNed=document.getElementById("btnNed");
+
+    ctx.fillStyle="red";
+    var radius=0;
+    var fraVenstre=250;
+    var fraTopp=250;
+
+    btnUtvid.onclick=function () {
+        radius=radius+10;
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.beginPath();
+        ctx.arc(fraVenstre,fraTopp,radius,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+    btnOpp.onclick=function () {
+
+        fraTopp=fraTopp+10;
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.beginPath();
+        ctx.arc(fraVenstre,fraTopp,radius,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+    btnNed.onclick=function () {
+
+        fraTopp=fraTopp-10;
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.beginPath();
+        ctx.arc(fraVenstre,fraTopp,radius,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>

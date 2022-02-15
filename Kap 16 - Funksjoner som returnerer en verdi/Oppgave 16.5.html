@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Utenlandske PEnger</title>
+</head>
+<body>
+<p>norske penger: <input type="text" id="norskePenger" value="10"></p>
+<p>Valuta verdi: <input type="text" id="valutaverdi" value="8.9"></p>
+<p id="utenlandskeKroner"></p>
+<button id="btnPenger">Til Utenlanske penger</button>
+
+<script>
+    var norskePenger =document.getElementById("norskePenger");
+    var valutaverdi =document.getElementById("valutaverdi");
+    var btnPenger = document.getElementById("btnPenger")
+    var utenlandskeKroner = document.getElementById("utenlandskeKroner");
+
+    function utenlandskePenger(norskePenger,valuaverdi) {
+
+        return norskePenger * 100 / valuaverdi;
+    }
+
+    btnPenger.onclick = function () {
+        utenlandskeKroner.innerHTML = "Du får totalt " + utenlandskePenger(parseFloat(norskePenger.value), parseFloat(valutaverdi.value)) + " utenlandske penger";
+    }
+</script>
+</body>
+</html>

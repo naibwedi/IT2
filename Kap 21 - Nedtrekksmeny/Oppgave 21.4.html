@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slette valg fra meny</title>
+</head>
+<body>
+
+<h2 id="text1" >fylleUt det form</h2>
+
+<br>
+<input type="text" id="inpFelt1">
+<select id="navnForm1">
+  <option selected> Førnavn</option>
+</select>
+
+<br>
+<br>
+<input type="text" id="inpFelt2">
+<select id="navnForm2">
+    <option selected> Etternavn</option>
+</select>
+<br>
+<br>
+<input type="button" id="btnLeggeTil" value="Ok">
+<input type="button" id="btnSlettFørnavn" value="Slett Førnavn">
+<input type="button" id="btnSlettEtternavn" value="Slett Etternavn">
+<script>
+  var inpFelt1 = document.getElementById("inpFelt1");
+  var inpFelt2 = document.getElementById("inpFelt2")
+  var navnForm1 = document.getElementById("navnForm1");
+  var navnForm2 = document.getElementById("navnForm2");
+  var btnLeggeTil = document.getElementById("btnLeggeTil");
+  var btnSlettFørnavn = document.getElementById("btnSlettFørnavn");
+  var btnSlettEtternavn = document.getElementById("btnSlettEtternavn");
+  var etternavn = document.getElementById("etternavn");
+
+
+
+
+  btnLeggeTil.onclick =  function () {
+      if(inpFelt1.value!=""){
+          var option = document.createElement("option"); // creates new option element
+          option.text = inpFelt1.value;
+          navnForm1.add(option);//
+
+      } if (inpFelt2.value!=""){
+          var option = document.createElement("option"); // creates new option element
+          option.text = inpFelt2.value;
+          navnForm2.add(option);//
+      }
+
+  }
+ btnSlettFørnavn.onclick = function () {
+
+     navnForm1.remove(navnForm1.selectedIndex);
+
+
+ }
+  btnSlettEtternavn.onclick = function () {
+
+      navnForm2.remove(navnForm2.selectedIndex);
+
+
+  }
+
+</script>
+</body>
+</html>

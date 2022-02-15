@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>legge nytt bilder</title>
+</head>
+<body style="background-image: url('bilde3.jpg');background-size: 100%" >
+<img
+        src="bilde1.jpg"
+        id="bilde1"
+        style="max-height: 500px;
+        max-width: 500px;
+        position: absolute;
+        top: 15vh;
+        left: 20vw;
+        //border-radius: 100%; " >
+
+<input
+        type="button"
+        id="Bakover"
+        value="Bakover"
+        style="position: relative;
+        top: 80vh; left: 40vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; "
+>
+<input
+        type="button"
+        id="Fremover"
+        value="Fremover"
+        style="position: relative;
+        top: 80vh; left: 40vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; " >
+
+
+<script>
+    var bilde1=document.getElementById("bilde1");
+    var Fremover=document.getElementById("Fremover");
+    var Bakover=document.getElementById("Bakover");
+
+    var indeks=0;
+    var bildeArray= new Array();
+
+    bildeArray[0]="bilde1.jpg";
+    bildeArray[1]="bilde2.jpg";
+    bildeArray[2]="bilde3.jpg";
+    bildeArray[3]="bilde4.jfif";
+    bildeArray[4]="bilde5.jfif";
+    bildeArray[5]="bilde6.jfif";
+
+    bildeArray.push("bilde7.jfif");
+
+
+    Fremover.onclick=function () {
+        indeks++;
+        bilde1.src=bildeArray[indeks];
+        if(indeks==bildeArray.length-1){ // hvis indeks blir 6 eller hvos bilde array kommer til [5]
+            indeks=-1; // den looper tilbake ti den første bilde array
+        }
+
+    }
+    Bakover.onclick=function () {
+        indeks--;
+        bilde1.src=bildeArray[indeks];
+        if(indeks==bildeArray.length-6){
+            indeks=bildeArray.length;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tegn Z,K,Y</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var xpos=100;
+    var ypos=30;
+    var bredde=50;
+    var høyde=50;
+
+    // tegn "Z"
+    ctx.strokestye="#342c96";
+    ctx.moveTo(xpos,ypos);
+    ctx.lineTo(xpos+bredde,ypos);
+    ctx.moveTo(xpos+bredde,ypos);
+    ctx.lineTo(xpos,ypos+50);
+    ctx.moveTo(xpos,ypos+50);
+    ctx.lineTo(xpos+bredde,ypos+50);
+
+
+    //tegn "K"
+
+    ctx.moveTo(xpos,ypos+70);
+    ctx.lineTo(xpos,ypos+120);
+    ctx.moveTo(xpos,ypos+95);
+    ctx.lineTo(xpos+40,ypos+70);
+    ctx.moveTo(xpos,ypos+95);
+    ctx.lineTo(xpos+40,ypos+120);
+    ctx.closePath();
+
+    //tegn "M"
+    ctx.moveTo(xpos,ypos+180);
+    ctx.lineTo(xpos+0,ypos+140);
+    ctx.moveTo(xpos+20,ypos+180);
+    ctx.lineTo(xpos,ypos+140);
+    ctx.moveTo(xpos+40,ypos+140);
+    ctx.lineTo(xpos+20,ypos+180);
+    ctx.moveTo(xpos+40,ypos+140);
+    ctx.lineTo(xpos+40,ypos+180);
+    ctx.stroke();
+
+
+
+</script>
+</body>
+</html>

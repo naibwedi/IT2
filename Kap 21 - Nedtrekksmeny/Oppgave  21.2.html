@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Legge til en verdi</title>
+</head>
+<body>
+<input type="text" id="inpFelt">
+<input type="button" id="btnLeggeTil" value="Legge Til">
+VELG FRA DEN LISTE:
+<select id="dyrValg">
+  <option selected disabled>Velg en dyr</option>
+  <option> Hund</option>
+  <option> Katt</option>
+  <option> Fugle</option>
+  <option> ku</option>
+  <option> Slange</option>
+
+</select>
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var dyrValg = document.getElementById("dyrValg");
+    var btnLeggeTil = document.getElementById("btnLeggeTil");
+
+    btnLeggeTil.onclick =  function () {
+        var option = document.createElement("option"); // creates new option element
+        option.text = inpFelt.value;
+        dyrValg.add(option);// this add the option wriitn on inpfelt to the menu of dyrValg
+
+    }
+
+</script>
+</body>
+</html>

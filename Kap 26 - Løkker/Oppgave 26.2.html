@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>10 - 1 liste sykende rekkefølge</title>
+</head>
+<body>
+<p id="parUt"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var innhold="";
+
+    for (var teller=10; teller>0; teller--){
+        var innhold = innhold+teller+"<br>"
+        parUt.innerHTML=innhold;
+    }
+</script>
+</body>
+</html>

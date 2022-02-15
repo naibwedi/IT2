@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spørsmål</title>
+</head>
+<body>
+<h2> Hva er hovedstaten i Norge?</h2>
+<form id="hovedStaten">
+    <input type="radio" name="hovedstad" value="1" >
+    <label>Oslo</label>
+    <br>
+    <input type="radio" name="hovedstad" value="0">
+    <label>Bergen</label>
+    <br>
+    <input type="radio" name="hovedstad" value="0">
+    <label>Tromsø</label>
+    <br>
+</form>
+<h2> Hva er 3 + 8?</h2>
+<form id="plus">
+    <input type="radio" name="nummer" value="0">
+    <label>9</label>
+    <br>
+    <input type="radio" name="nummer"  value="0">
+    <label>10</label>
+    <br>
+    <input type="radio" name="nummer" value="1">
+    <label>11</label>
+    <br>
+</form>
+<h2> Hvilken land har London som hovedstad?</h2>
+<form id="LondonHovedstad">
+    <input type="radio" name="land" value="0">
+    <label>Danmark</label>
+    <br>
+    <input type="radio" name="land" value="0">
+    <label>Sverige</label>
+    <br>
+    <input type="radio" name="land" value="1">
+    <label>England</label>
+    <br>
+</form>
+<br>
+<input type="button" id="btnOK" value="Ok">
+<p id="parUt"></p>
+
+<script>
+    var hovedStaten = document.getElementById("hovedStaten");
+    var plus = document.getElementById("plus");
+    var LondonHovedstad = document.getElementById("LondonHovedstad");
+    var btnOK = document.getElementById("btnOK");
+    var parUt = document.getElementById("parUt");
+
+
+    var riktig= 0;
+
+    btnOK.onclick = function () {
+
+
+        if(hovedStaten[0].checked  ){
+
+            riktig+=parseFloat(hovedStaten[0].value);
+
+        }else if ( plus[2].checked  ){
+
+            riktig+=parseFloat(plus[2].value);
+
+        }else if ( LondonHovedstad[2].checked ){
+
+            riktig+=parseFloat(LondonHovedstad[2].value);
+
+            }
+        parUt.innerHTML = "Du har  " +riktig+"  riktig svar";
+    }
+
+</script>
+</body>
+</html>

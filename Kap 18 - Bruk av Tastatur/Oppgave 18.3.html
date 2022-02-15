@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> nullstill knapp</title>
+</head>
+<body>
+<p>Navn: <input type="text" id="inpNavn" value="Per"></p>
+<p>Adresse: <input type="text" id="inpAdr" value="Person"></p>
+<p>PostNr: <input type="text" id="inpPostnr" value="4600"></p>
+<p>Poststed: <input type="text" id="inpPoststed" value="Kristiansand"></p>
+<button id="btnNullstill">Nullstill</button>
+</body>
+<script>
+
+    //tok en variant til å nullstille ved å trykke på F12 eller trykke på en knapp.
+    var inpNavn=document.getElementById("inpNavn");
+    var inpAdr=document.getElementById("inpAdr");
+    var inpPostnr=document.getElementById("inpPostnr");
+    var inpPoststed=document.getElementById("inpPoststed");
+    var btnNullstill=document.getElementById("btnNullstill");
+
+    window.onkeydown = function (evt) {
+        if (evt.keyCode==8){
+            BlankeUt();
+        }
+    }
+
+    btnNullstill.onclick= function () {
+        BlankeUt();
+    }
+
+    function BlankeUt() {
+        inpNavn.value="";
+        inpAdr.value="";
+        inpPostnr.value="";
+        inpPoststed.value="";
+
+    }
+   </script>
+
+</body>
+</html>

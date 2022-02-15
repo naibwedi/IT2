@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksempel</title>
+</head>
+<body>
+<table id="tblPos"></table>
+
+<script>
+    var tblPos=document.getElementById("tblPos");
+    var pnrArray=new Array();
+    pnrArray[0]={postnummer:4616,poststed:"Kristiansand"};
+    pnrArray[1]={postnummer:3292,poststed:"Stavern"};
+    pnrArray[2]={postnummer:4610,poststed:"Kristiansand"};
+    pnrArray[3]={postnummer:4506,poststed:"Mandal"};
+
+    pnrArray=sortArray(pnrArray,"postnummer",false);
+
+    var n=0;
+    while(n<pnrArray.length){
+        tblPos.innerHTML+="<tr><td>"+pnrArray[n].postnummer+"</td><td>"+pnrArray[n].poststed+"</td></tr>"
+        n++;
+    }
+
+    function sortArray(array,rad,stigende){
+        stigende=typeof stigende !== 'undefined' ? stigende : true;
+        array.sort((function(a, b){
+
+            var aVerdi=(typeof a[rad] == "string")? a[rad].toLowerCase() : a[rad];
+            var bVerdi=(typeof b[rad] == "string")? b[rad].toLowerCase() : b[rad];
+            if(stigende==true){
+                var nameA=aVerdi;
+                var nameB=bVerdi;
+            }else{
+                var nameB=aVerdi;
+                var nameA=bVerdi;
+            }
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0
+        }));
+        return array;
+    }
+</script>
+
+</body>
+</html>

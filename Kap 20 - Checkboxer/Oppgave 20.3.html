@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+</form>
+<h2> Hva er 20 + 8?</h2>
+<form id="plus1">
+    <input type="radio" name="nummer" value="1">
+    <label>28</label>
+    <br>
+    <input type="radio" name="nummer"  value="0">
+    <label>10</label>
+    <br>
+    <input type="radio" name="nummer" value="0">
+    <label>11</label>
+    <br>
+</form>
+</form>
+<h2> Hva er 5 + 8?</h2>
+<form id="plus2">
+    <input type="radio" name="nummer" value="0">
+    <label>9</label>
+    <br>
+    <input type="radio" name="nummer"  value="0">
+    <label>13</label>
+    <br>
+    <input type="radio" name="nummer" value="1">
+    <label>11</label>
+    <br>
+</form>
+</form>
+<h2> Hva er 23 + 30?</h2>
+<form id="plus3">
+    <input type="radio" name="nummer" value="0">
+    <label>57</label>
+    <br>
+    <input type="radio" name="nummer"  value="1">
+    <label>53</label>
+    <br>
+    <input type="radio" name="nummer" value="0">
+    <label>41</label>
+    <br>
+</form>
+</form>
+<h2> Hva er 43 + 15?</h2>
+<form id="plus4">
+    <input type="radio" name="nummer" value="0">
+    <label>49</label>
+    <br>
+    <input type="radio" name="nummer"  value="0">
+    <label>60</label>
+    <br>
+    <input type="radio" name="nummer" value="1">
+    <label>58</label>
+    <br>
+</form>
+<br>
+<br>
+
+<input type="button" id="btnCheck" value="Check">
+<br>
+<br>
+<p id="parUt"></p>
+<script>
+    var plus1 = document.getElementById("plus1");
+    var plus2 = document.getElementById("plus2");
+    var plus3 = document.getElementById("plus3");
+    var plus4 = document.getElementById("plus4");
+    var btnCheck = document.getElementById("btnCheck");
+    var parUt= document.getElementById("parUt");
+
+    var riktig = 0;
+
+    btnCheck.onclick= function () {
+        if (plus1[0].checked && plus2[2].checked && plus3[1].checked && plus4[2].checked ){
+           parUt.innerHTML="Du har svart riktig på alle spørsmålen";
+        }else {
+            parUt.innerHTML="Du kan bli bedre"
+        }
+    }
+
+</script>
+</body>
+</html>

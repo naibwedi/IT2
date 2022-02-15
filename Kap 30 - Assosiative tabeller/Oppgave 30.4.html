@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            font-size: 25px;
+        }
+    </style>
+
+</head>
+<body>
+<h2>Sortere Array</h2>
+<input type="text" id="inpfelt" value="" placeholder=" Skriv her ">
+<select id="form">
+    <option selected disabled>Valg</option>
+    <option >Fornavn</option>
+    <option>Etternavn</option>
+    <option>Føldselsår</option>
+
+</select>
+<input type="button" id="btnLeggeTil" value="Legge Til">
+<input type="button" id="btnStigende" value="Stigende">
+<input type="button" id="btnSynkende" value="Synkende">
+<br>
+<br>
+<table id="tblPos"></table>
+
+
+<script>
+    var tblPos=document.getElementById("tblPos");
+    var inpfelt=document.getElementById("inpfelt");
+    var form=document.getElementById("form");
+    var btnStigende=document.getElementById("btnStigende");
+    var btnSynkende=document.getElementById("btnSynkende");
+    var pnrArray=new Array();
+    var tomtTekst=false;
+    pnrArray[0]={fornavn:"Hans",Etternavn:"Hansen",fødselsår:2010};
+    pnrArray[1]={fornavn:"Kari",Etternavn:"Karisen",fødselsår:2000};
+    pnrArray[2]={fornavn:"Ole",Etternavn:"Olsen",fødselsår:1990};
+    pnrArray[3]={fornavn:"Per",Etternavn:"Persen",fødselsår:1980};
+
+    pnrArray=sortArray(pnrArray,"fornavn",false);
+    tabellen();
+    function tabellen() {
+        tblPos.innerHTML="";
+        var n=0;
+        while(n<pnrArray.length){
+            tblPos.innerHTML+="<tr><td>"+pnrArray[n].fornavn+"</td><td>"+pnrArray[n].Etternavn+  "</td><td>"+pnrArray[n].fødselsår+"</td></tr>"
+            n++;
+        }
+    }
+
+    function sortArray(array,rad,stigende){
+        stigende=typeof stigende !== 'undefined' ? stigende : true;
+        array.sort((function(a, b){
+
+            var aVerdi=(typeof a[rad] == "string")? a[rad].toLowerCase() : a[rad];
+            var bVerdi=(typeof b[rad] == "string")? b[rad].toLowerCase() : b[rad];
+            if(stigende==true){
+                var nameA=aVerdi;
+                var nameB=bVerdi;
+            }else{
+                var nameB=aVerdi;
+                var nameA=bVerdi;
+            }
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0
+        }));
+        return array;
+    }
+    btnStigende.onclick = function () {
+        pnrArray=sortArray(pnrArray,"fornavn",true);
+        tabellen();
+    }
+    btnSynkende.onclick = function () {
+        pnrArray=sortArray(pnrArray,"fornavn",false);
+        tabellen();
+    }
+    btnLeggeTil.onclick = function () {
+        if (inpfelt.value!=""){
+           if (form[0].selected){
+                var option = document.createElement("option"); // creates new option element
+                option.text = inpfelt.value;
+                form.add(option);//
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

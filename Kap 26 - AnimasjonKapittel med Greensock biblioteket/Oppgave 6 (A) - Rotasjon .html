@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotasjon</title>
+
+<style>
+    #bildeKlass{
+        position: relative;
+        left:5px;
+    }
+
+</style>
+
+</head>
+<body>
+<div id="bildeKlass">
+    <img src="bilde1.jpg" id="bilde1">
+    <img src="bilde2.jpg" id="bilde2">
+</div>
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    TweenMax.to("#bilde1",3,{x:550, rotation:"360_cw"})
+    TweenMax.to("#bilde2",3,{x:550, rotation:"360_cw"})
+
+</script>
+</body>
+</html>

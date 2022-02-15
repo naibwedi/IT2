@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>terning av to like</title>
+</head>
+<body style="background-color: darkcyan">
+<input type="button" value="ok" id="btnOk"?>
+<p id="parUt1">
+
+</p>
+<p id="parUt2">
+
+</p>
+
+<script>
+    var parUt1 =document.getElementById("parUt1");
+    var parUt2 =document.getElementById("parUt2");
+    var btnOK = document.getElementById("btnOk");
+
+    btnOK.onclick=function () {
+        var tilfeldiTall1=Math.floor(Math.random()*6+1);
+        var tilfeldiTall2=Math.floor(Math.random()*6+1);
+
+
+        if (tilfeldiTall1==tilfeldiTall2){
+            parUt1.innerHTML=tilfeldiTall1;
+            parUt2.innerHTML=tilfeldiTall2;
+            alert("du fikk to lik"+tilfeldiTall1+"terninger");
+        }else if (tilfeldiTall1!=tilfeldiTall2) {
+            parUt1.innerHTML=tilfeldiTall1;
+            parUt2.innerHTML=tilfeldiTall2;
+
+        }
+
+    }
+</script>
+</body>
+</html>

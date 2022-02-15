@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bildevisning</title>
+</head>
+<body style="background-color: cadetblue" >
+
+<img src="bilder/bilde-background.jpg" id="bilde"
+     style="position: absolute;
+       top: 100px;
+       left:70px;
+       width: 500px;
+       height: 400px;"
+>
+<p id="parUt">
+</p>
+<p id="parUt2">
+</p>
+<script>
+    var parUt =document.getElementById("parUt");
+    var bilde =document.getElementById("bilde");
+    var kronMint =document.getElementById("kronMint");
+    var btnOK = document.getElementById("btnOk");
+
+    var n=0;
+
+  setInterval(function () {
+      if (n==1){
+          bilde.src="bilder/bilde1.jpg";
+      } else if(n==2) {
+          bilde.src="bilder/bilde2.jpg";
+
+      }else if(n==3){
+          bilde.src="bilder/bilde3.jpg";
+
+      }else if(n==4){
+          bilde.src="bilder/bilde4.jpg";
+
+      }
+     n=n+1;
+
+  },1000)
+
+</script>
+
+</body>
+</html>

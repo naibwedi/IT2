@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Yatzy-program med bilder</title>
+</head>
+<body>
+<img src="0.jpg" id="kast1" >
+<img src="0.jpg" id="kast2" >
+<img src="0.jpg" id="kast3" >
+<img src="0.jpg" id="kast4" >
+<img src="0.jpg" id="kast5" >
+<br>
+<input type="button" value="kast" id="kastID">
+<br>
+<p id="resultatID" >
+
+    <script>
+        var kastID=document.getElementById("kastID");
+        var resultatID=document.getElementById("resultatID");
+        var kast1 =document.getElementById("kast1");
+        var kast2 =document.getElementById("kast2");
+        var kast3 =document.getElementById("kast3");
+        var kast4 =document.getElementById("kast4");
+        var kast5 =document.getElementById("kast5");
+
+        var terningArray=new Array();
+        var resultatArray=[0,0,0,0,0,0]; //oppretter en tabell med 6 muligheter
+
+        kastID.onclick=function(){
+            var teller=0;
+            var antallKast=5;
+            resultatID.innerHTML="";
+            resultatArray=[0,0,0,0,0,0];
+            terningArray=new Array();
+            while(teller<antallKast){
+                terningArray[teller]=Math.floor(Math.random()*6+1)
+                teller++;
+            }//end while kaster 5 randomkastif(resultatArray[teller]==4){ resultatID.innerHTML+="<br> Du fikk 4 like!";}
+            //tegner riktig bilde på kastet
+            kast1.src=(terningArray[0]+".jpg");
+            kast2.src=(terningArray[1]+".jpg");
+            kast3.src=(terningArray[2]+".jpg");
+            kast4.src=(terningArray[3]+".jpg");
+            kast5.src=(terningArray[4]+".jpg");
+            teller=0;
+            while(teller<antallKast){ //teller kastene og legger inn på riktig sted i resultatarray
+                resultatArray[(terningArray[teller]-1)]++; //rekker fra 1 for å kompansere feilforskyvningen
+                teller++;
+
+            }
+
+            //skriver ut resultatet.
+            teller=0;
+            resultatID.innerHTML="resultatet ble ";
+
+            while(teller<resultatArray.length){
+                resultatID.innerHTML+="<br> antall " + (teller+1)+"'ere:   "+resultatArray[teller]+"        ";
+                teller++;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

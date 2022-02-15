@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>trekant</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var xpos=100;
+    var ypos=100;
+    var width=50;
+    var height=50;
+    // tegn T
+    ctx.strokestye="black";
+    ctx.moveTo(xpos,ypos);
+    ctx.lineTo(xpos+width,ypos);
+    ctx.moveTo(xpos+width,ypos);
+    ctx.lineTo(xpos+width/2,ypos+height);
+    ctx.moveTo(xpos,ypos);
+    ctx.lineTo(xpos+width/2,ypos+height);
+    ctx.stroke();
+
+</script>
+</body>
+</html>

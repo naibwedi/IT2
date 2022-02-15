@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>bla fremover og bakover </title>
+</head>
+<body style="background-image: url('bilder/bilde7.jpg');background-size: 100%" >
+<img
+        src="bilder/bilde7.jpg"
+        id="bilde1"
+        style="max-height: 500px;
+        max-width: 500px;
+        position: absolute;
+        top: 15vh;
+        left: 30vw;
+        //border-radius: 100%; " >
+
+<input
+        type="button"
+        id="Bakover"
+        value="Bakover"
+        style="position: relative;
+        top: 70vh; left: 50vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; "
+>
+<input
+        type="button"
+        id="Fremover"
+        value="Fremover"
+        style="position: relative;
+        top: 70vh; left: 50vw;
+        width: 100px;
+        height: 30px;
+        background-color: dodgerblue; " >
+
+
+<script>
+    var bilde1=document.getElementById("bilde1");
+    var Fremover=document.getElementById("Fremover");
+    var Bakover=document.getElementById("Bakover");
+
+
+    var count=0;
+
+    Fremover.onclick=function () {
+        count++;
+        bilde1.src="bilder/"+"bilde"+count+".jpg";
+        if(count==7){
+            Fremover.value="Ikke flere bilder";
+            Fremover.disabled=true;
+            Fremover.style.backgroundColor="red";
+            Bakover.disabled=false;
+            Bakover.value="Bakover";
+        }else if(count==2||3||4||5||6){
+            Bakover.disabled=false;
+            Bakover.value="Bakover";
+            Bakover.style.backgroundColor="dodgerblue";
+        }
+    }
+    Bakover.onclick=function () {
+        count=count-1;
+        bilde1.src="bilder/"+"bilde"+count+".jpg";
+        if(count==1){
+            Bakover.value="Ikke flere bilder";
+            Bakover.disabled=true;
+            Bakover.style.backgroundColor="red";
+            Fremover.disabled=false;
+            Fremover.value="Fremover"
+        }else if(count==2||3||4||5||6){
+            Fremover.disabled=false;
+            Fremover.value="Fremover"
+            Fremover.style.backgroundColor="dodgerblue";
+        }
+    }
+</script>
+
+</body>
+</html>

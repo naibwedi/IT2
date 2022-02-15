@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe || Oppgave 1</title>
+    <style>
+        #bilde1{
+            position: absolute;
+            left: 5px;
+        }
+        #bilde2{
+            position: absolute;
+            left: 90%;
+        }
+    </style>
+</head>
+<body>
+<input type="button" id="btnKast" value="Kast">
+    <img src="Bilder/1'er.jpg" id="bilde1">
+    <img src="Bilder/1'er.jpg" id="bilde2">
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var btnKast=document.getElementById("btnKast");
+    var delayTid=4;
+
+    bilde1.hidden=true;
+    bilde2.hidden=true;
+    var antallterning=6;
+    var animasjon1=false;
+   var tilfedigBilde;
+   var tilfedigBilde2;
+  btnKast.onclick = function () {
+      bilde1.hidden=false;
+      bilde2.hidden=false;
+
+          TweenMax.to("#bilde1",3,{left:530,top:200, rotation:"360_ccw",onStart:randomTerning})
+          TweenMax.to("#bilde2",3,{left:650, top:200,rotation:"360_ccw",onStart:randomTerning,onComplete:animasjon2})
+      if (tilfedigBilde.value>tilfedigBilde2.value){
+          alert("bilde1")
+      }
+
+  }
+function randomTerning() {
+    tilfedigBilde = Math.floor(Math.random()*6+1);
+    tilfedigBilde2 = Math.floor(Math.random()*6+1);
+    bilde1.src="Bilder/"+tilfedigBilde+"'er.jpg";
+    bilde2.src="Bilder/"+tilfedigBilde2+"'er.jpg";
+}
+
+function animasjon2() {
+    TweenMax.to("#bilde1",3,{ left:300,top:400,rotation:"-360_ccw",onStart:randomTerning})
+    TweenMax.to("#bilde2",3,{ left:800,top:400,rotation:"-360_ccw",onStart:randomTerning})
+
+
+}
+
+
+</script>
+</body>
+</html>

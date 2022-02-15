@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Yatzy-program</title>
+</head>
+<body>
+Kast 6 terninger: <input type="button" id="btnKast" value="Kast">
+<p id="parUt"></p>
+
+<script>
+    var btnKast =document.getElementById("btnKast");
+    var parUt =document.getElementById("parUt");
+
+    var tallArray = new Array();
+    var terninger=6;
+
+    var antallArray1=new Array();
+    var antallArray2=new Array();
+    var antallArray3=new Array();
+    var antallArray4=new Array();
+    var antallArray5=new Array();
+    var antallArray6=new Array();
+
+    var arrayContainer= [antallArray1,antallArray2,antallArray3,antallArray4,antallArray5,antallArray6];
+
+
+    btnKast.onclick = function () {
+         antallArray1.length=0;
+        antallArray2.length=0;
+        antallArray3.length=0;
+        antallArray4.length=0;
+        antallArray5.length=0;
+        antallArray6.length=0;
+
+
+
+        for (var indeks=0;indeks<terninger;indeks++){
+            tallArray[indeks]= Math.floor(Math.random()*6+1);
+            if(tallArray[indeks]==1){
+                antallArray1.push(indeks);
+            }else if(tallArray[indeks]==2){
+                antallArray2.push(indeks);
+            }else if(tallArray[indeks]==3){
+                antallArray3.push(indeks);
+            }else if(tallArray[indeks]==4){
+                antallArray4.push(indeks);
+            }else if(tallArray[indeks]==5){
+                antallArray5.push(indeks);
+            }else if(tallArray[indeks]==6){
+                antallArray6.push(indeks);
+            }
+             parUt.innerHTML= "Resultat ble: "+"<br>antall 1'ere: "+antallArray1.length
+            +"<br> antall 2'ere: "+antallArray2.length
+            +"<br> antall 3'ere: "+antallArray3.length
+            +"<br> antall 4'ere: "+antallArray4.length
+            +"<br> antall 5'ere: "+antallArray5.length
+            +"<br> antall 6'ere: "+antallArray6.length;
+
+          //alert(tallArray)
+
+        }
+
+    }
+    // for (var teller=0; teller<arrayContainer.length;teller++){
+    //     parUt.innerHTML+="<br> antall " + (teller+1)+"'ere: "+arrayContainer[(teller)].length+"        ";
+    // }
+
+
+</script>
+</body>
+</html>

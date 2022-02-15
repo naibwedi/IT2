@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>neomorphism example</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            align-items: center;
+            background-color: #e0e0e0;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+        }
+        .item:not(p){
+            align-items: center;
+            background-color: #e0e0e0;
+            box-shadow:
+                    20px 20px 50px #bebebe,
+                    -20px -20px 50px #ffffff;
+            border-radius: 50px;
+            display: flex;
+            height: 28em;
+            justify-content: center;
+            margin-right: 4rem;
+            width: 23em;
+            gap: 2em;
+
+        }
+        .child{
+            background-color: #e0e0e0;
+            box-shadow:
+                    20px 20px 50px #bebebe,
+                    -20px -20px 50px #ffffff;
+            border-radius: 50px 0px 50px 0px ;
+            height: 5em;
+            justify-content: center;
+            width: 5em;
+            transform: rotate(45deg);
+        }
+        .leftchild{
+            background-color: #e0e0e0;
+            box-shadow:
+                    20px 20px 50px #bebebe,
+                    -20px -20px 50px #ffffff;
+            border-radius: 5px 20px 5px 20px ;
+            height: 3em;
+            justify-content: center;
+            width: 3em;
+            /*transform: rotate(45deg);*/
+            margin-top: 18px;
+            margin-left: 15px;
+        }
+      p {
+          color: #e0e0e0;
+          text-shadow: 5px 5px 12px #bebebe,
+          -5px -5px 12px #ffffff;
+          font-size: 8em;
+          margin-top: -2em;
+          position: absolute;
+          text-decoration-thickness: auto;
+
+
+      }
+
+    </style>
+</head>
+<body>
+    <div class="item">
+        <p>Hi</p>
+        <div class="child left"><div class="/leftchild"></div></div>
+        <div class="child middle"> </div>
+        <div class="child right"></div>
+
+
+    </div>
+
+</body>
+</html>

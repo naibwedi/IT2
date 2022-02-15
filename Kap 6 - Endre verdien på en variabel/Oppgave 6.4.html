@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 sirkler inni hverandre</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var yPos=150;
+    var xPos=150;
+    var width=50;
+
+    ctx.arc(xPos,yPos,width,0,2*Math.PI);
+    ctx.closePath();
+    ctx.stroke();
+
+
+    yPos=yPos;
+    width=width+30;
+    ctx.beginPath();
+    ctx.arc(xPos,yPos,width,0,2*Math.PI);
+    ctx.stroke();
+
+    yPos=yPos;
+    width=width+30;
+    ctx.beginPath();
+    ctx.arc(xPos,yPos,width,0,2*Math.PI);
+    ctx.stroke();
+
+    </script>
+</body>
+</html>

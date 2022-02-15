@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>adresse,telfonnummer og epost</title>
+</head>
+<body>
+<input type="text" id="inpEtterNavn" placeholder="Etter Navn">
+<input type="text" id="inpNavn" placeholder="Navn">
+<input type="text" id="inpAdresse" placeholder="inpAdresse">
+<input type="text" id="inpTlf" placeholder="inpTlf">
+<input type="text" id="inpMail" placeholder="inpMail">
+<input type="button" id="btnSok" value="Søk på">
+
+<script>
+    var inpEtterNavn=document.getElementById("inpEtterNavn");
+    var inpNavn=document.getElementById("inpNavn");
+    var inpAdresse=document.getElementById("inpAdresse");
+    var inpTlf=document.getElementById("inpTlf");
+    var inpMail=document.getElementById("inpMail")
+    var btnSok=document.getElementById("btnSok")
+    var pnrArray=new Array();
+
+    pnrArray[0]=["ali","Hansen","kristiansand","45171671","Alihansen@gamil.com"];
+    pnrArray[1]=["johansen","Lunde","begen","90130304","Johansenlunde@gamil.com"];
+    pnrArray[2]=["olsen","Daniel","kristiansand","91263463","Olsendaniel@gamil.com"];
+    pnrArray[3]=["andersen","Alex","kristiansand","45187383","Andersenalex@gamil.com"];
+
+    btnSok.onclick= function () {
+
+        var indeks=0;
+        while(indeks<pnrArray.length){
+            if(inpEtterNavn.value.toLowerCase()==pnrArray[indeks][0]){
+                inpNavn.value=pnrArray[indeks][1];
+                inpAdresse.value=pnrArray[indeks][2];
+                inpTlf.value=pnrArray[indeks][3];
+                inpMail.value=pnrArray[indeks][4];
+            }
+            indeks++;
+        }
+    }
+
+</script>
+</body>
+</html>

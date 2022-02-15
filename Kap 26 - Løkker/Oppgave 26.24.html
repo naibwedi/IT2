@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3 terninger</title>
+</head>
+<body>
+<input type="button" id="btnKast" value="Kast">
+<p id="avsnitt"></p>
+
+<script>
+   var avsnitt=document.getElementById("avsnitt");
+   var btnKast=document.getElementById("btnKast");
+
+    var terningkast=100;
+    var trelik=1;
+    var terning1;
+    var terning2;
+    var terning3;
+
+    btnKast.onclick = function () {
+
+       for(var i=1;i<terningkast;i++){
+           terning1=Math.floor(Math.random()*6+1);
+           terning2=Math.floor(Math.random()*6+1);
+           terning3=Math.floor(Math.random()*6+1);
+            if(terning1==terning2&&terning2==terning3){
+                trelik++;
+                avsnitt.innerHTML="Du må kast  "+i+"ganger til å få 3 tre lik terninger " +trelik;
+                i=terningkast
+
+            }
+
+        }
+    }
+
+</script>
+</body>
+</html>

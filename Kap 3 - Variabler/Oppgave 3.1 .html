@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tegn T</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var xpos=120;
+    var ypos=100;
+
+    ctx.strokestye="black";
+    ctx.moveTo(xpos,ypos);
+    ctx.lineTo(xpos+50,ypos);
+    ctx.moveTo(xpos+25,ypos);
+    ctx.lineTo(xpos+25,ypos+50);
+    ctx.stroke();
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TEGNE TREKANT MED FUNKSJIONEN</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p id="parTeller"></p>
+
+<script>
+
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    function tegneTrekant(xpos,ypos,farge) {
+        ctx.beginPath();
+        ctx.moveTo(xpos,ypos);
+        ctx.lineTo(xpos+40,ypos+40);
+        ctx.lineTo(xpos-40,ypos+40);
+        ctx.closePath();
+        ctx.fillStyle =farge;
+        ctx.fill();
+        ctx.stroke();
+    }
+    tegneTrekant(60,100,"green");
+    tegneTrekant(150,100,"yellow");
+    tegneTrekant(70,200,"red");
+</script>
+</body>
+</html>

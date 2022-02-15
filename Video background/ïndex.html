@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            font-size: 17px;
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+        }
+        #title{
+            color: white;
+            text-align: center;
+            font-weight: bold;
+            font-family: "Trebuchet MS";
+
+        }
+
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 20px;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+        #menu{
+            background: rgba(0, 0, 0, 0.5);
+            height: 7vh;
+            margin-top: 0;
+        }
+        #sub-menus{
+            display: flex;
+            justify-content: space-evenly;
+            gap: 10px;
+            color: white;
+            margin-top: 0vw;
+            align-content: center;
+
+        }
+        li,a {
+            margin-top: 1em;
+            list-style: none;
+            align-items: center;
+        }
+        a:hover{
+            background: #ddd;
+            color: black;
+
+        }
+        li:before{
+
+        }
+        #Glass{
+            width: 25em;
+            height: 20em;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4.7px);
+            -webkit-backdrop-filter: blur(4.7px);
+            border: 0.1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            left: 25vw;
+            top: 2em;
+
+        }
+    </style>
+</head>
+<body>
+    <nav id="menu">
+      <ul id="sub-menus">
+          <li><a>Home</a></li>
+          <li><a>About</a></li>
+          <li><a>Resource</a></li>
+          <li><a>Contact Us</a></li>
+
+      </ul>
+    </nav>
+
+
+<video autoplay muted loop id="myVideo">
+    <source src="video2.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+</video>
+ <h1 id="title">This is just a ...</h1>
+    <div id="Glass">
+
+    </div>
+<div class="content">
+    <h1>Heading</h1>
+    <p>Lorem ipsum dolor sit amet, an his etiam torquatos. Tollit soleat phaedrum te duo, eum cu recteque expetendis neglegentur. Cu mentitum maiestatis persequeris pro, pri ponderum tractatos ei. Id qui nemore latine molestiae, ad mutat oblique delicatissimi pro.</p>
+    <button id="myBtn" onclick="myFunction()">Pause</button>
+</div>
+
+<script>
+    var video = document.getElementById("myVideo");
+    var btn = document.getElementById("myBtn");
+
+    function myFunction() {
+        if (video.paused) {
+            video.play();
+            btn.innerHTML = "Pause";
+        } else {
+            video.pause();
+            btn.innerHTML = "Play";
+        }
+    }
+</script>
+</body>
+</html>

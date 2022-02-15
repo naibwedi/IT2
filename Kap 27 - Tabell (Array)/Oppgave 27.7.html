@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>spørreprgram med feil og riktig</title>
+</head>
+<body>
+<input type="button" id="btnStart" value="Start">
+<input type="text" id="inptext">
+<input type="button" id="btnSvar" value="Svar">
+<p id="parUt"></p>
+<p id="parUt2"></p>
+
+<script>
+    var btnStart = document.getElementById("btnStart");
+    var inptext = document.getElementById("inptext");
+    var btnSvar = document.getElementById("btnSvar");
+    var parUt = document.getElementById("parUt");
+    var parUt2 = document.getElementById("parUt2");
+
+
+    var riktig=0;
+    var indeks=0;
+
+
+
+    var spørsmallArray = new Array();
+    var svarArray = new Array();
+    var feilSvarArray = new Array();
+
+    spørsmallArray[0] = " 2 * 4 = ?";
+    spørsmallArray[1] = " 5 * 6 = ?";
+    spørsmallArray[2] = " 9 * 3 = ?";
+    spørsmallArray[3] = " 8 * 7 = ?";
+
+    svarArray[0] = "8";
+    svarArray[1] = "30";
+    svarArray[2] = "27";
+    svarArray[3] = "72";
+
+    inptext.hidden= true;
+    btnSvar.hidden= true;
+
+    btnStart.onclick = function () {
+        indeks=0;
+        riktig=0;
+        feil=0;
+        inptext.hidden= false;
+        btnSvar.hidden= false;
+        btnStart.hidden=true;
+        parUt.innerHTML="Neste spørmål: "+spørsmallArray[indeks];
+
+    };
+    btnSvar.onclick = function () {
+        //inptext.value=parseFloat(inptext.value);
+        if (inptext.value==""){
+            parUt2.innerHTML=" Feltet er tomt, fyll inn et svar."
+        }
+        else if  (inptext.value==svarArray[indeks]){
+            parUt2.innerHTML=" Du har svart riktig"
+            indeks++;
+            riktig++;
+
+        }else if (inptext.value!=svarArray[indeks]){
+            feilSvarArray.push(indeks)
+            parUt2.innerHTML=" Du har svart feil: riktig svar er "+svarArray[feilSvarArray];
+            indeks++;
+
+        }
+
+        if (indeks==spørsmallArray.length){
+            parUt2.innerHTML= "Quizen er ferdig :" +"Du har "+riktig+" svar fra "
+                +spørsmallArray.length+" spørsmål."+
+                "<br> svar til " +spørsmallArray[feilSvarArray[0]]+" er "+svarArray[[feilSvarArray[0]]];
+
+            inptext.hidden= true;
+            btnSvar.hidden= true;
+            btnStart.hidden=false;
+            btnStart.value="Start på nytt"
+            parUt.innerHTML="";
+        }else {
+            parUt.innerHTML="Neste spørmål: "+spørsmallArray[indeks];
+        }
+    };
+
+</script>
+</body>
+</html>

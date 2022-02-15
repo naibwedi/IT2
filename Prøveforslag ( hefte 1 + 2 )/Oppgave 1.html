@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperatur celcius</title>
+</head>
+<body>
+<input type="text" id="inpFelt">
+<input type="button" id="btnOk" value="Ok">
+
+<p id="parUt"></p>
+<img src="" id="bilde">
+
+<script>
+    var inpFelt = document.getElementById("inpFelt");
+    var btnOk = document.getElementById("btnOk");
+    var parUt = document.getElementById("parUt");
+    var bilde = document.getElementById("bilde");
+
+    btnOk.onclick = function () {
+        if(inpFelt.value==""){
+            parUt.innerHTML="Tekst felt er tomt, du må skrive noe";
+
+        }else if (inpFelt.value<=0){
+            parUt.innerHTML="Vann er i fast form ved "+inpFelt.value+" grader.";
+            bilde.src="water.jpg"
+        }else if (inpFelt.value>0&&inpFelt.value<100){
+            parUt.innerHTML="Vann er i flytende form ved "+inpFelt.value+" grader.";
+            bilde.src="steam.jpg"
+        }else if (inpFelt.value>=100){
+            parUt.innerHTML="Vann er i gass form ved "+inpFelt.value+" grader.";
+            bilde.src="gas.jfif";
+        }
+    }
+</script>
+</body>
+</html>

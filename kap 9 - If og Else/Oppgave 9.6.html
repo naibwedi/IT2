@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>terninigprogram 2</title>
+</head>
+<body style="background-color: cadetblue" >
+<input type="button" value="ok" id="btnOk"?>
+<p id="parUt">
+
+</p>
+
+<script>
+    var parUt =document.getElementById("parUt");
+    var btnOK = document.getElementById("btnOk");
+
+    btnOK.onclick=function () {
+        var tilfeldiTall=Math.floor(Math.random()*6+1);
+
+        if (tilfeldiTall==6){
+
+            alert("gratulerer du fikk 6")
+        }else if (tilfeldiTall<6) {
+            parUt.innerHTML=tilfeldiTall;
+        }
+
+    }
+</script>
+</body>
+</html>

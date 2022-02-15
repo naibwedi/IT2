@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vannrette streker</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid;"> Nettleseren din støtter ikke HTML5</canvas>
+
+<script>
+  //kobler HTML objekter
+  var myCanvas=document.getElementById("myCanvas");
+  var ctx=myCanvas.getContext("2d");
+  var xpos=80;
+  var ypos=50;
+  var mellowRom=30;
+  var bredde =100;
+
+  ctx.moveTo(xpos,ypos);
+  ctx.lineTo(xpos,ypos);
+  ctx.stroke();
+
+  for(var i=0;i<6; i++){
+      ctx.beginPath();
+      ctx.moveTo(xpos,ypos+i*mellowRom);
+      ctx.lineTo(xpos+bredde+i,ypos+i*mellowRom);
+      ctx.stroke();
+  }
+  </script>
+
+</body>
+</html>

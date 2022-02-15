@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Krone og mynt</title>
+</head>
+<body>
+<button id="btnKast">Kast</button>
+<p id="svar"></p>
+<script>
+  var btnKast = document.getElementById("btnKast");
+  var svar = document.getElementById("svar");
+
+  function kroneMynt() {
+    var tilfeldigtall = Math.floor(Math.random()*2);
+    if (tilfeldigtall==0){
+      return svar.innerHTML="du fikk"+"  kron";
+    }else {
+      return svar.innerHTML="du fikk"+" Mynt";
+    }
+  }
+
+  btnKast.onclick =function () {
+    kroneMynt();
+  }
+</script>
+</body>
+</html>

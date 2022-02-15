@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hus</title>
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+//svart farge
+    ctx.strokeStyle = "#000000";
+    ctx.fillStyle  = "#000000";
+
+    ctx.moveTo(160,140);
+    ctx.lineTo(200,140);
+
+//to firekant med svart farge
+    ctx.fillRect(185,90,20,115);
+    ctx.fillRect(75,135,120,70);
+    //bakgrun svart trekant
+    ctx.beginPath();
+    ctx.moveTo(60,135);
+    ctx.lineTo(140,70);
+    ctx.lineTo(220,135);
+    ctx.closePath();
+
+    ctx.fill();
+    ctx.stroke();
+//blå farge
+    ctx.strokeStyle = "#0f36b6";
+    ctx.fillStyle  = "#0f62d7";
+
+//blå firkant som dør
+    ctx.fillRect(100,140,30,60)
+
+//blå kvadrat som vindu
+    ctx.fillRect(160,140,30,30)
+
+//blå trekant som tak
+    ctx.beginPath();
+    ctx.moveTo(80,130);
+    ctx.lineTo(140,80);
+    ctx.lineTo(200,130);
+
+    ctx.fill();
+    ctx.stroke();
+
+</script>
+</body>
+</html>

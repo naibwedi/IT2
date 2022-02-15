@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>brukergrensesnitt</title>
+</head>
+<body>
+<h2>Skrive antall terning du vil kaste</h2>
+<input type="text" id="inpFelt1" value="" placeholder="Antall terningkast">
+
+<button id="btnOk">OK</button>
+<p id="parUt"></p>
+
+
+
+<script>
+    var parUt=document.getElementById("parUt");
+
+    var inpFelt1=document.getElementById("inpFelt1");
+    var btnOk=document.getElementById("btnOk");
+
+    var n=0;
+    var antallkast=5;
+    var seksere=0;
+    var nullEn;
+    btnOk.onclick = function () {
+      antallkast=inpFelt1.value;
+        while(n<antallkast){
+            nullEn=Math.floor(Math.random()*6+1);
+            if(nullEn==6&&antallkast<100){ // hvis nullEn erlik 6 inhhold blir kron
+                seksere++;
+                parUt.innerHTML="Du fikk "+seksere+" antall seksere fra 1000 terning kast";
+            }if(inpFelt1.value>100){
+               alert("maks antall terningkast er 100");
+            }
+            else{                 // eller hvis ikke  innhold
+                parUt.innerHTML="Du fikk  "+seksere+"seksere ";
+            }
+
+            n++;       // forsetter til det er 1000 value
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

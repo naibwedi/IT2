@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kron og mint program</title>
+</head>
+<body style="background-color: cadetblue" >
+<input type="button" value="ok" id="btnOk"?>
+<input type="text" id="kronMint" placeholder="kron/mint">
+<img src="bilder/mynt%20og%20kron.jpg" id="bilde"
+style="position: absolute;
+       top: 100px;
+       left:40px;
+       width: 250px;
+       height: 200px;"
+>
+<p id="parUt">
+</p>
+<p id="parUt2">
+</p>
+<script>
+    var parUt =document.getElementById("parUt");
+    var parUt2 =document.getElementById("parUt2");
+    var bilde =document.getElementById("bilde");
+    var kronMint =document.getElementById("kronMint");
+    var btnOK = document.getElementById("btnOk");
+    var ord = ["kron","mynt"]
+    var count=0;
+    btnOK.onclick=function () {
+        count++;
+        var gjet=parseFloat(kronMint.value);
+        var tilfeldigOrd=ord[Math.floor(Math.random()*ord.length)]
+        if (kronMint.value==""){
+            parUt.innerHTML="";
+            parUt2.innerHTML="";
+            alert("skrive kron/mint på tekstfelt");
+        } else if(kronMint.value!=tilfeldigOrd) {
+            bilde.src="bilder/"+tilfeldigOrd+".png";
+            parUt2.innerHTML="beklager du har gjettet feil";
+            parUt.innerHTML=tilfeldigOrd;
+        }else if(kronMint.value==tilfeldigOrd){
+            bilde.src="bilder/"+tilfeldigOrd+".png";
+            parUt.innerHTML=tilfeldigOrd;
+            parUt2.innerHTML="";
+            alert("gratulerer du gjettet riktig");
+        }
+
+    }
+</script>
+
+</body>
+</html>

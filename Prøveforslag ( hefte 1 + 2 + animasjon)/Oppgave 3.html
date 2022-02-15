@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stein-saks-papir</title>
+    <style>
+        body{
+            align-items: center;
+        }
+        #bilde2 {
+            height:155px;
+
+        }
+        #bilde3 {
+            height:155px;
+        }
+        h2  {
+            background-image: linear-gradient(90deg,green,yellow);
+            float: left ;
+            text-align: center;
+            margin-left: 150px;
+        }
+        #vs{
+            margin-left: 25vw;
+        }
+        #bilde4{
+            margin-left: 20vw;
+        }
+        p {
+            margin-left: 23vw;
+        }
+    </style>
+</head>
+<body>
+<h2>Stein-Saks-Papir Spill</h2>
+<br>
+<br>
+<br>
+<br>
+<img src="Bilder/Stein.png" id="bilde1">
+<img src="Bilder/Saks.png" id="bilde2">
+<img src="Bilder/Papir.png" id="bilde3">
+<br>
+<br>
+<h2 id="vs">VS</h2>
+<br>
+<br>
+<br>
+<br>
+<p>Computer</p>
+<img src="Bilder/Gjetthvem.png" id="bilde4">
+<br>
+<br>
+<p id="parUt"></p>
+<input type="button" id="BtnStartPånytt" value="Start På Nytt" hidden>
+<script>
+    var bilde1 = document.getElementById("bilde1")
+    var bilde2 = document.getElementById("bilde2")
+    var bilde3 = document.getElementById("bilde3")
+    var bilde4 = document.getElementById("bilde4")
+    var parUt = document.getElementById("parUt");
+    var BtnStartPånytt = document.getElementById("BtnStartPånytt");
+
+    var bildeArray= ["Stein.png","Saks.png","Papir.png"]
+
+    var tilfedig=Math.floor(Math.random()*bildeArray.length);
+    BtnStartPånytt.hidden=false;
+    BtnStartPånytt.style.marginLeft= 22+"VW";
+
+    bilde1.onclick = function () {
+        bilde2.hidden=true;
+        bilde3.hidden=true;
+        this.style.marginLeft= 20+"VW";
+        tilfedig=Math.floor(Math.random()*bildeArray.length);
+        bilde4.src="Bilder/"+bildeArray[tilfedig];
+       if (tilfedig==0){
+           BtnStartPånytt.style.marginLeft= 22+"VW";
+           BtnStartPånytt.hidden=false;
+       }else if (tilfedig==1){
+           parUt.innerHTML="Du har vunnet";
+
+       }else if (tilfedig==2){
+           parUt.innerHTML="Computer har vunnet";
+       }
+    }
+    bilde2.onclick = function () {
+        bilde1.hidden=true;
+        bilde3.hidden=true;
+        this.style.marginLeft= 20+"VW";
+        tilfedig=Math.floor(Math.random()*bildeArray.length);
+        bilde4.src="Bilder/"+bildeArray[tilfedig];
+        if (tilfedig==0){
+            parUt.innerHTML="Computer har vunnet";
+        }else if (tilfedig==1){
+            BtnStartPånytt.hidden=false;
+            BtnStartPånytt.style.marginLeft= 22+"VW";
+        }else if (tilfedig==2){
+            parUt.innerHTML="Du har Vunnet";
+        }
+    }
+    bilde3.onclick = function () {
+        bilde2.hidden=true;
+        bilde1.hidden=true;
+        this.style.marginLeft= 20+"VW";
+        tilfedig=Math.floor(Math.random()*bildeArray.length);
+        bilde4.src="Bilder/"+bildeArray[tilfedig];
+        if (tilfedig==0){
+            parUt.innerHTML="Du har vunnet";
+        }else if (tilfedig==1){
+            parUt.innerHTML="Computer har vunnet";
+        }else if (tilfedig==2){
+            BtnStartPånytt.hidden=false;
+            BtnStartPånytt.style.marginLeft= 22+"VW";
+        }
+    }
+    function tilbakestill() {
+        bilde1.hidden=false;
+        bilde2.hidden=false;
+        bilde3.hidden=false;
+        bilde1.style.marginLeft= 0+"VW";
+        bilde2.style.marginLeft= 0+"VW";
+        bilde3.style.marginLeft= 0+"VW";
+        bilde4.src="Bilder/Gjetthvem.png";
+    }
+    BtnStartPånytt.onclick= function () {
+        tilbakestill();
+
+    }
+
+</script>
+</body>
+</html>

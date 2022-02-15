@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regen ut x^y</title>
+</head>
+<body>
+<input type="text" id="inpFelt1" value="" placeholder="x">
+<input type="text" id="inpFelt2" value="" placeholder="^y">
+<button id="btnStart">regneUt x^y</button>
+<p id="parUt"></p>
+<p id="parUt2"></p>
+
+<script>
+    var parUt=document.getElementById("parUt");
+    var inpFelt1=document.getElementById("inpFelt1");
+    var inpFelt12=document.getElementById("inpFelt2");
+    var btnStart=document.getElementById("btnStart");
+
+    var regneUt=1;
+    var powy=5;
+    var x=2;
+    btnStart.onclick = function () {
+        x=inpFelt1.value; // x ble endret til inpfelt1 value
+        powy=inpFelt12.value; // powy ble endret til inpfelt2 value
+        for (var i=1; i<=powy; i++){
+
+            regneUt*=x; // har er det som regneUt x value så mange som står på powy value.
+            parUt2.innerHTML=  x + "^"+ powy + "=" + sum;
+
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

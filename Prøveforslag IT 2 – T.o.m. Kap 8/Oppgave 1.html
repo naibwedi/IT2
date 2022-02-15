@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tegne bokstaven "H"</title>
+</head>
+<body>
+<canvas width="600" height="600" id="TegneCanvas"></canvas>
+<script>
+    var TegneCanvas=document.getElementById("TegneCanvas");
+    var ctx =TegneCanvas.getContext("2d");
+
+    for (i = 0; i < 2; i++) {  //** tegne med variable loop
+
+        let lengde=50;
+        let x = 150 ;
+        let y = 150+(200)*  i;
+
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+        ctx.lineTo(y,lengde);
+        ctx.
+        ctx.stroke();
+    }
+</script>
+</body>
+</html>

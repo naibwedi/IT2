@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tre bilder med forsinkelse</title>
+
+<style>
+  #bilde1{
+    position: relative;
+  }
+  #bilde2{
+    position: relative;
+  }
+  #bilde3{
+    position: relative;
+  }
+</style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<img src="bilde2.jpg " id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+
+
+  var tidslinje = new TimelineLite();
+  tidslinje.to("#bilde1",2, {x:550})
+          .to("#bilde2",2,{x:550},"+=1") // forsinkelse med 1 sekund
+          .to("#bilde3",2,{x:550},"+=1");// forsinkelse med 1 sekund etter #bilde2 ferdig
+</script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>5 sekunder</title>
+  <style>
+    #bildeanimasjon{
+      position: relative;
+      left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+<script src="TweenMax.js"></script>
+<img src="bilde1.jpg" id="bildeanimasjon">
+
+<script>
+  var bildeanimasjon = document.getElementById("bildeanimasjon");
+  TweenMax.to("#bildeanimasjon",5,{left:600}); // bevager til venstre i 5 sekund
+</script>
+</body>
+</html>

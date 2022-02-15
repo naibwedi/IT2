@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamiske bidler</title>
+</head>
+
+<body id = "body">
+Klikk for å legge til et dynamsik bilde
+<button onclick = "randomBilde()">Legg til dynamisk bilde</button><br>
+
+<script>
+    function randomBilde() {
+        var img = document.createElement('img');
+        img.src=Math.floor(Math.random()*6+1)+".jpg";
+        document.getElementById('body').appendChild(img);
+    }
+</script>
+
+</body>
+</html>

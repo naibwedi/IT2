@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Spørreprogram med lyd</title>
+</head>
+<body>
+
+Hvis du kjører 80 km i timen, hvor lang tid tar det å kjøre 80 km? <input type="text" id="inpFart" placeholder="skrive svar ">
+<input type="button" value="ok" id="btnOk">
+<p id="partUt">
+
+</p>
+
+<audio controls id="lydFil" >
+  <source  src="lyd/1.mp3" type="audio/mp3" >
+</audio>
+
+<script>
+  var inpFart =document.getElementById("inpFart");
+  var partUt =document.getElementById("partUt");
+  var btnOK = document.getElementById("btnOk");
+
+  lydFil.controls = false;
+  btnOK.onclick=function () {
+    var fart=parseFloat(inpFart.value);
+
+    if(fart==80){
+      //lydFil.src = "lyd/Game-show-correct-answer.mp3";
+      lydFil.play();
+      partUt.innerHTML="Rett svar , gratulerer du vant 500 kr.";
+
+    }else if(fart>80&&fart<=85){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+      l
+    }else if(fart>85&&fart<=90){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+    }else if(fart>90&&fart<=95){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+    }else if(fart>95&&fart<=100){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+    }else if(fart>100&&fart<=105){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+    }else if(fart>105&&fart<=110){
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+    }else{
+      lydFil.src = "lyd/Nope-Sound-Effect.mp3";
+      lydFil.play();
+      partUt.innerHTML="Feil, prøve på nytt";
+
+    }
+  }
+</script>
+</body>
+</html>

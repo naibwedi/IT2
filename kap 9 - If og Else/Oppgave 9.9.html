@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ludo terninger</title>
+</head>
+<body style="background-color: darkcyan">
+<input type="button" value="terning" id="btnOK"?>
+<p id="parUt1">
+
+</p>
+<p id="parUt2">
+
+</p>
+
+<script>
+    var parUt1 =document.getElementById("parUt1");
+    var parUt2 =document.getElementById("parUt2");
+    var btnOK = document.getElementById("btnOK");
+
+    btnOK.onclick=function () {
+        var tilfeldiTall1=Math.floor(Math.random()*6+1);
+        var tilfeldiTall2=Math.floor(Math.random()*6+1);
+        var tilfeldiTall3=Math.floor(Math.random()*6+1);
+
+        parUt1.innerHTML="Terning 1 = "+tilfeldiTall1+"<br>Terning 2 = "+tilfeldiTall2+"<br>Terning 3 = "+tilfeldiTall3;
+        parUt2.innerHTML="";
+        if (tilfeldiTall1==6 || tilfeldiTall2==6 || tilfeldiTall3==6 ){
+
+           parUt2.innerHTML="gratulerer du fikk 6, du kan begynne spil nå";
+        }else  {
+
+            parUt2.innerHTML="beklager du fikk ikke sekser til å begynne spil";
+        }
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Opacity</title>
+
+<style>
+  #bilde1{
+    position: relative;
+      opacity: 0;
+  }
+
+</style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    TweenMax.to("#bilde1",5,{opacity:1})
+
+</script>
+</body>
+</html>

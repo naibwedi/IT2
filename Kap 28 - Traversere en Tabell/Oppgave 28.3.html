@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>summen til talene</title>
+</head>
+<body>
+
+<input type="button" id="btnRegnut" value="RegneUt" >
+<p id="parResultat"></p>
+<p id="parTall"></p>
+
+<script>
+    var btnRegnut=document.getElementById("btnRegnut");
+    var parResultat=document.getElementById("parResultat");
+    var parTall=document.getElementById("parTall");
+
+    var Elemeneten = [ 1,4,6,9,13,3,15]
+
+    var sum=0;
+
+    btnRegnut.onclick = function () {
+
+        for (var i=0; i<Elemeneten.length; i++){
+            sum+=Elemeneten[i];
+            parResultat.innerHTML=sum;
+        }
+    }
+
+
+</script>
+</body>
+</html>

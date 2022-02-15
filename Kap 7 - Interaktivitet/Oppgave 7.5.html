@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>knapp som flytter sirkelen til venstre</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<p>
+    <input type="button" id="btnUtvid" value="btnUtvid">
+    <input type="button" id="btnVenstre" value="btnVenstre" style="background-color: crimson">
+</p>
+<script>
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    var btnUtvid=document.getElementById("btnUtvid");
+    var btnVenstre=document.getElementById("btnVenstre");
+
+    ctx.fillStyle="red";
+    var radius=0;
+    var fraVenstre=250;
+    var fraTopp=250;
+
+    btnUtvid.onclick=function () {
+        radius=radius+10;
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.beginPath();
+        ctx.arc(fraVenstre,fraTopp,radius,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+    btnVenstre.onclick=function () {
+
+        fraVenstre=fraVenstre-10;
+        ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight)//eller du kan skrive (0,0,500,500)
+
+        ctx.beginPath();
+        ctx.arc(fraVenstre,fraTopp,radius,0,2*Math.PI);
+        ctx.closePath();
+        ctx.fill();
+        ctx.stroke();
+    }
+
+</script>
+</body>
+</html>

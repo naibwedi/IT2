@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Utsettelseslengden</title>
+
+<style>
+    #bildeanimasjon1{
+        position: relative;
+        left: 600px;
+    }
+    #bildeanimasjon2{
+        position: relative;
+        left: 5px;
+    }
+
+</style>
+</head>
+
+<body>
+<br>
+<br>
+Skrive Utsettelseslegden for bilder: <input type="text" id="inpDelay" value="">
+<input type="button" id="btnOk" value="Ok">
+<br>
+<br>
+<img src="bilde1.jpg" id="bildeanimasjon1">
+<br>
+<img src="bilde2.jpg" id="bildeanimasjon2">
+
+<script src="TweenMax.js"></script>
+
+<script>
+
+    var bildeanimasjon1 = document.getElementById("bildeanimasjon1");
+    var bildeanimasjon2 = document.getElementById("bildeanimasjon2");
+    var inpDelay = document.getElementById("inpDelay");
+    var btnOk = document.getElementById("btnOk");
+
+    var bildeDelay=3; // ustsetter(delay) transformasjoner med 3 sekunder
+
+    //TweenMax.to("#bildeanimasjon1",3,{left:5});// bevager til venstre i 3 sekund
+    //TweenMax.to("#bildeanimasjon2",3,{left:550,delay:bildeDelay});
+    var delay=true;
+
+    btnOk.onclick = function () {
+        if(delay==true){
+            if(inpDelay.value!=""){
+                var inpDelayNum = parseFloat(inpDelay.value);
+                TweenMax.to("#bildeanimasjon1",bildeDelay,{left:5,delay: inpDelayNum});
+                TweenMax.to("#bildeanimasjon2",bildeDelay,{left:550,delay: inpDelayNum});
+
+            }
+            delay=false;
+        }
+        if (delay==false){
+            //TweenMax.to("#bildeanimasjon1",bildeDelay,{left:550});
+            //TweenMax.to("#bildeanimasjon1",bildeDelay,{left:5});
+        }
+
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamisk Hangman program</title>
+</head>
+<body>
+HANGMAN !!!<br>
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid;">
+    Nettleseren din støtter ikke HTML5
+</canvas>
+<br>
+<input type="text" id="bokstav1" disabled><input type="text" id="bokstav2" disabled><input type="text" id="bokstav3" disabled><br>
+<br><input type="text" id="inpLedd" placeholder="Skriv inn en bokstav"><input type="button" value="Sjekk bokstav" id="btnKon"><input type="button" value="Test" id="btnTest">
+<p id="parUt"></p>
+</body>
+
+<script>
+    //kobling til HTML objekter
+    var inpLedd = document.getElementById("inpLedd");
+    var bokstav1 = document.getElementById("bokstav1");
+    var bokstav2 = document.getElementById("bokstav2");
+    var bokstav3 = document.getElementById("bokstav3");
+    var btnTest = document.getElementById("btnTest");
+    var btnKon = document.getElementById("btnKon");
+    var parUt=document.getElementById("parUt");
+    var myCanvas=document.getElementById("myCanvas");
+    var ctx=myCanvas.getContext("2d");
+
+    var antallFeil=0;
+    var antallRiktig=0;
+    var løsningBokstavArray= new Array();
+    løsningBokstavArray[0]=("s");
+    løsningBokstavArray[1]=("h");
+    løsningBokstavArray[2]=("i");
+    var BokstaverArray=[bokstav1,bokstav2,bokstav3];
+
+    var xPos=100;
+    var yPos=250;
+    var bredde=50;
+    var høyde=100;
+    var radius=20;
+    var sjekke=true;
+
+    btnKon.onclick=function(){
+        if(btnKon.value=="Nytt spill"){
+            antallFeil=0;
+            antallRiktig=0;
+            bokstav1.value="";
+            bokstav2.value="";
+            bokstav3.value="";
+            btnKon.value="Sjekk bokstav";
+            ctx.beginPath();
+            ctx.fillStyle="white";
+            ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight);
+            parUt.innerHTML="";
+            ctx.stroke();
+        }
+        else {
+
+            for (var indeks = 0; indeks <løsningBokstavArray.length-1 ; indeks++) {
+                //sjekker om bokstaven er riktig.
+                if (inpLedd.value.toLowerCase()==løsningBokstavArray[indeks]) {
+                    BokstaverArray[indeks].value = løsningBokstavArray[indeks];
+                    inpLedd.value = "";
+                    antallRiktig++;
+
+                }
+                 if(inpLedd.value.toLowerCase()!=løsningBokstavArray[indeks]){
+                    tegne();
+
+                }
+                
+            }
+        }
+
+        if(antallRiktig==3){
+            parUt.innerHTML="GRATULERER du klarte ordet!!!";
+            inpLedd.value="";
+            antallRiktig=0;
+            antallFeil=0;
+            ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight);
+        }
+
+    }
+
+    function tegne(){
+                //tegner hangman
+
+            antallFeil++; //øker antall feil med 1
+            if (antallFeil == 1) { //tegn ramme
+                ctx.moveTo(xPos, yPos);
+                ctx.lineTo(xPos + bredde, yPos);
+                ctx.moveTo(xPos + bredde / 2, yPos);
+                ctx.lineTo(xPos + bredde / 2, yPos - 2 * høyde);
+                ctx.moveTo(xPos + bredde / 2, yPos - 2 * høyde);
+                ctx.lineTo(xPos + bredde * 2, yPos - 2 * høyde);
+                ctx.lineTo(xPos + bredde * 2, yPos - 1.75 * høyde);
+            } else if (antallFeil == 2) { //tegn hode
+                ctx.beginPath();
+                ctx.arc(xPos + bredde * 2, yPos - 1.75 * høyde + radius, radius, 0, 2 * Math.PI);
+            } else if (antallFeil == 3) { //tegn kropp
+                ctx.beginPath();
+                ctx.moveTo(xPos + bredde * 2, yPos - 1.75 * høyde + 2 * radius);
+                ctx.lineTo(xPos + bredde * 2, yPos - 1.75 * høyde + 6 * radius);
+            } else if (antallFeil == 4) { //tegn armer
+                ctx.beginPath();
+                ctx.moveTo(xPos + bredde, yPos - 1.75 * høyde + 4 * radius);
+                ctx.lineTo(xPos + bredde * 3, yPos - 1.75 * høyde + 4 * radius);
+
+            } else if (antallFeil == 5) { //tegn bein
+                ctx.beginPath();
+                ctx.moveTo(xPos + bredde * 2, yPos - 1.75 * høyde + 6 * radius);
+                ctx.lineTo(xPos + bredde, yPos - 1.75 * høyde + 8 * radius);
+                ctx.moveTo(xPos + bredde * 2, yPos - 1.75 * høyde + 6 * radius);
+                ctx.lineTo(xPos + 3 * bredde, yPos - 1.75 * høyde + 8 * radius);
+
+                parUt.innerHTML = "GAME OVER!!!";
+                btnKon.value = "Nytt spill";
+            } else {
+                //nothing
+            }
+            ctx.stroke();
+            inpLedd.value = "";
+        }
+
+        btnTest.onclick = function () {
+            for (var indeks = 0; indeks <løsningBokstavArray.length-1 ; indeks++) {
+                //sjekker om bokstaven er riktig.
+                if (inpLedd.value.toLowerCase()==løsningBokstavArray[indeks]) {
+                    BokstaverArray[indeks].value = løsningBokstavArray[indeks];
+                    inpLedd.value = "";
+                    antallRiktig++;
+
+                }
+                else if(i=løsningBokstavArray.length-1){
+                    tegne();
+
+                }
+
+
+            }
+
+        }
+        function sjekke() {
+            
+        }
+</script>
+
+</html>

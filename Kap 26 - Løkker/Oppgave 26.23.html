@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="inpFelt" placeholder="startTall">
+<input type="text" id="inpFelt2" placeholder="StoppTall">
+<input type="text" id="inpFelt3" placeholder="Steg" >
+<input type="button" id="btnOk" value="Start">
+<br>
+<br>
+<p id="parUt"></p>
+<script>
+  //kobler HTML objekter
+  var btnOk=document.getElementById("btnOk");
+  var inpFelt=document.getElementById("inpFelt");
+  var inpFelt2=document.getElementById("inpFelt2");
+  var inpFelt3=document.getElementById("inpFelt3");
+  var parUt = document.getElementById("parUt")
+
+
+  btnOk.onclick = function (){
+      parUt.innerHTML="";
+      inpFelt.value=inpFelt.value.replace(",","."); //bytter komma med punktum
+      inpFelt2.value=inpFelt2.value.replace(",",".");//bytter komma med punktum
+      inpFelt3.value=inpFelt3.value.replace(",",".");//bytter komma med punktum
+
+      for (var i=parseInt(inpFelt.value); i<parseInt(inpFelt2.value)-parseInt(inpFelt3.value); i+=parseInt(inpFelt3.value)){
+          parUt.innerHTML+=i+",";
+      }
+      parUt.innerHTML+=i;
+  }
+// eller alternative kode kan bli som det vises nede
+  if(i==parseInt(inpFelt.value)){
+      parUt.innerHTML=i;
+  }else {
+      parUt.innerHTML+=","+i;
+  }
+</script>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Teksting av video</title>
+    <style>
+        .container {
+            position: relative;
+        }
+        .Undertekster {
+            position: absolute;
+            bottom: 50px;
+            left: 80px;
+            font-size: 25px;
+            color: white;
+        }
+        video {
+            width: 720px;
+            height: auto;
+        }
+        #angrepTekst{
+            position: absolute;
+            top: 100px;
+            left: 250px;
+            font-size: 100px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div id="introTekst">
+    <input type="text0" id="inpText0" value="KKG">
+    <input type="text1" id="inpText1" value="Tralalala.... I dag er en fin dag... ?">
+    <input type="text2" id="inpText2" value="Hva...Har dere begynt alle rede ?">
+    <input type="text3" id="inpText3" value="Det var F%¤# på tide at du kom">
+    <input type="text4" id="inpText4" value="her må vi angripe...Hardt">
+    <input type="text5" id="inpText5" value="Men men men...tralalalalal....">
+    <input type="button" id="btnLeggTil" value="Legg til undertekst"><br>
+</div>
+<div id="videodiv" class="container">
+    <video src="Video.mp4" id="video" controls></video>
+    <p id ="parUndertekster" class="Undertekster"></p>
+</div>
+<div id="angrepSted">
+    <p id="angrepTekst"></p>
+</div>
+
+<script>
+    //kobler sammen med HTML koden
+    var video=document.getElementById("video");
+    var parUndertekster=document.getElementById("parUndertekster");
+    var container=document.getElementById("container");
+    var inpText0=document.getElementById("inpText0");
+    var inpText1=document.getElementById("inpText1");
+    var inpText2=document.getElementById("inpText2");
+    var inpText3=document.getElementById("inpText3");
+    var inpText4=document.getElementById("inpText4");
+    var inpText5=document.getElementById("inpText5");
+    var introTekst=document.getElementById("introTekst");
+    var videodiv=document.getElementById("videodiv");
+    var angrepSted=document.getElementById("angrepSted");
+    var angrepTekst=document.getElementById("angrepTekst");
+    angrepTekst.innerHTML=inpText0.value;
+    var undertekst=new Array();
+
+    videodiv.style.visibility="hidden";//skjuler videodiven
+    angrepSted.style.visibility="hidden";//skjuler videodiven
+
+    btnLeggTil.onclick=function(){
+        introTekst.style.visibility="hidden"; //skjuler tekstboksdiven
+        //ta[sekunder];
+        undertekst[0]=inpText1.value;    //legger inn teksten i felt 1...
+        undertekst[2]=inpText2.value;    //osv...
+        undertekst[3]=inpText3.value;
+        undertekst[5]=inpText4.value;
+        undertekst[8]="";
+        undertekst[12]=inpText5.value;
+
+        videodiv.style.visibility="visible";//viser videodiven
+        video.play();
+
+    };
+
+    video.ontimeupdate=function(){
+        var time=Math.floor(video.currentTime);
+        for(var t=time; t>=0; t--){
+            if(undertekst[t]!=undefined){
+                time=t;
+                break;//hopper ut
+            }
+            if(video.currentTime>=5 && video.currentTime<=7){
+                angrepSted.style.visibility="visible";//skjuler videodiven.
+            }
+            if(time>=7) angrepSted.style.visibility="hidden";//skjuler videodiven
+        }
+
+
+        parUndertekster.innerHTML=undertekst[time];
+    }
+</script>
+
+</body>
+</html>

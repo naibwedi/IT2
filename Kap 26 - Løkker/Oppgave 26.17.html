@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>to lik terninger</title>
+</head>
+<body>
+<p id="avsnitt"></p>
+<script>
+    avsnitt=document.getElementById("avsnitt");
+    var n=0;
+    var innhold="";
+    var tolik=1;
+    var terning1;
+    var terning2;
+    while(n<1000){
+        terning1=Math.floor(Math.random()*6+1);
+        terning2=Math.floor(Math.random()*6+1);
+        if(terning1==terning2){ // hvis nullEn erlik 6 inhhold blir kron
+           tolik++;
+            avsnitt.innerHTML="Du fikk "+tolik+" antall to lik terninger fra 1000 terning kast";
+        }
+
+        n++;       // forsetter til det er 1000 value
+    }
+</script>
+</body>
+</html>

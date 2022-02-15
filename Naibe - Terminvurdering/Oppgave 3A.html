@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe || Oppgave 3A</title>
+</head>
+<body>
+<input type="button" id="btnSpill" value="Spill">
+<br>
+<video  id="videoFilm" style="width: 400px;height: 400px;">
+    <source src="Video/video1.mp4" type="video/mp4" >
+</video>
+<canvas id="myCanvas" width="500" height="300" style="border: 1px solid; ; margin-top: 10vh;"></canvas>
+<script>
+    var myCanvas = document.getElementById("myCanvas");
+    var ctx = myCanvas.getContext("2d");
+
+    var xpos=50;
+    var ypos=250;
+    var bredde=50;
+    var lengde=100;
+    var mellomRom=100;
+
+    ctx.fillStyle="black"
+    tegne("video1",0,0);
+    tegne("video2",90,0);
+    tegne("video3",180,0);
+    tegne("video4",280,0);
+    tegne("video5",380,0);
+
+  btnSpill.onclick=function () {
+
+
+      var tilfedigVideo = Math.floor(Math.random()*5+1);
+      videoFilm.src="Video/video"+tilfedigVideo+".mp4";
+          if (tilfedigVideo==1){
+              ctx.clearRect(0,0,500,300);
+              ypos=ypos-10;
+              tegne("video1",0,10);
+
+          }
+      if (tilfedigVideo==2){
+          ctx.clearRect(0,0,500,300);
+          ypos=ypos-10;
+          tegne("video2",90,10);
+      }
+      if (tilfedigVideo==3){
+          ctx.clearRect(0,0,500,300);
+          ypos=ypos-10;
+          tegne("video3",180,10);
+      }
+      if (tilfedigVideo==4){
+          ctx.clearRect(0,0,500,300);
+          ypos=ypos-10;
+          tegne("video4",280,10);
+      }
+      if (tilfedigVideo==5){
+          ctx.clearRect(0,0,500,300);
+          ypos=ypos-10;
+          tegne("video5",380,10);
+      }
+
+
+
+
+
+  }
+function tegne(videofil,gap,plus) {
+      plus=plus+10;
+    ctx.fillStyle="black"
+
+    ctx.rect(xpos+gap,ypos-plus,bredde,lengde);
+    ctx.font= "20px Times roman";
+    ctx.fillText(videofil, xpos+gap,ypos-100)
+    ctx.stroke();
+    ctx.fill();
+    ctx.closePath();
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>terningkaster til 6</title>
+</head>
+<body>
+<p id="parUt"></p>
+<button id="btnkast">Kast</button>
+<script>
+    var parUt = document.getElementById("parUt");
+    var btnkast= document.getElementById("btnkast");
+
+    var seksere;
+    var terninger;
+    var terningkast=5;
+
+    btnkast.onclick = function () {
+        for(var i=0; i<terningkast;i++){
+            terninger = Math.floor(Math.random()*6+1);
+            parUt.innerHTML=terninger;
+            if (terninger==6){
+                alert("Gratulerer du fikk 6")
+                i=terningkast;
+            }
+
+        }
+
+    }
+
+
+</script>
+</body>
+</html>

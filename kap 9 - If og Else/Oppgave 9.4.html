@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI kalkulator</title>
+</head>
+<body>
+
+<script>
+  var inpHøyde =document.getElementById("inpHøyde");
+  var inpVekt =document.getElementById("inpVekt");
+  var partUt =document.getElementById("partUt");
+  var btnOK = document.getElementById("btnOk");
+
+  var BMI=0;
+
+  btnOK.onclick=function () {
+    var Høyde=parseFloat(inpHøyde.value);
+    var Vekt=parseFloat(inpVekt.value);
+
+    BMI=Vekt/Høyde;
+
+    if(BMI<18.5){
+      partUt.innerHTML="Undevektig";
+    }else if(BMI>18.5&&BMI<=24.99){
+      partUt.innerHTML="Normal Kroppsvekt";
+    }else if(BMI>25&&BMI<=29.99){
+      partUt.innerHTML="Overvektig";
+    }else if(BMI>30&&BMI<=34.99){
+      partUt.innerHTML="Fedme";
+    }else if(BMI>35&&BMI<=39.99){
+      partUt.innerHTML="Fedme, Klasse 2";
+    }else if(BMI>40){
+      partUt.innerHTML="Fedme, Klasse 3";}
+    else{
+      partUt.innerHTML="Ekstrem Fedme";S
+    }
+
+  }
+</script>
+</body>
+</html>

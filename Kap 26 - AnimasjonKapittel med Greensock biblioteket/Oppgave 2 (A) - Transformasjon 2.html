@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tre bilder</title>
+
+<style>
+    #bildeanimasjon1{
+        position: relative;
+        left: 600px;
+    }
+    #bildeanimasjon2{
+        position: relative;
+        left: 60px;
+    }
+    #bildeanimasjon3{
+        position: relative;
+        left: 600px;
+    }
+</style>
+</head>
+
+<body>
+<script src="TweenMax.js"></script>
+<img src="bilde1.jpg" id="bildeanimasjon1">
+<img src="bilde2.jpg" id="bildeanimasjon2">
+<img src="bilde3.jpg" id="bildeanimasjon3">
+
+<script>
+    var bildeanimasjon = document.getElementById("bildeanimasjon");
+    TweenMax.to("#bildeanimasjon1",1,{left:5});// bevager til venstre i 5 sekund
+    TweenMax.to("#bildeanimasjon2",3,{left:5});
+    TweenMax.to("#bildeanimasjon3",5,{left:5});
+</script>
+</body>
+</html>

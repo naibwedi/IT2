@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tegne med knapp</title>
+</head>
+<body>
+ <input type="color" id="color" list="red" style="margin-left: 150px; margin-top: 20px;">
+<input type="button" id="btn1" value="ok">
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+
+    var btn1=document.getElementById("btn1");
+    var color=document.getElementById("color");
+    var myCanvas =document.getElementById("myCanvas");
+    var ctx= myCanvas.getContext("2d");
+
+    //trekant
+    var colorid= 'red';
+    ctx.beginPath();
+    ctx.moveTo(90,130);
+    ctx.lineTo(140,80);
+    ctx.lineTo(200,130);
+    ctx.closePath();
+    ctx.fillStyle=colorid;
+    ctx.fill();
+    ctx.stroke();
+
+ btn1.onclick=function () {
+     colorid=color.value;
+     ctx.clearRect(0,0,myCanvas.clientWidth,myCanvas.clientHeight);
+     ctx.beginPath();
+     ctx.moveTo(90,130);
+     ctx.lineTo(140,80);
+     ctx.lineTo(200,130);
+     ctx.closePath();
+     ctx.fillStyle=colorid;
+     ctx.fill();
+     ctx.stroke();
+ }
+
+</script>
+</body>
+</html>

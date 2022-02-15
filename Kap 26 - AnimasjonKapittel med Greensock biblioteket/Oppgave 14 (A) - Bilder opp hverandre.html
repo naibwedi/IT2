@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilder opp hverandre</title>
+
+<style>
+    #bilde1{
+        position: absolute;
+        top:50px;
+        left:200px;
+        width: 500px;
+        height: 400px;
+
+    }
+    #bilde2{
+        position: absolute;
+        width: 500px;
+        height: 400px;
+
+
+    }
+    #bilde3{
+        position: absolute;
+        width: 500px;
+        height: 400px;
+        left: 500px;
+        top:100px;
+
+
+    }
+</style>
+
+</head>
+<body>
+
+<img src="bilde1.jpg" id="bilde1">
+<img src="bilde2.jpg" id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+
+
+<br>
+
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+    var bilde1 = document.getElementById("bilde1") ;
+    var bilde2 = document.getElementById("bilde2") ;
+    var bilde3 = document.getElementById("bilde3") ;
+
+    bilde1.style.zIndex=0;
+    bilde2.style.zIndex=0;
+    bilde3.style.zIndex=-1;
+
+
+</script>
+</body>
+</html>

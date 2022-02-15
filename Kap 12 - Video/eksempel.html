@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>videovisning uten javascript</title>
+</head>
+<body>
+// uten javascript er bare bruke controls inni på video tag;
+<video controls id="videoFilm">
+    <source src="video/spider-man-trailer.mp4" type="video/mp4" >
+</video>
+// med javascript
+<script>
+    var videoFilm = document.getElementById("videoFilm");
+    videoFilm.controls=true;
+</script>
+</body>
+</html>

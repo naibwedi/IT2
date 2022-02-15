@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tre bilder med ovelapp</title>
+
+<style>
+  #bilde1{
+    position: relative;
+  }
+  #bilde2{
+    position: relative;
+  }
+  #bilde3{
+    position: relative;
+  }
+</style>
+
+</head>
+<body>
+<img src="bilde1.jpg" id="bilde1">
+<br>
+<img src="bilde2.jpg " id="bilde2">
+<img src="bilde3.jpg" id="bilde3">
+<script src="TweenMax.js"></script>
+<script src="TimelineMax.js"></script>
+<script>
+
+
+  var tidslinje = new TimelineLite();
+  tidslinje.to("#bilde1",3, {x:550})
+          .to("#bilde2",3,{x:550},"-=1") // ovelapp med 1 sekund etter #bilde fedig
+          .to("#bilde3",3,{x:550},"-=1");// overlapp med 1 sekund etter #bilde2 ferdig
+</script>
+</body>
+</html>

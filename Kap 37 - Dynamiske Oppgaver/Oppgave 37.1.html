@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>fartskontroll med dynamiske </title>
+</head>
+<body>
+<input type="text" id="inpFart" placeholder="km/h">
+
+<input type="button" value="ok" id="btnOk">
+<p id="partUt">
+
+</p>
+
+<script>
+    var inpFart =document.getElementById("inpFart");
+    var partUt =document.getElementById("partUt");
+    var btnOK = document.getElementById("btnOk");
+
+    var fartArray=[80,85,90,95,100,105,110,115];
+    var botArray=[600,1600,2600,3600,4900,6500,7800]
+
+    btnOK.onclick = function () {
+        var fart=parseFloat(inpFart.value);
+        partUt.innerHTML="";
+        for (var i = 0; i < fartArray.length; i++) {
+            if(fart<=fartArray[0]){
+                parUt.innerHTML="Lovlig fart";
+
+            }else if (fart>fartArray[0+i]&&fart<=fartArray[1+i]){
+                partUt.innerHTML="Bot: "+botArray[0+i];
+                break;
+            }else if (fart==fartArray[7]){
+                partUt.innerHTML="Du går rett i fengsel";
+                break;
+            }
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

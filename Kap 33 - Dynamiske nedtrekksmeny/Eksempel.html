@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamiske nedtrekksmeny</title>
+</head>
+<body>
+<select id="slcMeny">
+</select>
+
+<script>
+    var slcMeny=document.getElementById("slcMeny");
+    var fruktArray = ["kiwi","Eple", "Appelsin", "Ananas", "Banan"];
+
+    for(var i=0;i<fruktArray.length;i++){
+        var option = document.createElement("option");
+        option.text = fruktArray[i];
+        slcMeny.add(option);
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regnut pris</title>
+</head>
+<body style="background-image: linear-gradient(90deg,red,yellow,green);display: inline-flex">
+
+<h2 style="background-image: linear-gradient(90deg,red,greenyellow);display: inline-flex"> Velg en Vare?</h2>
+<form id="plus">
+  <input type="radio" name="nummer" value="15">
+  <label>cola 15 kr</label>
+  <br>
+  <input type="radio" name="nummer"  value="20">
+  <label>solo 20 kr</label>
+  <br>
+  <input type="radio" name="nummer" value="24">
+  <label>Sitronbrus 24 kr</label>
+  <br>
+</form>
+<h2 style="background-image: linear-gradient(90deg,orange,yellow,green);display: inline-flex"> Velg en Vare?</h2>
+<form id="LondonHovedstad">
+  <input type="radio" name="land" value="10">
+  <label>Ostepop 10 kr</label>
+  <br>
+  <input type="radio" name="land" value="20">
+  <label>chips 20 kr</label>
+  <br>
+  <input type="radio" name="land" value="30">
+  <label>Sticks 30 kr</label>
+  <br>
+</form>
+<h2 style="background-image: linear-gradient(90deg,yellow,green);display: inline-flex"> Velg en Vare?</h2>
+<form id="hovedStaten">
+  <input type="radio" name="hovedstad" value="15" >
+  <label>Saftis 15 kr</label>
+  <br>
+  <input type="radio" name="hovedstad" value="25 ">
+  <label>Softice 25 kr</label>
+  <br>
+  <input type="radio" name="hovedstad" value="20">
+  <label>Kronesis 20 kr</label>
+  <br>
+</form>
+<br>
+<input type="button" id="btnregneUt" value="RegneUt pris">
+<p id="parUt"></p>
+
+<script>
+  var hovedStaten = document.getElementById("hovedStaten");
+  var plus = document.getElementById("plus");
+  var LondonHovedstad = document.getElementById("LondonHovedstad");
+  var btnregneUt = document.getElementById("btnregneUt");
+  var parUt = document.getElementById("parUt");
+
+
+  var riktig= 0;
+  var hs=0;
+  var Sum=0;
+  var london=0;
+
+  btnregneUt.onclick = function () {
+
+    if(hovedStaten[0].checked   ){
+
+      Sum+=parseFloat(hovedStaten[0].value);
+
+    }else if (hovedStaten[1].checked ){
+
+      Sum+=parseFloat(hovedStaten[1].value);
+
+    }else if (hovedStaten[2].checked ){
+
+      Sum+=parseFloat(hovedStaten[2].value);
+
+    }
+
+    if ( plus[0].checked  ){
+
+      Sum+=parseFloat(plus[0].value);
+
+    } else if ( plus[1].checked  ){
+
+      Sum+=parseFloat(plus[1].value);
+
+    }else if ( plus[2].checked  ){
+
+      Sum=parseFloat(plus[2].value);
+
+    }
+
+     if ( LondonHovedstad[0].checked ){
+
+       Sum+=parseFloat(LondonHovedstad[0].value);
+
+    }else if ( LondonHovedstad[1].checked ){
+
+       Sum+=parseFloat(LondonHovedstad[1].value);
+
+    }else if ( LondonHovedstad[2].checked ){
+
+       Sum+=parseFloat(LondonHovedstad[2].value);
+
+    }
+
+    parUt.innerHTML = "Totalt pris blir " +Sum+" kr";
+  }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Naibe Tekle | Tegne greske bokstave</title>
+
+</head>
+<body>
+<canvas id="myCanvas" width="300" height="300" style="border: 1px solid; margin-left: 25vw; margin-top: 10vh;">Nettleseren din støtter ikke HTML5</canvas>
+<script>
+    var myCanvas =document.getElementById("myCanvas"); // dette er bare som tegne arc,
+    var ctx= myCanvas.getContext("2d");
+
+    let  x=100;        // jeg brukt har "let" istede "var"
+    let  y=100;
+    let bredde=100;
+    let lengde=100;
+
+    //** har jeg tegn først "+" med bruk av variable
+
+    ctx.strokestye="black"; // farge til linje blir svart
+    ctx.lineWidth = 3; // linje bredde blir storre til 3
+    ctx.moveTo( x, y);
+    ctx.lineTo( x+ bredde, y);
+    ctx.moveTo( x+ bredde/2, y-40);
+    ctx.lineTo( x+ bredde/2, y+lengde);
+
+    // og tegne jeg det venstre og høyre strekk opp i "+"
+
+    ctx.moveTo( x, y-40); // til venstre strekk
+    ctx.lineTo( x, y);
+
+    ctx.moveTo( x+bredde, y); // til høyre strekk
+    ctx.lineTo( x+bredde, y-40);
+    ctx.stroke();
+</script>
+</body>
+</html>

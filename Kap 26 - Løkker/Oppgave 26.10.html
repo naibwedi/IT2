@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>20 sirkler</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1080" height="1080" style="border:1px solid;"> Nettleseren din støtter ikke HTML5</canvas>
+
+<script>
+    //kobler HTML objekter
+    var myCanvas=document.getElementById("myCanvas");
+    var ctx=myCanvas.getContext("2d");
+    var xpos=80;
+    var ypos=100;
+    var mellowRom=50;
+    var bredde =120;
+
+
+    for (var j=0; j<5;j++){
+
+        for(var i=0;i<4; i++){
+            ctx.beginPath();
+            ctx.arc(xpos+i+mellowRom+j*bredde,ypos+i*bredde,50,20,0,2*Math.PI);
+            ctx.closePath();
+            ctx.fillStyle="#738fb7";
+            ctx.fill();
+            ctx.stroke();
+        }
+    }
+
+</script>
+</body>
+</html>
